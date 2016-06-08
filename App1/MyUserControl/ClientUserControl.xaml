@@ -1,0 +1,19 @@
+﻿<util:BaseUserControl
+    x:Class="App1.MyUserControl.ClientUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1.MyUserControl"
+    xmlns:util="using:App1.MyUserControl.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+            <TextBlock x:Name="clientNameTxtB" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Client.Name}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+            <TextBlock x:Name="clientSurnameTxtB" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Client.Surname}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+            <TextBlock x:Name="clientSoldTxtB" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Client.Sold}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+            <TextBlock x:Name="clientBillTxtB" HorizontalAlignment="Right" TextWrapping="NoWrap" Text="{Binding Client.Bill}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</util:BaseUserControl>
