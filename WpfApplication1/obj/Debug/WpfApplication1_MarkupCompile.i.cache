@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\App.xaml
-11151548125
+590945891
 
-91753958788
+20858214967
 13738642453
-MainWindow.xaml;
+MyUserControl\AddRemoveUserControl.xaml;MyUserControl\ClientUserControl.xaml;MyUserControl\ProductListUserControl.xaml;MyUserControl\ProductUserControl.xaml;View\ClientView.xaml;
 
-False
+True
 

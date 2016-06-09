@@ -1,0 +1,17 @@
+﻿<util:BaseUserControl
+    x:Class="App1.MyUserControl.ProductUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:App1.MyUserControl"
+    xmlns:util="clr-namespace:App1.MyUserControl.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Orientation="Vertical">
+            <TextBlock x:Name="productNameTxtB" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Product.Name}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+            <TextBlock x:Name="productValueTxtB" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Product.Value}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</util:BaseUserControl>

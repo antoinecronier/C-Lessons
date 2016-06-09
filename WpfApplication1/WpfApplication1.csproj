@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WpfApplication1.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -70,20 +73,54 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="ViewModel\ClientViewModel.cs" />
+    <Compile Include="View\ClientView.xaml.cs">
+      <DependentUpon>ClientView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="BaseItems\BaseItemClient.cs" />
+    <Compile Include="BaseItems\BaseItemProduct.cs" />
+    <Page Include="MyUserControl\AddRemoveUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyUserControl\ClientUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyUserControl\ProductListUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyUserControl\ProductUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ClientView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Base\EntityBase.cs" />
+    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="MyUserControl\AddRemoveUserControl.xaml.cs">
+      <DependentUpon>AddRemoveUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\Base\BaseUserControl.cs" />
+    <Compile Include="MyUserControl\ClientUserControl.xaml.cs">
+      <DependentUpon>ClientUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\ProductListUserControl.xaml.cs">
+      <DependentUpon>ProductListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\ProductUserControl.xaml.cs">
+      <DependentUpon>ProductUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
