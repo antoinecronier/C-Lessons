@@ -88,26 +88,20 @@ namespace App1.Model
                 OnPropertyChanged("Bill");
             }
         }
-
-        internal List<Product> Items
-        {
-            get
-            {
-                return items;
-            }
-
-            set
-            {
-                items = value;
-                OnPropertyChanged("Items");
-            }
-        }
         #endregion
 
         #region constructor
         public Client()
         {
 
+        }
+
+        public Client(String name, String surname, int sold, int bill)
+        {
+            this.name = name;
+            this.surname = surname;
+            this.sold = sold;
+            this.bill = bill;
         }
         #endregion
 

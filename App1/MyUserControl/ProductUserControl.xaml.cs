@@ -45,6 +45,7 @@ namespace App1.MyUserControl
         public ProductUserControl()
         {
             this.InitializeComponent();
+            this.DataContext = this;
         }
         #endregion
 

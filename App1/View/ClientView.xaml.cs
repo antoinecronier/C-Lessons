@@ -1,4 +1,5 @@
 ﻿using App1.MyUserControl;
+using App1.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +25,7 @@ namespace App1.View
     public sealed partial class ClientView : Page
     {
         #region attributs
-
+        private ClientViewModel clientViewModel;
         #endregion
 
         #region properties
@@ -33,6 +34,13 @@ namespace App1.View
         public ProductListUserControl ProductListUserControlAvaiable { get; set; }
         public ProductUserControl ProductUserControl { get; set; }
         public AddRemoveUserControl AddRemoveUserControl { get; set; }
+        
+        public ClientViewModel ClientViewModel
+        {
+            get { return clientViewModel; }
+            set { clientViewModel = value; }
+        }
+
         #endregion
 
         #region constructor
@@ -44,6 +52,7 @@ namespace App1.View
             this.ProductListUserControlAvaiable = this.LUCProductAvaiable;
             this.ProductUserControl = this.UCProduct;
             this.AddRemoveUserControl = this.UCAddRemove;
+            this.ClientViewModel = new ClientViewModel(this);
         }
         #endregion
 

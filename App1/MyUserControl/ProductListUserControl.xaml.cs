@@ -23,10 +23,10 @@ namespace App1.MyUserControl
     public sealed partial class ProductListUserControl : BaseUserControl
     {
         #region attributs
-        public ListView ItemsList { get; set; }
         #endregion
 
         #region properties
+        public ListView ItemsList { get; set; }
         public ObservableCollection<Product> Obs { get; set; }
         #endregion
 
@@ -35,12 +35,23 @@ namespace App1.MyUserControl
         {
             this.InitializeComponent();
             Obs = new ObservableCollection<Product>();
+            this.itemsList.ItemsSource = Obs;
             this.ItemsList = this.itemsList;
         }
         #endregion
 
         #region methods
-
+        /// <summary>
+        /// Current list for User items.
+        /// </summary>
+        public void LoadItem(List<Product> items)
+        {
+            Obs.Clear();
+            foreach (var item in items)
+            {
+                Obs.Add(item);
+            }
+        }
         #endregion
 
         #region events

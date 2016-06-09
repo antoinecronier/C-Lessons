@@ -10,10 +10,24 @@
     mc:Ignorable="d">
 
     <Grid>
-        <ListView x:Name="itemsList" Margin="0" ItemClick="itemsList_ItemClick" IsItemClickEnabled="True">
+        <ListView x:Name="itemsList" Margin="0" ItemClick="itemsList_ItemClick" IsItemClickEnabled="True"
+            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+            ScrollViewer.HorizontalScrollMode="Enabled"
+            ScrollViewer.VerticalScrollMode="Disabled"
+            ScrollViewer.ZoomMode="Disabled"
+            SelectionMode="None">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <userControl:ProductUserControl/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="productNameTxtB" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Name}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+                        <TextBlock x:Name="productValueTxtB" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Value}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

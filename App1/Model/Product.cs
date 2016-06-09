@@ -12,7 +12,7 @@ namespace App1.Model
         #region attributs
         private int id;
         private String name;
-        private String value;
+        private int value;
         #endregion
 
         #region properties
@@ -44,7 +44,7 @@ namespace App1.Model
             }
         }
 
-        public string Value
+        public int Value
         {
             get
             {

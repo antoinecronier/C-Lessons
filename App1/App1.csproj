@@ -98,6 +98,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BaseItems\BaseItemClient.cs" />
+    <Compile Include="BaseItems\BaseItemProduct.cs" />
     <Compile Include="Model\Base\EntityBase.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Product.cs" />
