@@ -22,7 +22,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <userControl:ClientUserControl x:Name="UCClient" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-        <userControl:ProductListUserControl x:Name="LUCProductBuy" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <userControl:ProductListUserControl x:Name="LUCProductBuy" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <Button x:Name="BuyBtn" Grid.Row="1" Grid.Column="2" Content="Buy"/>
         <userControl:ProductListUserControl x:Name="LUCProductAvaiable" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         <userControl:ProductUserControl x:Name="UCProduct" Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         <userControl:AddRemoveUserControl x:Name="UCAddRemove" Grid.Row="3" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>

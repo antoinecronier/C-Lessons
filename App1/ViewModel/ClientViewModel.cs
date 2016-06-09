@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using App1.View;
 using App1.Model;
+using Windows.ApplicationModel.Core;
+using System.Diagnostics;
 
 namespace App1.ViewModel
 {
@@ -39,8 +41,86 @@ namespace App1.ViewModel
         {
             this.clientView.ProductListUserControlAvaiable.ItemsList.ItemClick += ItemsList_ItemClick;
             this.clientView.ProductListUserControlBuy.ItemsList.ItemClick += ItemsList_ItemClick;
+            this.clientView.BuyButton.Tapped += BuyButton_Tapped;
         }
 
+        private void BuyButton_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            /*Int32 i = 0;
+            Task.Factory.StartNew(() => 
+            {
+                while (i < Int32.MaxValue)
+                {
+                    i++;
+                }
+            }).Wait();
+
+            Debug.WriteLine(i);*/
+
+            //Freeze();
+            UpdateIt();
+        }
+
+        public async void UpdateIt()
+        {
+            Int32 i = 0;
+            while (i < Int32.MaxValue)
+            {
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                    Windows.UI.Core.CoreDispatcherPriority.Normal,
+                    () =>
+                    {
+                        this.clientView.ClientUserControl.Client.Sold = i;
+                        i++;
+                    });
+                Debug.WriteLine(i);
+            }
+        }
+
+        /*public async void UpdateIt()
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                Windows.UI.Core.CoreDispatcherPriority.Normal,
+                () =>
+                {
+                    int result = 0;
+                    foreach (var item in this.clientView.ProductListUserControlBuy.Obs)
+                    {
+                        result += item.Value;
+                    }
+
+                    if (result <= this.clientView.ClientUserControl.Client.Sold)
+                    {
+                        this.clientView.ClientUserControl.Client.Sold -= result;
+                    }
+                });
+        }*/
+
+        public async void Freeze()
+        {
+            await someThing();
+            throw new Exception();
+        }
+
+        private Task someThing()
+        {
+            Action action = new Action(() =>
+            {
+                int i = 0;
+                while (true)
+                {
+                    Debug.WriteLine(i);
+                    i++;
+                }
+            });
+
+            return Task.Run(action);
+        }
+
+
+        #endregion
+
+        #region events
         private void ItemsList_ItemClick(object sender, Windows.UI.Xaml.Controls.ItemClickEventArgs e)
         {
             this.clientView.AddRemoveUserControl.AddBtn.Tapped -= AddBtn_Tapped;

@@ -352,6 +352,7 @@ namespace App1.App1_XamlTypeInfo
                 userType.AddMemberName("ProductListUserControlAvaiable");
                 userType.AddMemberName("ProductUserControl");
                 userType.AddMemberName("AddRemoveUserControl");
+                userType.AddMemberName("BuyButton");
                 userType.AddMemberName("ClientViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -512,12 +513,22 @@ namespace App1.App1_XamlTypeInfo
             var that = (global::App1.View.ClientView)instance;
             that.AddRemoveUserControl = (global::App1.MyUserControl.AddRemoveUserControl)Value;
         }
-        private object get_14_ClientView_ClientViewModel(object instance)
+        private object get_14_ClientView_BuyButton(object instance)
+        {
+            var that = (global::App1.View.ClientView)instance;
+            return that.BuyButton;
+        }
+        private void set_14_ClientView_BuyButton(object instance, object Value)
+        {
+            var that = (global::App1.View.ClientView)instance;
+            that.BuyButton = (global::Windows.UI.Xaml.Controls.Button)Value;
+        }
+        private object get_15_ClientView_ClientViewModel(object instance)
         {
             var that = (global::App1.View.ClientView)instance;
             return that.ClientViewModel;
         }
-        private void set_14_ClientView_ClientViewModel(object instance, object Value)
+        private void set_15_ClientView_ClientViewModel(object instance, object Value)
         {
             var that = (global::App1.View.ClientView)instance;
             that.ClientViewModel = (global::App1.ViewModel.ClientViewModel)Value;
@@ -614,11 +625,17 @@ namespace App1.App1_XamlTypeInfo
                 xamlMember.Getter = get_13_ClientView_AddRemoveUserControl;
                 xamlMember.Setter = set_13_ClientView_AddRemoveUserControl;
                 break;
+            case "App1.View.ClientView.BuyButton":
+                userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.View.ClientView");
+                xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "BuyButton", "Windows.UI.Xaml.Controls.Button");
+                xamlMember.Getter = get_14_ClientView_BuyButton;
+                xamlMember.Setter = set_14_ClientView_BuyButton;
+                break;
             case "App1.View.ClientView.ClientViewModel":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.View.ClientView");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "ClientViewModel", "App1.ViewModel.ClientViewModel");
-                xamlMember.Getter = get_14_ClientView_ClientViewModel;
-                xamlMember.Setter = set_14_ClientView_ClientViewModel;
+                xamlMember.Getter = get_15_ClientView_ClientViewModel;
+                xamlMember.Setter = set_15_ClientView_ClientViewModel;
                 break;
             }
             return xamlMember;

@@ -34,7 +34,8 @@ namespace App1.View
         public ProductListUserControl ProductListUserControlAvaiable { get; set; }
         public ProductUserControl ProductUserControl { get; set; }
         public AddRemoveUserControl AddRemoveUserControl { get; set; }
-        
+        public Button BuyButton { get; set; }
+
         public ClientViewModel ClientViewModel
         {
             get { return clientViewModel; }
@@ -52,6 +53,7 @@ namespace App1.View
             this.ProductListUserControlAvaiable = this.LUCProductAvaiable;
             this.ProductUserControl = this.UCProduct;
             this.AddRemoveUserControl = this.UCAddRemove;
+            this.BuyButton = this.BuyBtn;
             this.ClientViewModel = new ClientViewModel(this);
         }
         #endregion

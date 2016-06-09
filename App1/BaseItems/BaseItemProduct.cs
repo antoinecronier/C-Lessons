@@ -33,13 +33,25 @@ namespace App1.BaseItems
             return result;
         }
 
+        public List<Product> getItemList2()
+        {
+            List<Product> result = new List<Product>();
+            result.Add(new BaseItemProduct(EnumProduct.BETRAVE));
+            result.Add(new BaseItemProduct(EnumProduct.PATATE));
+            result.Add(new BaseItemProduct(EnumProduct.FRITES));
+            return result;
+        }
+
         public enum EnumProduct
         {
             SALADE = 10,
             CHOU = 5,
             TOMATE = 2,
             POIVRON = 6,
-            PATATE = 10
+            PATATE = 10,
+            BETRAVE = 6,
+            GLACE = 12,
+            FRITES = 5
         }
     }
 }
