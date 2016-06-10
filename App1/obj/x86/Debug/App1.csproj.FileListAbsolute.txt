@@ -214,3 +214,7 @@ C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\obj\x86\Deb
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\ClassLibrary1.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\ClassLibrary1.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\ClassLibrary1.pri
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\App1.csproj.GenerateResource.Cache

@@ -339,6 +339,9 @@
     <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary1\bin\x86\Debug\ClassLibrary1.dll">
+      <PackagePath>ClassLibrary1.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>

@@ -55,6 +55,9 @@ namespace App1.View
             this.AddRemoveUserControl = this.UCAddRemove;
             this.BuyButton = this.BuyBtn;
             this.ClientViewModel = new ClientViewModel(this);
+
+            //TODO purje for example
+            ClassLibrary1.Sandbox sb = new ClassLibrary1.Sandbox();
         }
         #endregion
 

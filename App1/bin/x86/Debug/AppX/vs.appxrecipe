@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-06-09T15:08:40.525</Modified>
+      <Modified>2016-06-10T10:07:44.472</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\App1.exe">
       <PackagePath>entrypoint\App1.exe</PackagePath>
-      <Modified>2016-06-09T15:08:37.339</Modified>
+      <Modified>2016-06-10T10:07:44.058</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\Microsoft.ApplicationInsights\2.0.1\lib\uap10.0\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -454,6 +454,10 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-10-16T15:02:30.940</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary1\bin\x86\Debug\ClassLibrary1.dll">
+      <PackagePath>ClassLibrary1.dll</PackagePath>
+      <Modified>2016-06-10T10:07:40.955</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-06-08T13:23:24.602</Modified>
@@ -506,11 +510,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-06-09T15:08:38.835</Modified>
+      <Modified>2016-06-10T09:35:57.686</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\Core\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2016-06-09T15:08:40.504</Modified>
+      <Modified>2016-06-10T10:07:44.469</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

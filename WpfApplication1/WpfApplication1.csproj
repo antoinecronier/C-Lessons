@@ -73,6 +73,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Sandbox\ClassA.cs" />
+    <Compile Include="Sandbox\ClassAbstract1.cs" />
+    <Compile Include="Sandbox\ClassB.cs" />
+    <Compile Include="Sandbox\ClassC.cs" />
+    <Compile Include="Sandbox\ClassConcrete1.cs" />
+    <Compile Include="Sandbox\ClassD.cs" />
+    <Compile Include="Sandbox\ClassE.cs" />
+    <Compile Include="Sandbox\IDo1.cs" />
+    <Compile Include="Sandbox\IDo2.cs" />
+    <Compile Include="Sandbox\IDo3.cs" />
+    <Compile Include="Sandbox\Sandbox.cs" />
     <Compile Include="ViewModel\ClientViewModel.cs" />
     <Compile Include="View\ClientView.xaml.cs">
       <DependentUpon>ClientView.xaml</DependentUpon>
