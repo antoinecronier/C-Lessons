@@ -57,12 +57,11 @@ namespace App1.View
             this.ClientViewModel = new ClientViewModel(this);
 
             //TODO purje for example
-            ClassLibrary1.Sandbox sb = new ClassLibrary1.Sandbox();
+            //ClassLibrary1.Sandbox sb = new ClassLibrary1.Sandbox();
         }
         #endregion
 
         #region methods
-
         #endregion
     }
 }

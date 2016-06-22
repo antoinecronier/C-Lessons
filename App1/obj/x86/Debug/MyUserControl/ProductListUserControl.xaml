@@ -10,13 +10,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <ListView x:ConnectionId='1' x:Name="itemsList" Margin="0"                                 IsItemClickEnabled="True"
-            ScrollViewer.HorizontalScrollBarVisibility="Auto"
-            ScrollViewer.VerticalScrollBarVisibility="Disabled"
-            ScrollViewer.HorizontalScrollMode="Enabled"
-            ScrollViewer.VerticalScrollMode="Disabled"
-            ScrollViewer.ZoomMode="Disabled"
-            SelectionMode="None">
+        <ListView x:ConnectionId='1' x:Name="itemsList" Margin="0"                                 IsItemClickEnabled="True">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"></StackPanel>

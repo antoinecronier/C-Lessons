@@ -6,6 +6,9 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Threading;
 using System.Threading;
+using WpfApplication1.Sandbox;
+using ClassLibrary1;
+using ClassLibrary2.Database;
 
 namespace App1.ViewModel
 {
@@ -26,10 +29,26 @@ namespace App1.ViewModel
             this.clientView = clientView;
             LoadItems();
             LinkItems();
+            Preproc preproc = new Preproc();
+            Sandbox sb = new Sandbox();
+            MysqlTest();
         }
         #endregion
 
         #region methods
+        private async void MysqlTest()
+        {
+            MySQLManager<ClassA> manager = new MySQLManager<ClassA>();
+            ClassA test = new ClassA();
+            test.Field1 = 1;
+            test.Field2 = "2";
+            test.Field3 = "3";
+            manager.InsertInMySQL(test);
+
+            ClassA test1 = new ClassA();
+            test1 = manager.GetFromMySQL(1);
+        }
+
         private void LoadItems()
         {
             this.clientView.ClientUserControl.Client = new BaseItems.BaseItemClient();

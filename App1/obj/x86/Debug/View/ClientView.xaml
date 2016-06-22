@@ -18,12 +18,12 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <userControl:ClientUserControl x:ConnectionId='1' x:Name="UCClient" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-        <userControl:ProductListUserControl x:ConnectionId='2' x:Name="LUCProductBuy" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-        <Button x:ConnectionId='3' x:Name="BuyBtn" Grid.Row="1" Grid.Column="2" Content="Buy"/>
+        <userControl:ClientUserControl x:ConnectionId='1' TabIndex="1" x:Name="UCClient" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <userControl:ProductListUserControl x:ConnectionId='2' TabIndex="2" x:Name="LUCProductBuy" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        <Button x:ConnectionId='3' TabIndex="3" x:Name="BuyBtn" Grid.Row="1" Grid.Column="2" Content="Buy"/>
         <userControl:ProductListUserControl x:ConnectionId='4' x:Name="LUCProductAvaiable" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         <userControl:ProductUserControl x:ConnectionId='5' x:Name="UCProduct" Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         <userControl:AddRemoveUserControl x:ConnectionId='6' x:Name="UCAddRemove" Grid.Row="3" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>

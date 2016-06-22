@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Roots >
+  <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Ability" />
+    <RootPropertyPathName Name="Slot" />
+    <RootPropertyPathName Name="Is_Hidden" />
+    <RootPropertyPathName Name="AbilityItem" />
+    <RootPropertyPathName Name="Url" />
+    <RootPropertyPathName Name="Name" />
+    <RootPropertyPathName Name="Form" />
+  </Roots.PropertyPathNames>
+  <Roots.RootTypes>
+    <RootType FullName="Windows.UI.Xaml.Application">
+      <RootProperty Name="RequestedTheme" />
+    </RootType>
+    <RootType FullName="App2.UserControls.BaseUserControl">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
+      <RootProperty Name="Children" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="RowDefinitions" />
+      <RootMethod Name="GetRow" />
+      <RootMethod Name="SetRow" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Children" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="App2.UserControls.AbilityUserControl" />
+    <RootType FullName="App2.UserControls.AbilityItemUserControl" />
+    <RootType FullName="App2.UserControls.FormUserControl" />
+    <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="App2.UserControls.GameIndiceUserControl" />
+    <RootType FullName="App2.UserControls.MoveItemUserControl" />
+    <RootType FullName="App2.UserControls.MoveLearnMethodUserControl" />
+    <RootType FullName="App2.UserControls.MoveUserControl" />
+    <RootType FullName="App2.UserControls.PokemonUserControl" />
+    <RootType FullName="App2.UserControls.SpeciesUserControl" />
+    <RootType FullName="App2.UserControls.StatItemUserControl" />
+    <RootType FullName="App2.UserControls.StatUserControl" />
+    <RootType FullName="App2.UserControls.TypeItemUserControl" />
+    <RootType FullName="App2.UserControls.TypeUserControl" />
+    <RootType FullName="App2.UserControls.VersionGroupDetailUserControl" />
+    <RootType FullName="App2.UserControls.VersionGroupUserControl" />
+    <RootType FullName="App2.UserControls.VersionUserControl" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Page">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition" />
+    <RootType FullName="App2.Views.PokemonView" />
+  </Roots.RootTypes>
+</Roots>

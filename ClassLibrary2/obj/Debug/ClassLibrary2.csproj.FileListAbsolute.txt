@@ -1,0 +1,17 @@
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary2\obj\Debug\ClassLibrary2.csprojResolveAssemblyReference.cache
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary2\bin\Debug\ClassLibrary2.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary2\bin\Debug\ClassLibrary2.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary2\obj\Debug\ClassLibrary2.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary2\obj\Debug\ClassLibrary2.pdb
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\ClassLibrary2.dll.config
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\EntityFramework.dll
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\MySql.Data.dll
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\mysql.data.entity.EF6.dll
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\Windows.Foundation.UniversalApiContract.winmd
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\EntityFramework.xml
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
