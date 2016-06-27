@@ -13,16 +13,21 @@ namespace ClassLibrary2.Database
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class MySQLManager<TEntity> : DbContext where TEntity : class
     {
-        public MySQLManager() : base(EnumString.GetStringValue(DataConnectionResource.LOCALMYQSL))
-        {
+        //public MySQLManager() : base(EnumString.GetStringValue(DataConnectionResource.LOCALMYQSL))
+        //{
             
-        }
+        //}
 
         public MySQLManager(DataConnectionResource dataConnectionResource) 
             : base(EnumString.GetStringValue(dataConnectionResource))
         {
 
         }
+
+        //public MySQLManager(String connection) : base(connection)
+        //{
+
+        //}
 
         public DbSet<TEntity> DbSetT { get; set; }
 
