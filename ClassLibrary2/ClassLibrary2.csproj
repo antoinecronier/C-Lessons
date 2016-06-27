@@ -76,15 +76,13 @@
     <Compile Include="Entities\ClassConcrete1.cs" />
     <Compile Include="Entities\ClassD.cs" />
     <Compile Include="Entities\ClassE.cs" />
-    <Compile Include="Database\ConnectionStringEnum.cs" />
-    <Compile Include="Database\MysqlOpenHelper.cs" />
+    <Compile Include="EnumManager\DataConnectionResource.cs" />
     <Compile Include="Entities\Context\ClassAContext.cs" />
     <Compile Include="EnumManager\StringValueAttribute.cs" />
     <Compile Include="Entities\IDo1.cs" />
     <Compile Include="Entities\IDo2.cs" />
     <Compile Include="Entities\IDo3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebService\WebServiceEnumcs.cs" />
     <Compile Include="WebService\WebServiceManager.cs" />
   </ItemGroup>
   <ItemGroup>

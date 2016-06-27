@@ -13,9 +13,15 @@ namespace ClassLibrary2.Database
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class MySQLManager<TEntity> : DbContext where TEntity : class
     {
-        public MySQLManager() : base(EnumString.GetStringValue(ConnectionStringEnum.CURRENT))
+        public MySQLManager() : base(EnumString.GetStringValue(DataConnectionResource.LOCALMYQSL))
         {
             
+        }
+
+        public MySQLManager(DataConnectionResource dataConnectionResource) 
+            : base(EnumString.GetStringValue(dataConnectionResource))
+        {
+
         }
 
         public DbSet<TEntity> DbSetT { get; set; }
@@ -26,7 +32,7 @@ namespace ClassLibrary2.Database
             this.SaveChanges();
         }
 
-        public void InsertInMySQL(List<TEntity> items)
+        public void Insert(List<TEntity> items)
         {
             foreach (var item in items)
             {
@@ -35,12 +41,12 @@ namespace ClassLibrary2.Database
             this.SaveChanges();
         }
 
-        public TEntity GetFromMySQL(int id)
+        public TEntity Get(int id)
         {
             return this.DbSetT.Find(id) as TEntity;
         }
 
-        public List<TEntity> GetFromMySQL()
+        public List<TEntity> GetAll()
         {
             return this.DbSetT.Find() as List<TEntity>;
         }

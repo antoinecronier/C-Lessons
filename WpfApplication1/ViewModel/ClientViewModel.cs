@@ -9,6 +9,7 @@ using System.Threading;
 using WpfApplication1.Sandbox;
 using ClassLibrary1;
 using ClassLibrary2.Database;
+using ClassLibrary2.WebService;
 
 namespace App1.ViewModel
 {
@@ -38,15 +39,23 @@ namespace App1.ViewModel
         #region methods
         private async void MysqlTest()
         {
-            MySQLManager<ClassA> manager = new MySQLManager<ClassA>();
+            #region MysqlDirectConnect
+            MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
             ClassA test = new ClassA();
             test.Field1 = 1;
             test.Field2 = "2";
             test.Field3 = "3";
-            manager.InsertInMySQL(test);
+            manager.Insert(test);
 
             ClassA test1 = new ClassA();
-            test1 = manager.GetFromMySQL(1);
+            test1 = manager.Get(1);
+            #endregion
+
+            #region MysqlFromAPI
+            WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
+            ClassA test2 = new ClassA();
+            test2 = await webManager.Get(1);
+            #endregion
         }
 
         private void LoadItems()

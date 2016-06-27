@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ClassLibrary2.dll" size="16896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ClassLibrary2.dll" size="17408">
       <assemblyIdentity name="ClassLibrary2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kF3npoAHEzek+UyepuoYTRRPIm3ZcFGeQluGjsLfdWM=</dsig:DigestValue>
+        <dsig:DigestValue>zffdRR1cM9d//8yGImmu99aH3+8LLdpaSO1MVp/QnTA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -138,14 +138,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WpfApplication1.exe" size="31728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WpfApplication1.exe" size="31216">
       <assemblyIdentity name="WpfApplication1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3Q7wFKCy3wznE/PR16jFkv2ny42c5E9HoFBd7F9Blto=</dsig:DigestValue>
+        <dsig:DigestValue>85Q7Uozr4Jb2TFNu8xDqV3cUChrFuwicAoIyHcvJsTw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

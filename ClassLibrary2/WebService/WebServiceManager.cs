@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using ClassLibrary2.Database;
+using ClassLibrary2.EnumManager;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,29 +10,41 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary2.WebService
 {
-    public class WebServiceManager
+    public class WebServiceManager<T> where T : class
     {
-        private int myVar;
+        public String DataConnectionResource { get; set; }
 
-        public int MyProperty
+        public WebServiceManager(DataConnectionResource resource)
         {
-            get { return myVar; }
-            set { myVar = value; }
+            DataConnectionResource = EnumString.GetStringValue(resource);
         }
 
-        public WebServiceManager()
-        {
-
-        }
-
-        public async Task<T> GetFromAPI<T>(Int32 id)
+        public async Task<T> Get(Int32 id)
         {
             T item = default(T);
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://pokeapi.co/api/v2/");
+                client.BaseAddress = new Uri(DataConnectionResource);
 
-                HttpResponseMessage response = await client.GetAsync(typeof(T).Name.ToLower() + "/" + id + "/");
+                HttpResponseMessage response = await client.GetAsync(typeof(T).Name + "/" + id + "/");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    String result = await response.Content.ReadAsStringAsync();
+                    item = JsonConvert.DeserializeObject<T>(result);
+                }
+            }
+            return item;
+        }
+
+        public async Task<T> GetAll()
+        {
+            T item = default(T);
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(DataConnectionResource);
+
+                HttpResponseMessage response = await client.GetAsync(typeof(T).Name + "/");
 
                 if (response.IsSuccessStatusCode)
                 {
