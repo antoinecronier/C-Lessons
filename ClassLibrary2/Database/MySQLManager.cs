@@ -31,7 +31,7 @@ namespace ClassLibrary2.Database
 
         public DbSet<TEntity> DbSetT { get; set; }
 
-        public void InsertInMySQL(TEntity item)
+        public void Insert(TEntity item)
         {
             this.DbSetT.Add(item);
             this.SaveChanges();
@@ -46,6 +46,21 @@ namespace ClassLibrary2.Database
             this.SaveChanges();
         }
 
+        public void Update(TEntity item)
+        {
+            this.Entry<TEntity>(item);
+            this.SaveChanges();
+        }
+
+        public void Update(List<TEntity> items)
+        {
+            foreach (var item in items)
+            {
+                this.Entry<TEntity>(item);
+            }
+            this.SaveChanges();
+        }
+
         public TEntity Get(int id)
         {
             return this.DbSetT.Find(id) as TEntity;
@@ -53,7 +68,10 @@ namespace ClassLibrary2.Database
 
         public List<TEntity> GetAll()
         {
-            return this.DbSetT.Find() as List<TEntity>;
+            List<TEntity> result = new List<TEntity>();
+            var temp = base.Set<TEntity>();
+            result.AddRange(temp);
+            return result;
         }
     }
 }

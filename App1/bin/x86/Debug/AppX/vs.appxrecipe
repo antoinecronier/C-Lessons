@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-06-20T12:09:39.656</Modified>
+      <Modified>2016-06-27T13:03:46.915</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\App1.exe">
       <PackagePath>entrypoint\App1.exe</PackagePath>
-      <Modified>2016-06-20T12:09:35.940</Modified>
+      <Modified>2016-06-27T13:03:41.369</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\Microsoft.ApplicationInsights\2.0.1\lib\uap10.0\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -506,11 +506,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-06-20T12:09:38.506</Modified>
+      <Modified>2016-06-27T13:03:44.857</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\Core\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2016-06-20T12:09:39.449</Modified>
+      <Modified>2016-06-27T13:03:46.713</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

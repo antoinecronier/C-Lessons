@@ -18,6 +18,7 @@ namespace WebApplication1.Controllers
         /// </summary>
         public ClassAController()
         {
+
             manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
         }
 

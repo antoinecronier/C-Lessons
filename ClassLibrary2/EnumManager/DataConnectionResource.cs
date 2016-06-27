@@ -13,7 +13,7 @@ namespace ClassLibrary2.Database
         GENERICMYSQL = 1,
         [StringValue("Server=127.0.0.1;Port=3306;Database=db_name;Uid=root;Pwd=''")]
         LOCALMYQSL = 2,
-        [StringValue("http://127.0.0.1:54177/api/")]
+        [StringValue("http://localhost:63684/api/")]
         LOCALAPI = 3,
     }
 }

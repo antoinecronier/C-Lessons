@@ -13,5 +13,3 @@ C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bi
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\EntityFramework.xml
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\Newtonsoft.Json.xml
-C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\fr\EntityFramework.resources.dll
-C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\ClassLibrary2\bin\Debug\fr\EntityFramework.SqlServer.resources.dll

@@ -10,6 +10,7 @@ using WpfApplication1.Sandbox;
 using ClassLibrary1;
 using ClassLibrary2.Database;
 using ClassLibrary2.WebService;
+using System.Collections.Generic;
 
 namespace App1.ViewModel
 {
@@ -41,20 +42,40 @@ namespace App1.ViewModel
         {
             #region MysqlDirectConnect
             MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
-            ClassA test = new ClassA();
-            test.Field1 = 1;
-            test.Field2 = "2";
-            test.Field3 = "3";
-            manager.Insert(test);
-
             ClassA test1 = new ClassA();
-            test1 = manager.Get(1);
+            test1.Field1 = 1;
+            test1.Field2 = "2";
+            test1.Field3 = "3";
+            manager.Insert(test1);
+
+            ClassA test2 = new ClassA();
+            test2 = manager.Get(1);
+
+            test2.Field2 = "youhou";
+            manager.Update(test1);
+
+            ClassA test3 = new ClassA();
+            test3 = manager.Get(1);
+
+            List<ClassA> items = new List<ClassA>();
+            ClassA test4 = new ClassA();
+            test4.Field1 = 20;
+            test4.Field2 = "20";
+            ClassA test5 = manager.Get(5);
+            test5.Field1 = 21;
+            ClassA test6 = manager.GetAll()[6];
+            test6.Field2 = "manager.GetAll()[6]";
+            items.Add(test4);
+            items.Add(test5);
+            items.Add(test6);
+            manager.Update(items);
+            List<ClassA> items1 = manager.GetAll();
             #endregion
 
             #region MysqlFromAPI
             WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
-            ClassA test2 = new ClassA();
-            test2 = await webManager.Get(1);
+            ClassA test01 = new ClassA();
+            test01 = await webManager.Get(1);
             #endregion
         }
 
