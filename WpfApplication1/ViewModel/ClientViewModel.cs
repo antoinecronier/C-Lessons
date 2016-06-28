@@ -86,6 +86,13 @@ namespace App1.ViewModel
             test03.Field3 = "cherry";
             ClassA test04 = await webManager.Put(test03);
 
+            foreach (var item in tests0)
+            {
+                item.Field1 = 0;
+                item.Field2 += " newest"; 
+            }
+            var res = await webManager.Post(tests0);
+
             #endregion
         }
 

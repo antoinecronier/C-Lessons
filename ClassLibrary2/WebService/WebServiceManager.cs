@@ -93,7 +93,7 @@ namespace ClassLibrary2.WebService
         public async Task<List<T>> Post(List<T> items)
         {
             List<T> result = default(List<T>);
-            String url = typeof(T).Name + "/";
+            String url = typeof(T).Name + "s/";
             result = await HttpClientSender<List<T>>(url, items, result);
 
             return result;
@@ -111,7 +111,7 @@ namespace ClassLibrary2.WebService
         public async Task<List<T>> Put(List<T> items)
         {
             List<T> result = default(List<T>);
-            String url = typeof(T).Name + "/";
+            String url = typeof(T).Name + "s/";
             result = await HttpClientPuter<List<T>>(url, items, result);
 
             return result;

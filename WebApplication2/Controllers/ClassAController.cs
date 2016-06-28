@@ -55,6 +55,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
+        [Route("api/ClassAs/")]
         public async Task<IHttpActionResult> Post(IEnumerable<ClassA> values)
         {
             await manager.Insert(values);
@@ -70,6 +71,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPut]
+        [Route("api/ClassAs/")]
         public async Task<IHttpActionResult> Put(IEnumerable<ClassA> values)
         {
             await manager.Update(values);
@@ -84,6 +86,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpDelete]
+        [Route("ClassAs")]
         public async Task<IHttpActionResult> Delete(IEnumerable<ClassA> values)
         {
             return Ok(await manager.Delete(values));
