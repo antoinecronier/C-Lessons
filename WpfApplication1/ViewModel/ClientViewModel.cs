@@ -41,41 +41,43 @@ namespace App1.ViewModel
         private async void MysqlTest()
         {
             #region MysqlDirectConnect
-            /*MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
+            MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
             ClassA test1 = new ClassA();
             test1.Field1 = 1;
             test1.Field2 = "2";
             test1.Field3 = "3";
-            manager.Insert(test1);
+            await manager.Insert(test1);
 
             ClassA test2 = new ClassA();
-            test2 = manager.Get(1);
+            test2 = await manager.Get(test1.Field1);
 
             test2.Field2 = "youhou";
-            manager.Update(test1);
+            await manager.Update(test1);
 
             ClassA test3 = new ClassA();
-            test3 = manager.Get(1);
+            test3 = await manager.Get(test1.Field1);
 
             List<ClassA> items = new List<ClassA>();
             ClassA test4 = new ClassA();
             test4.Field1 = 20;
             test4.Field2 = "20";
-            ClassA test5 = manager.Get(5);
+            ClassA test5 = await manager.Get(test3.Field1);
             test5.Field3 = "21";
-            ClassA test6 = manager.GetAll()[6];
+            ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
             test6.Field2 = "manager.GetAll()[6]";
             items.Add(test4);
             items.Add(test5);
             items.Add(test6);
-            manager.Update(items);
-            List<ClassA> items1 = manager.GetAll();*/
+            await manager.Update(items);
+            List<ClassA> items1 = await manager.Get() as List<ClassA>;
+            await manager.Delete(items1);
+            await manager.Insert(test1);
             #endregion
 
             #region MysqlFromAPI
             WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
             ClassA test01 = new ClassA();
-            test01 = await webManager.Get(1);
+            test01 = await webManager.Get(test1.Field1);
             List<ClassA> tests0 = new List<ClassA>();
             tests0 = await webManager.Get();
             ClassA test02 = new ClassA();
@@ -91,7 +93,11 @@ namespace App1.ViewModel
                 item.Field1 = 0;
                 item.Field2 += " newest"; 
             }
+
             var res = await webManager.Post(tests0);
+            //await webManager.Delete(res[0]);
+            var res1 = await webManager.Delete(res);
+            var res2 = await webManager.Get();
 
             #endregion
         }

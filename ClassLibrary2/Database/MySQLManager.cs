@@ -74,14 +74,23 @@ namespace ClassLibrary2.Database
 
         public async Task<Int32> Delete(TEntity item)
         {
-            this.DbSetT.Remove(item);
+            await Task.Factory.StartNew(() =>
+            {
+                this.DbSetT.Attach(item);
+                this.DbSetT.Remove(item);
+            });
             return await this.SaveChangesAsync();
         }
 
         public async Task<Int32> Delete(IEnumerable<TEntity> items)
         {
-            this.DbSetT.RemoveRange(items);
-            return await this.SaveChangesAsync();
+            await Task.Factory.StartNew(() =>
+            {
+                this.DbSetT.Attach((items as List<TEntity>)[0]);
+                this.DbSetT.RemoveRange(items);
+            });
+            var res = await this.SaveChangesAsync();
+            return res;
         }
     }
 }

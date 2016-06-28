@@ -58,24 +58,21 @@ namespace WebApplication1.Controllers
         [Route("api/ClassAs/")]
         public async Task<IHttpActionResult> Post(IEnumerable<ClassA> values)
         {
-            await manager.Insert(values);
-            return Ok(values);
+            return Ok(await manager.Insert(values));
         }
 
         // PUT api/values/5
         [HttpPut]
         public async Task<IHttpActionResult> Put(ClassA value)
         {
-            await manager.Update(value);
-            return Ok(value);
+            return Ok(await manager.Update(value));
         }
 
         [HttpPut]
         [Route("api/ClassAs/")]
         public async Task<IHttpActionResult> Put(IEnumerable<ClassA> values)
         {
-            await manager.Update(values);
-            return Ok(values);
+            return Ok(await manager.Update(values));
         }
 
         // DELETE api/values/5
@@ -86,7 +83,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpDelete]
-        [Route("ClassAs")]
+        [Route("api/ClassAs")]
         public async Task<IHttpActionResult> Delete(IEnumerable<ClassA> values)
         {
             return Ok(await manager.Delete(values));
