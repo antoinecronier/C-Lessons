@@ -41,7 +41,7 @@ namespace App1.ViewModel
         private async void MysqlTest()
         {
             #region MysqlDirectConnect
-            MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
+            /*MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
             ClassA test1 = new ClassA();
             test1.Field1 = 1;
             test1.Field2 = "2";
@@ -62,20 +62,30 @@ namespace App1.ViewModel
             test4.Field1 = 20;
             test4.Field2 = "20";
             ClassA test5 = manager.Get(5);
-            test5.Field1 = 21;
+            test5.Field3 = "21";
             ClassA test6 = manager.GetAll()[6];
             test6.Field2 = "manager.GetAll()[6]";
             items.Add(test4);
             items.Add(test5);
             items.Add(test6);
             manager.Update(items);
-            List<ClassA> items1 = manager.GetAll();
+            List<ClassA> items1 = manager.GetAll();*/
             #endregion
 
             #region MysqlFromAPI
             WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
             ClassA test01 = new ClassA();
             test01 = await webManager.Get(1);
+            List<ClassA> tests0 = new List<ClassA>();
+            tests0 = await webManager.Get();
+            ClassA test02 = new ClassA();
+            test02.Field2 = "posted";
+            test02.Field3 = "in API";
+            ClassA test03 = await webManager.Post(test02);
+            test03.Field2 = "coconut";
+            test03.Field3 = "cherry";
+            ClassA test04 = await webManager.Put(test03);
+
             #endregion
         }
 

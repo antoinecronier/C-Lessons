@@ -13,65 +13,75 @@ namespace ClassLibrary2.Database
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class MySQLManager<TEntity> : DbContext where TEntity : class
     {
-        //public MySQLManager() : base(EnumString.GetStringValue(DataConnectionResource.LOCALMYQSL))
-        //{
-            
-        //}
-
         public MySQLManager(DataConnectionResource dataConnectionResource) 
             : base(EnumString.GetStringValue(dataConnectionResource))
         {
 
         }
 
-        //public MySQLManager(String connection) : base(connection)
-        //{
-
-        //}
-
         public DbSet<TEntity> DbSetT { get; set; }
 
-        public void Insert(TEntity item)
+        public async Task<TEntity> Insert(TEntity item)
         {
             this.DbSetT.Add(item);
-            this.SaveChanges();
+            await this.SaveChangesAsync();
+            return item;
         }
 
-        public void Insert(List<TEntity> items)
+        public async Task<IEnumerable<TEntity>> Insert(IEnumerable<TEntity> items)
         {
             foreach (var item in items)
             {
                 this.DbSetT.Add(item);
             }
-            this.SaveChanges();
+            await this.SaveChangesAsync();
+            return items;
         }
 
-        public void Update(TEntity item)
+        public async Task<TEntity> Update(TEntity item)
         {
             this.Entry<TEntity>(item);
-            this.SaveChanges();
+            await this.SaveChangesAsync();
+            return item;
         }
 
-        public void Update(List<TEntity> items)
+        public async Task<IEnumerable<TEntity>> Update(IEnumerable<TEntity> items)
         {
             foreach (var item in items)
             {
                 this.Entry<TEntity>(item);
             }
-            this.SaveChanges();
+            await this.SaveChangesAsync();
+            return items;
         }
 
-        public TEntity Get(int id)
+        public async Task<TEntity> Get(Int32 id)
         {
-            return this.DbSetT.Find(id) as TEntity;
+            return await this.DbSetT.FindAsync(id) as TEntity;
         }
 
-        public List<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> Get()
         {
+            DbSet<TEntity> temp = default(DbSet<TEntity>);
             List<TEntity> result = new List<TEntity>();
-            var temp = base.Set<TEntity>();
+            await Task.Factory.StartNew(() =>
+            {
+                temp = base.Set<TEntity>();
+            });
             result.AddRange(temp);
             return result;
+        }
+
+        public async Task<Int32> Delete(TEntity item)
+        {
+            this.DbSetT.Remove(item);
+            return await this.SaveChangesAsync();
+        }
+
+        public async Task<Int32> Delete(IEnumerable<TEntity> items)
+        {
+            this.DbSetT.RemoveRange(items);
+            return await this.SaveChangesAsync();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
         /// <returns>IEnumerable items.</returns>
         public IEnumerable<ClassA> GetAll()
         {
-            return manager.GetAll();
+            return manager.Get();
         }
 
         /// <summary>

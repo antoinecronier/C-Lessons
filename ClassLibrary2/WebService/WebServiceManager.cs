@@ -20,9 +20,8 @@ namespace ClassLibrary2.WebService
             DataConnectionResource = EnumString.GetStringValue(resource);
         }
 
-        public async Task<T> Get(Int32 id)
+        private async Task<TItem> HttpClientCaller<TItem>(String url, TItem item)
         {
-            T item = default(T);
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(DataConnectionResource);
@@ -30,66 +29,111 @@ namespace ClassLibrary2.WebService
                   .Accept
                   .Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.GetAsync(typeof(T).Name + "/" + id + "/");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    String result = await response.Content.ReadAsStringAsync();
-                    item = JsonConvert.DeserializeObject<T>(result);
-                }
+                HttpResponseMessage response = await client.GetAsync(url);
+                item = await HandleResponse(item, response);
             }
+
             return item;
         }
 
-        public async Task<T> GetAll()
+        private async Task<TItem> HandleResponse<TItem>(TItem item, HttpResponseMessage response)
+        {
+            if (response.IsSuccessStatusCode)
+            {
+                String result = await response.Content.ReadAsStringAsync();
+                item = JsonConvert.DeserializeObject<TItem>(result);
+            }
+
+            return item;
+        }
+
+        public async Task<T> Get(Int32 id)
         {
             T item = default(T);
+            String url = typeof(T).Name + "/" + id + "/";
+            item = await HttpClientCaller<T>(url, item);
+            return item;
+        }
+
+        public async Task<List<T>> Get()
+        {
+            List<T> item = default(List<T>);
+            String url = typeof(T).Name + "/";
+            item = await HttpClientCaller<List<T>>(url, item);
+            return item;
+        }
+
+        private async Task<TItem> HttpClientSender<TItem>(String url, TItem item, TItem result)
+        {
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(DataConnectionResource);
+                client.DefaultRequestHeaders
+                  .Accept
+                  .Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.GetAsync(typeof(T).Name + "/");
+                HttpResponseMessage response = await client.PostAsync(url,
+                    new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json"));
 
-                if (response.IsSuccessStatusCode)
-                {
-                    String result = await response.Content.ReadAsStringAsync();
-                    item = JsonConvert.DeserializeObject<T>(result);
-                }
+                result = await HandleResponse(item, response);
             }
-            return item;
+
+            return result;
         }
 
-        /*public async Task<Boolean> PostToAPI<T>(T item)
+        public async Task<T> Post(T item)
         {
-            Boolean isOK = false;
+            T result = default(T);
+            String url = typeof(T).Name + "/";
+            result = await HttpClientSender<T>(url, item, result);
 
-            using (HttpClient client = 
-                new HttpClient())
+            return result;
+        }
+
+        public async Task<List<T>> Post(List<T> items)
+        {
+            List<T> result = default(List<T>);
+            String url = typeof(T).Name + "/";
+            result = await HttpClientSender<List<T>>(url, items, result);
+
+            return result;
+        }
+
+        public async Task<T> Put(T item)
+        {
+            T result = default(T);
+            String url = typeof(T).Name + "/";
+            result = await HttpClientPuter<T>(url, item, result);
+
+            return result;
+        }
+
+        public async Task<List<T>> Put(List<T> items)
+        {
+            List<T> result = default(List<T>);
+            String url = typeof(T).Name + "/";
+            result = await HttpClientPuter<List<T>>(url, items, result);
+
+            return result;
+        }
+
+        private async Task<TItem> HttpClientPuter<TItem>(string url, TItem item, TItem result)
+        {
+            using (HttpClient client = new HttpClient())
             {
-                HttpRequestMessage message = 
-                    new HttpRequestMessage(
-                        HttpMethod.Post, 
-                        new Uri("http://pokeapi.co/api/v2/"));
+                client.BaseAddress = new Uri(DataConnectionResource);
+                client.DefaultRequestHeaders
+                  .Accept
+                  .Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var test = JsonConvert.SerializeObject(item);
+                HttpResponseMessage response = await client.PutAsync(url,
+                    new StringContent(JsonConvert.SerializeObject(item), 
+                    Encoding.UTF8, "application/json"));
 
-                message.Content = 
-                    new HttpStringContent(
-                        test);
-
-                message.Content.Headers.ContentType =
-                    new HttpMediaTypeHeaderValue("application/json");
-
-                HttpResponseMessage response =
-                    await client.SendRequestAsync(message);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    isOK = true;
-                }
+                result = await HandleResponse(item, response);
             }
 
-            return isOK;
-        }*/
+            return result;
+        }
     }
 }
