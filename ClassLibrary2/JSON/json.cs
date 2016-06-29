@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ClassLibrary3;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,97 +11,83 @@ namespace ClassLibrary2.JSON
 {
     public class Json
     {
+        public String Result { get; set; }
+        public String Result1 { get; set; }
+        public String Result2 { get; set; }
+        public String Result3 { get; set; }
+        public MyClass3 MyClass3 { get; set; }
+        public MyClass MyClass { get; set; }
+
         public Json()
         {
-            var result = JsonConvert.SerializeObject(new MyClass3());
-            result += "";
-
-            var result1 = JsonConvert.SerializeObject(new MyClass4());
-            result1 += "";
+            this.Run();
         }
 
-        public class MyClass
+        public void Run()
         {
-            public Double Id { get; set; }
-            public DateTime DateTime { get; set; }
-            public Boolean Boolean { get; set; }
-            public String String { get; set; }
-            public Double Double { get; set; }
-
-            public MyClass()
+            try
             {
-                Random random = new Random();
-                this.Id = Faker.Date.PastWithTime().Ticks;
-                this.DateTime = Faker.Date.Between(new DateTime(1990,01,01), new DateTime());
-                this.Boolean = true;
-                this.String = Faker.Lorem.Sentence();
-                this.Double = random.NextDouble();
-            }
-        }
-
-        public class MyClass1
-        {
-            public Int32 Id { get; set; }
-            public List<MyClass> MyClasss { get; set; }
-            public MyClass MyClass { get; set; }
-            public Dictionary<String, Object> Dictionnary { get; set; }
-
-            public MyClass1()
-            {
-                Random random = new Random(Guid.NewGuid().GetHashCode());
-                this.Id = random.Next(random.Next());
-                this.MyClasss = new List<MyClass>();
-                for (int i = 0; i < random.Next(100); i++)
+                Task.Factory.StartNew(() =>
                 {
-                    this.MyClasss.Add(new MyClass());
-                }
-                this.MyClass = new MyClass();
-                this.Dictionnary = new Dictionary<string, object>();
-                for (int i = 0; i < random.Next(10); i++)
+                    this.Result2 = JsonConvert.SerializeObject(new MyClass3());
+                    this.Result2 += "";
+                });
+
+                Task.Factory.StartNew(() =>
                 {
-                    try
-                    {
-                        this.Dictionnary.Add(Faker.Lorem.Word(), new MyClass());
-                    }
-                    catch (Exception)
-                    {
-                    }
-                }
+                    this.Result3 = JsonConvert.SerializeObject(new MyClass4());
+                    this.Result3 += "";
+                });
             }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            try
+            {
+                this.Result = JsonConvert.SerializeObject(new MyClass3());
+                this.Result += "";
+
+                this.Result1 = JsonConvert.SerializeObject(new MyClass4());
+                this.Result1 += "";
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            this.MyClass3 = JsonConvert.DeserializeObject<MyClass3>(this.Result2);
+            this.MyClass = JsonConvert.DeserializeObject<MyClass>(this.Result2);
+
+            TestMyClassConsistancy();
+
+            String jsonMyClass = JsonConvert.SerializeObject(this.MyClass3.ObservableCollection[0].MyClass1.MyClasss[0]);
+            this.MyClass = JsonConvert.DeserializeObject<MyClass>(jsonMyClass);
+
+            TestMyClassConsistancy();
         }
 
-        public class MyClass2
+        private Boolean TestMyClassConsistancy()
         {
-            public int Id { get; set; }
-            public MyClass1 MyClass1 { get; set; }
-
-            public MyClass2()
+            Boolean isFinded = false;
+            foreach (var item in this.MyClass3.ObservableCollection)
             {
-                Random random = new Random(Guid.NewGuid().GetHashCode());
-                this.Id = random.Next(random.Next());
-                this.MyClass1 = new MyClass1();
-            }
-        }
-
-        public class MyClass3
-        {
-            public int Id { get; set; }
-            public ObservableCollection<MyClass2> ObservableCollection { get; set; }
-
-            public MyClass3()
-            {
-                Random random = new Random(Guid.NewGuid().GetHashCode());
-                this.Id = random.Next(random.Next());
-                this.ObservableCollection = new ObservableCollection<MyClass2>();
-                for (int i = 0; i < random.Next(20); i++)
+                var querry = (from g in item.MyClass1.MyClasss where g.Id == this.MyClass.Id select g);
+                if (querry.ToList().Count != 0)
                 {
-                    this.ObservableCollection.Add(new MyClass2());
+                    isFinded = true;
                 }
             }
-        }
 
-        public class MyClass4
-        {
+            var querry1 = (from g in this.MyClass3.ObservableCollection where g.MyClass1.MyClass.Id == this.MyClass.Id select g);
+
+            if (querry1.ToList().Count != 0)
+            {
+                isFinded = true;
+            }
+
+            return isFinded;
         }
     }
 }

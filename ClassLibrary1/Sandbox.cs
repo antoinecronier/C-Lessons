@@ -28,7 +28,6 @@ namespace ClassLibrary1
             concrete2.AbsMethod2();
 
             ClassE e = new ClassE();
-            e.
         }
     }
 }

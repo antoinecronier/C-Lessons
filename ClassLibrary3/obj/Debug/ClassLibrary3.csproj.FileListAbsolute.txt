@@ -1,0 +1,6 @@
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary3\bin\Debug\ClassLibrary3.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary3\bin\Debug\ClassLibrary3.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary3\bin\Debug\Faker.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary3\obj\Debug\ClassLibrary3.csprojResolveAssemblyReference.cache
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary3\obj\Debug\ClassLibrary3.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary3\obj\Debug\ClassLibrary3.pdb
