@@ -35,3 +35,4 @@ C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\Faker.dll

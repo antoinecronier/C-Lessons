@@ -116,7 +116,8 @@ namespace ClassLibrary2.WebService
                   .Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = await client.PostAsync(url,
-                    new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json"));
+                    new StringContent(JsonConvert.SerializeObject(item), 
+                    Encoding.UTF8, "application/json"));
 
                 result = await HandleResponse(item, response);
             }

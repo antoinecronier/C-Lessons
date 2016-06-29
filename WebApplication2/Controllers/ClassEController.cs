@@ -1,89 +1,32 @@
-﻿using System;
+﻿using ClassLibrary1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
+using WebApplication2.Controllers.Base;
 
 namespace WebApplication2.Controllers
 {
-    public class ClassEController : Controller
+    public class ClassEController : BaseController<ClassE>
     {
-        // GET: ClassE
-        public ActionResult Index()
+        [Route("api/ClassEs")]
+        public override Task<IHttpActionResult> Post(IEnumerable<ClassE> values)
         {
-            return View();
+            return base.Post(values);
         }
 
-        // GET: ClassE/Details/5
-        public ActionResult Details(int id)
+        [Route("api/ClassEs")]
+        public override Task<IHttpActionResult> Put(IEnumerable<ClassE> values)
         {
-            return View();
+            return base.Put(values);
         }
 
-        // GET: ClassE/Create
-        public ActionResult Create()
+        [Route("api/ClassEs")]
+        public override Task<IHttpActionResult> Delete(IEnumerable<ClassE> values)
         {
-            return View();
-        }
-
-        // POST: ClassE/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ClassE/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ClassE/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ClassE/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ClassE/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return base.Delete(values);
         }
     }
 }

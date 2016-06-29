@@ -1,4 +1,5 @@
 ﻿using ClassLibrary2.Entities.Context;
+using ClassLibrary2.EnumManager;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -67,12 +68,10 @@ namespace ClassLibrary1
 
         public void DoSomething()
         {
-            throw new System.NotImplementedException();
         }
 
         public void DoSomething(string param1, string param2)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

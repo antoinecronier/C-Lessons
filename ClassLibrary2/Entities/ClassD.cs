@@ -18,6 +18,11 @@ namespace ClassLibrary1
             set { field5 = value; }
         }
 
+        public ClassD()
+        {
+
+        }
+
         public void DoSomethingD()
         {
 

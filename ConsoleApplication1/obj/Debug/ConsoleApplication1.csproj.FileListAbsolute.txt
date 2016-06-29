@@ -1,0 +1,7 @@
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\ConsoleApplication1.XML
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

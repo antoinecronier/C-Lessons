@@ -165,8 +165,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\ClassAController.cs" />
-    <Compile Include="Controllers\ClassBsController.cs" />
+    <Compile Include="Controllers\ClassBController.cs" />
     <Compile Include="Controllers\ClassCController.cs" />
     <Compile Include="Controllers\ClassDController.cs" />
     <Compile Include="Controllers\ClassEController.cs" />

@@ -1,39 +1,33 @@
-﻿using System;
+﻿using ClassLibrary1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using WebApplication2.Controllers.Base;
 
 namespace WebApplication2.Controllers
 {
-    public class ClassDController : ApiController
+    public class ClassDController : BaseController<ClassD>
     {
-        // GET: api/ClassD
-        public IEnumerable<string> Get()
+        [Route("api/ClassDs")]
+        public override Task<IHttpActionResult> Post(IEnumerable<ClassD> values)
         {
-            return new string[] { "value1", "value2" };
+            return base.Post(values);
         }
 
-        // GET: api/ClassD/5
-        public string Get(int id)
+        [Route("api/ClassDs")]
+        public override Task<IHttpActionResult> Put(IEnumerable<ClassD> values)
         {
-            return "value";
+            return base.Put(values);
         }
 
-        // POST: api/ClassD
-        public void Post([FromBody]string value)
+        [Route("api/ClassDs")]
+        public override Task<IHttpActionResult> Delete(IEnumerable<ClassD> values)
         {
-        }
-
-        // PUT: api/ClassD/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/ClassD/5
-        public void Delete(int id)
-        {
+            return base.Delete(values);
         }
     }
 }

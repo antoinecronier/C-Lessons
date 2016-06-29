@@ -11,6 +11,9 @@ using ClassLibrary1;
 using ClassLibrary2.Database;
 using ClassLibrary2.WebService;
 using System.Collections.Generic;
+using ClassLibrary2.EnumManager;
+using ClassLibrary2.Genericity;
+using ClassLibrary2.JSON;
 
 namespace App1.ViewModel
 {
@@ -40,65 +43,111 @@ namespace App1.ViewModel
         #region methods
         private async void MysqlTest()
         {
-            #region MysqlDirectConnect
-            MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
-            ClassA test1 = new ClassA();
-            test1.Field1 = 1;
-            test1.Field2 = "2";
-            test1.Field3 = "3";
-            await manager.Insert(test1);
+            //#region MysqlDirectConnect
+            //MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
+            //ClassA test1 = new ClassA();
+            //test1.Field1 = 1;
+            //test1.Field2 = "2";
+            //test1.Field3 = "3";
+            //await manager.Insert(test1);
 
-            ClassA test2 = new ClassA();
-            test2 = await manager.Get(test1.Field1);
+            //ClassA test2 = new ClassA();
+            //test2 = await manager.Get(test1.Field1);
 
-            test2.Field2 = "youhou";
-            await manager.Update(test1);
+            //test2.Field2 = "youhou";
+            //await manager.Update(test1);
 
-            ClassA test3 = new ClassA();
-            test3 = await manager.Get(test1.Field1);
+            //ClassA test3 = new ClassA();
+            //test3 = await manager.Get(test1.Field1);
 
-            List<ClassA> items = new List<ClassA>();
-            ClassA test4 = new ClassA();
-            test4.Field1 = 20;
-            test4.Field2 = "20";
-            ClassA test5 = await manager.Get(test3.Field1);
-            test5.Field3 = "21";
-            ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
-            test6.Field2 = "manager.GetAll()[6]";
-            items.Add(test4);
-            items.Add(test5);
-            items.Add(test6);
-            await manager.Update(items);
-            List<ClassA> items1 = await manager.Get() as List<ClassA>;
-            await manager.Delete(items1);
-            await manager.Insert(test1);
+            //List<ClassA> items = new List<ClassA>();
+            //ClassA test4 = new ClassA();
+            //test4.Field1 = 20;
+            //test4.Field2 = "20";
+            //ClassA test5 = await manager.Get(test3.Field1);
+            //test5.Field3 = "21";
+            //ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
+            //test6.Field2 = "manager.GetAll()[6]";
+            //items.Add(test4);
+            //items.Add(test5);
+            //items.Add(test6);
+            //await manager.Update(items);
+            //List<ClassA> items1 = await manager.Get() as List<ClassA>;
+            //await manager.Delete(items1);
+            //await manager.Insert(test1);
+            //#endregion
+
+            //#region MysqlFromAPI
+            //WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
+            //ClassA test01 = new ClassA();
+            //test01 = await webManager.Get(test1.Field1);
+            //List<ClassA> tests0 = new List<ClassA>();
+            //tests0 = await webManager.Get();
+            //ClassA test02 = new ClassA();
+            //test02.Field2 = "posted";
+            //test02.Field3 = "in API";
+            //ClassA test03 = await webManager.Post(test02);
+            //test03.Field2 = "coconut";
+            //test03.Field3 = "cherry";
+            //ClassA test04 = await webManager.Put(test03);
+
+            //foreach (var item in tests0)
+            //{
+            //    item.Field1 = 0;
+            //    item.Field2 += " newest"; 
+            //}
+
+            //var res = await webManager.Post(tests0);
+            ////await webManager.Delete(res[0]);
+            //var res1 = await webManager.Delete(res);
+            //var res2 = await webManager.Get();
+
+            //#endregion
+
+            //#region WebService
+            //WebServiceManager<ClassA> webServiceA = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
+            //WebServiceManager<ClassB> webServiceB = new WebServiceManager<ClassB>(DataConnectionResource.LOCALAPI);
+            //WebServiceManager<ClassC> webServiceC = new WebServiceManager<ClassC>(DataConnectionResource.LOCALAPI);
+            //WebServiceManager<ClassD> webServiceD = new WebServiceManager<ClassD>(DataConnectionResource.LOCALAPI);
+
+            //ClassA a = new ClassA();
+            //a.Field2 = "a";
+            //a.Field3 = "A";
+            //await webServiceA.Post(a);
+            //await webServiceA.Get(2);
+            //await webServiceA.Put(a);
+            //await webServiceA.Delete(a);
+
+            //ClassB b = new ClassB();
+            //b.Field2 = "b";
+            //b.Field3 = "B";
+            //await webServiceB.Post(b);
+
+            //ClassC c = new ClassC();
+            //c.Field2 = "c";
+            //c.Field3 = "C";
+            //c.Field4 = 4;
+            //await webServiceC.Post(c);
+
+            //ClassD d = new ClassD();
+            //d.Field2 = "d";
+            //d.Field3 = "D";
+            //d.Field4 = 4;
+            //d.Field5 = 5;
+            //await webServiceD.Post(d);
+            //#endregion
+
+            #region Enums
+            EnumTester tester = new EnumTester();
             #endregion
 
-            #region MysqlFromAPI
-            WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
-            ClassA test01 = new ClassA();
-            test01 = await webManager.Get(test1.Field1);
-            List<ClassA> tests0 = new List<ClassA>();
-            tests0 = await webManager.Get();
-            ClassA test02 = new ClassA();
-            test02.Field2 = "posted";
-            test02.Field3 = "in API";
-            ClassA test03 = await webManager.Post(test02);
-            test03.Field2 = "coconut";
-            test03.Field3 = "cherry";
-            ClassA test04 = await webManager.Put(test03);
+            #region Genericity
+            Genericitycs gene = new Genericitycs();
+            Genericitycs2<ClassA> gene2 = new Genericitycs2<ClassA>();
+            #endregion
 
-            foreach (var item in tests0)
-            {
-                item.Field1 = 0;
-                item.Field2 += " newest"; 
-            }
-
-            var res = await webManager.Post(tests0);
-            //await webManager.Delete(res[0]);
-            var res1 = await webManager.Delete(res);
-            var res2 = await webManager.Get();
-
+            #region JSON
+            Json json = new Json();
             #endregion
         }
 

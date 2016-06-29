@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary2.Database
 {
-    public enum DataConnectionResource : int
+    public enum DataConnectionResource : Int32
     {
         [StringValue("Server=myServer;Port=3306;Database=db_name;Uid=userName;Pwd=password")]
         GENERICMYSQL = 1,
