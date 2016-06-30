@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using App1.View;
 using App1.Model;
 using System.Diagnostics;
 using System.Windows;
@@ -14,6 +13,7 @@ using System.Collections.Generic;
 using ClassLibrary2.EnumManager;
 using ClassLibrary2.Genericity;
 using ClassLibrary2.JSON;
+using WpfApplication1.View;
 
 namespace App1.ViewModel
 {
@@ -34,9 +34,9 @@ namespace App1.ViewModel
             this.clientView = clientView;
             LoadItems();
             LinkItems();
-            Preproc preproc = new Preproc();
-            Sandbox sb = new Sandbox();
-            MysqlTest();
+            //Preproc preproc = new Preproc();
+            //Sandbox sb = new Sandbox();
+            //MysqlTest();
         }
         #endregion
 
@@ -66,11 +66,11 @@ namespace App1.ViewModel
             test4.Field2 = "20";
             ClassA test5 = await manager.Get(test3.Field1);
             test5.Field3 = "21";
-            ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
-            test6.Field2 = "manager.GetAll()[6]";
+            //ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
+            //test6.Field2 = "manager.GetAll()[6]";
             items.Add(test4);
             items.Add(test5);
-            items.Add(test6);
+            //items.Add(test6);
             await manager.Update(items);
             List<ClassA> items1 = await manager.Get() as List<ClassA>;
             await manager.Delete(items1);

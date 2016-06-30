@@ -38,3 +38,11 @@ C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\ClassLibrary3.pdb
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\MySql.Data.dll
+C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Page1.g.cs
+C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Page1.baml
+C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Window1.g.cs
+C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Window1.baml
+C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Window2.g.cs
+C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Window2.baml

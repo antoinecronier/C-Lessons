@@ -80,6 +80,9 @@ namespace ClassLibrary2.JSON
                 }
             }
 
+            var seti = this.MyClass3.ObservableCollection.Where(x => x.Id != 10 || x.Id == 9);
+                //.Select(x => x.Id == 1);
+
             var querry1 = (from g in this.MyClass3.ObservableCollection where g.MyClass1.MyClass.Id == this.MyClass.Id select g);
 
             if (querry1.ToList().Count != 0)

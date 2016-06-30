@@ -1,10 +1,11 @@
 ﻿using App1.MyUserControl;
 using App1.ViewModel;
 using System.Windows.Controls;
+using WpfApplication1.View;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace App1.View
+namespace WpfApplication1.View
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
@@ -23,11 +24,11 @@ namespace App1.View
         public AddRemoveUserControl AddRemoveUserControl { get; set; }
         public Button BuyButton { get; set; }
 
-        public ClientViewModel ClientViewModel
+        /*public ClientViewModel ClientViewModel
         {
             get { return clientViewModel; }
             set { clientViewModel = value; }
-        }
+        }*/
 
         #endregion
 
@@ -41,12 +42,17 @@ namespace App1.View
             this.ProductUserControl = this.UCProduct;
             this.AddRemoveUserControl = this.UCAddRemove;
             this.BuyButton = this.BuyBtn;
-            this.ClientViewModel = new ClientViewModel(this);
+            this.clientViewModel = new ClientViewModel(this);
         }
         #endregion
 
         #region methods
 
         #endregion
+
+        private void navigation_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Page1());
+        }
     }
 }
