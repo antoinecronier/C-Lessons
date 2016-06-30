@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7syEpUQ8d3YlVHuK9fqans4DTGT/GeVIIlJKZnuT0uE=</dsig:DigestValue>
+        <dsig:DigestValue>olP8qBnkkAMX8eA2Zovd6vbeDQhLXPW7MjTmuAC/hNk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -102,14 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="455168">
-      <assemblyIdentity name="MySql.Data" version="6.8.3.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="457728">
+      <assemblyIdentity name="MySql.Data" version="6.8.7.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FIQCSSXaRyizld6JyoMbsKZzz9E6owYp1H7YTEvaqqk=</dsig:DigestValue>
+        <dsig:DigestValue>M/BrYJVLDHEvpsqkZ1+n3VEAP7w2tKEf9S9ZgAH2H/E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -138,24 +138,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WpfApplication1.exe" size="30704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WpfApplication1.exe" size="33264">
       <assemblyIdentity name="WpfApplication1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bzEQeIFMU0vFgSJrnXxW7lggeShTRfA5cCrpqecWgmo=</dsig:DigestValue>
+        <dsig:DigestValue>y0EfH7bMq4bvWIsT9lEP2JteyqwNjPkHDUUipeOwu6k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="WpfApplication1.exe.config" size="1013">
+  <file name="WpfApplication1.exe.config" size="1362">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9b3pTUPvKALjQZ6Zdc94hBcvJbJSJaRIUoTAU773p8w=</dsig:DigestValue>
+      <dsig:DigestValue>d2QpIz763XWdW4k7ec6XS8pa7XwtuaNJc0tbENi8A0o=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

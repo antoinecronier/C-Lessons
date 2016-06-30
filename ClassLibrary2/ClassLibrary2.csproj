@@ -42,8 +42,8 @@
       <HintPath>..\packages\Faker.Data.1.0.7\lib\net45\Faker.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.ConnectorNET.Data.6.8.3.2\lib\net45\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.8.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.8.7\lib\net45\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mysql.data.entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">

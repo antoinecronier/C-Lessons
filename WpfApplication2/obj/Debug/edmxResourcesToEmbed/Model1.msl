@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="pokesandraModelStoreContainer" CdmEntityContainer="pokesandraEntities">
+    <EntitySetMapping Name="arenes">
+      <EntityTypeMapping TypeName="pokesandraModel.arenes">
+        <MappingFragment StoreEntitySet="arenes">
+          <ScalarProperty Name="id_arene" ColumnName="id_arene" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id_badges" ColumnName="id_badges" />
+          <ScalarProperty Name="id_positions" ColumnName="id_positions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="attaques">
+      <EntityTypeMapping TypeName="pokesandraModel.attaques">
+        <MappingFragment StoreEntitySet="attaques">
+          <ScalarProperty Name="id_attaques" ColumnName="id_attaques" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="puissance" ColumnName="puissance" />
+          <ScalarProperty Name="precis" ColumnName="precis" />
+          <ScalarProperty Name="id_types" ColumnName="id_types" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="badges">
+      <EntityTypeMapping TypeName="pokesandraModel.badges">
+        <MappingFragment StoreEntitySet="badges">
+          <ScalarProperty Name="id_badges" ColumnName="id_badges" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id_dresseur" ColumnName="id_dresseur" />
+          <ScalarProperty Name="id_zones" ColumnName="id_zones" />
+          <ScalarProperty Name="id_arene" ColumnName="id_arene" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dresseurs">
+      <EntityTypeMapping TypeName="pokesandraModel.dresseurs">
+        <MappingFragment StoreEntitySet="dresseurs">
+          <ScalarProperty Name="id_dresseur" ColumnName="id_dresseur" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id_nonjoueur" ColumnName="id_nonjoueur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="faiblecontre">
+      <EntityTypeMapping TypeName="pokesandraModel.faiblecontre">
+        <MappingFragment StoreEntitySet="faiblecontre">
+          <ScalarProperty Name="modificateur" ColumnName="modificateur" />
+          <ScalarProperty Name="id_types" ColumnName="id_types" />
+          <ScalarProperty Name="id_types_1" ColumnName="id_types_1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fortcontre">
+      <EntityTypeMapping TypeName="pokesandraModel.fortcontre">
+        <MappingFragment StoreEntitySet="fortcontre">
+          <ScalarProperty Name="modificateur" ColumnName="modificateur" />
+          <ScalarProperty Name="id_types" ColumnName="id_types" />
+          <ScalarProperty Name="id_types_1" ColumnName="id_types_1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gagne">
+      <EntityTypeMapping TypeName="pokesandraModel.gagne">
+        <MappingFragment StoreEntitySet="gagne">
+          <ScalarProperty Name="obtention" ColumnName="obtention" />
+          <ScalarProperty Name="id_dresseur" ColumnName="id_dresseur" />
+          <ScalarProperty Name="id_badges" ColumnName="id_badges" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="npc">
+      <EntityTypeMapping TypeName="pokesandraModel.npc">
+        <MappingFragment StoreEntitySet="npc">
+          <ScalarProperty Name="id_nonjoueur" ColumnName="id_nonjoueur" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="texte" ColumnName="texte" />
+          <ScalarProperty Name="id_dresseur" ColumnName="id_dresseur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="objets">
+      <EntityTypeMapping TypeName="pokesandraModel.objets">
+        <MappingFragment StoreEntitySet="objets">
+          <ScalarProperty Name="id_objet" ColumnName="id_objet" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="quantite" ColumnName="quantite" />
+          <ScalarProperty Name="id_nonjoueur" ColumnName="id_nonjoueur" />
+          <ScalarProperty Name="id_typeObjet" ColumnName="id_typeObjet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pokedex">
+      <EntityTypeMapping TypeName="pokesandraModel.pokedex">
+        <MappingFragment StoreEntitySet="pokedex">
+          <ScalarProperty Name="id_pokedex" ColumnName="id_pokedex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pokemons">
+      <EntityTypeMapping TypeName="pokesandraModel.pokemons">
+        <MappingFragment StoreEntitySet="pokemons">
+          <ScalarProperty Name="id_pokemons" ColumnName="id_pokemons" />
+          <ScalarProperty Name="surnom" ColumnName="surnom" />
+          <ScalarProperty Name="niveau" ColumnName="niveau" />
+          <ScalarProperty Name="capture" ColumnName="capture" />
+          <ScalarProperty Name="id_dresseur" ColumnName="id_dresseur" />
+          <ScalarProperty Name="id_attaques" ColumnName="id_attaques" />
+          <ScalarProperty Name="id_attaques_1" ColumnName="id_attaques_1" />
+          <ScalarProperty Name="id_attaques_2" ColumnName="id_attaques_2" />
+          <ScalarProperty Name="id_attaques_3" ColumnName="id_attaques_3" />
+          <ScalarProperty Name="id_type_pokemons" ColumnName="id_type_pokemons" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="positions">
+      <EntityTypeMapping TypeName="pokesandraModel.positions">
+        <MappingFragment StoreEntitySet="positions">
+          <ScalarProperty Name="id_positions" ColumnName="id_positions" />
+          <ScalarProperty Name="x" ColumnName="x" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="id_zones" ColumnName="id_zones" />
+          <ScalarProperty Name="id_arene" ColumnName="id_arene" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typedepokemons">
+      <EntityTypeMapping TypeName="pokesandraModel.typedepokemons">
+        <MappingFragment StoreEntitySet="typedepokemons">
+          <ScalarProperty Name="id_type_pokemons" ColumnName="id_type_pokemons" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="attaque" ColumnName="attaque" />
+          <ScalarProperty Name="attaque_spe" ColumnName="attaque_spe" />
+          <ScalarProperty Name="defence" ColumnName="defence" />
+          <ScalarProperty Name="defence_spe" ColumnName="defence_spe" />
+          <ScalarProperty Name="vitesse" ColumnName="vitesse" />
+          <ScalarProperty Name="pv" ColumnName="pv" />
+          <ScalarProperty Name="id_pokedex" ColumnName="id_pokedex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typeobjet">
+      <EntityTypeMapping TypeName="pokesandraModel.typeobjet">
+        <MappingFragment StoreEntitySet="typeobjet">
+          <ScalarProperty Name="id_typeObjet" ColumnName="id_typeObjet" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="types">
+      <EntityTypeMapping TypeName="pokesandraModel.types">
+        <MappingFragment StoreEntitySet="types">
+          <ScalarProperty Name="id_types" ColumnName="id_types" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zones">
+      <EntityTypeMapping TypeName="pokesandraModel.zones">
+        <MappingFragment StoreEntitySet="zones">
+          <ScalarProperty Name="id_zones" ColumnName="id_zones" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="evolueen" TypeName="pokesandraModel.evolueen" StoreEntitySet="evolueen">
+      <EndProperty Name="typedepokemons">
+        <ScalarProperty Name="id_type_pokemons" ColumnName="id_type_pokemons" />
+      </EndProperty>
+      <EndProperty Name="typedepokemons1">
+        <ScalarProperty Name="id_type_pokemons" ColumnName="id_type_pokemons_typedepokemons" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="possedelestypes" TypeName="pokesandraModel.possedelestypes" StoreEntitySet="possedelestypes">
+      <EndProperty Name="typedepokemons">
+        <ScalarProperty Name="id_type_pokemons" ColumnName="id_type_pokemons" />
+      </EndProperty>
+      <EndProperty Name="types">
+        <ScalarProperty Name="id_types" ColumnName="id_types" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="viedans" TypeName="pokesandraModel.viedans" StoreEntitySet="viedans">
+      <EndProperty Name="typedepokemons">
+        <ScalarProperty Name="id_type_pokemons" ColumnName="id_type_pokemons" />
+      </EndProperty>
+      <EndProperty Name="zones">
+        <ScalarProperty Name="id_zones" ColumnName="id_zones" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -29,12 +29,12 @@ C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\ClassLibrary2.pdb
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\EntityFramework.dll
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\MySql.Data.dll
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\Newtonsoft.Json.dll
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\EntityFramework.xml
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\Newtonsoft.Json.xml
-C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WpfApplication1\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\Faker.dll
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\ClassLibrary3.dll
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\ClassLibrary3.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\MySql.Data.dll

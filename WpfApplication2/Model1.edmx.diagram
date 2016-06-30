@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="349bdc6d867d419ebc9c5dbf4ea846f5" Name="Diagram1">
+        <EntityTypeShape EntityType="pokesandraModel.arenes" Width="1.5" PointX="9.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.attaques" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.badges" Width="1.5" PointX="7.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.dresseurs" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.faiblecontre" Width="1.5" PointX="7.5" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.fortcontre" Width="1.5" PointX="7.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.gagne" Width="1.5" PointX="9.75" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.npc" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.objets" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.pokedex" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.pokemons" Width="1.5" PointX="9.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.positions" Width="1.5" PointX="12" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.typedepokemons" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.typeobjet" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.types" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pokesandraModel.zones" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
+        <AssociationConnector Association="pokesandraModel.FK_arenes_id_badges" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_arenes_id_positions" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_badges_id_arene" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_positions_id_arene" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_attaques_id_types" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_pokemons_id_attaques" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_pokemons_id_attaques_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_pokemons_id_attaques_2" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_pokemons_id_attaques_3" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_badges_id_dresseur" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_badges_id_zones" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_gagne_id_badges" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_dresseurs_id_nonjoueur" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_gagne_id_dresseur" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_npc_id_dresseur" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_pokemons_id_dresseur" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_faiblecontre_id_types" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_faiblecontre_id_types_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_fortcontre_id_types" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_fortcontre_id_types_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_objets_id_nonjoueur" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_objets_id_typeObjet" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_typedepokemons_id_pokedex" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_pokemons_id_type_pokemons" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.FK_positions_id_zones" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.evolueen" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.possedelestypes" ManuallyRouted="false" />
+        <AssociationConnector Association="pokesandraModel.viedans" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

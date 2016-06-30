@@ -43,39 +43,39 @@ namespace App1.ViewModel
         #region methods
         private async void MysqlTest()
         {
-            //#region MysqlDirectConnect
-            //MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
-            //ClassA test1 = new ClassA();
-            //test1.Field1 = 1;
-            //test1.Field2 = "2";
-            //test1.Field3 = "3";
-            //await manager.Insert(test1);
+            #region MysqlDirectConnect
+            MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
+            ClassA test1 = new ClassA();
+            test1.Field1 = 1;
+            test1.Field2 = "2";
+            test1.Field3 = "3";
+            await manager.Insert(test1);
 
-            //ClassA test2 = new ClassA();
-            //test2 = await manager.Get(test1.Field1);
+            ClassA test2 = new ClassA();
+            test2 = await manager.Get(test1.Field1);
 
-            //test2.Field2 = "youhou";
-            //await manager.Update(test1);
+            test2.Field2 = "youhou";
+            await manager.Update(test1);
 
-            //ClassA test3 = new ClassA();
-            //test3 = await manager.Get(test1.Field1);
+            ClassA test3 = new ClassA();
+            test3 = await manager.Get(test1.Field1);
 
-            //List<ClassA> items = new List<ClassA>();
-            //ClassA test4 = new ClassA();
-            //test4.Field1 = 20;
-            //test4.Field2 = "20";
-            //ClassA test5 = await manager.Get(test3.Field1);
-            //test5.Field3 = "21";
-            //ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
-            //test6.Field2 = "manager.GetAll()[6]";
-            //items.Add(test4);
-            //items.Add(test5);
-            //items.Add(test6);
-            //await manager.Update(items);
-            //List<ClassA> items1 = await manager.Get() as List<ClassA>;
-            //await manager.Delete(items1);
-            //await manager.Insert(test1);
-            //#endregion
+            List<ClassA> items = new List<ClassA>();
+            ClassA test4 = new ClassA();
+            test4.Field1 = 20;
+            test4.Field2 = "20";
+            ClassA test5 = await manager.Get(test3.Field1);
+            test5.Field3 = "21";
+            ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
+            test6.Field2 = "manager.GetAll()[6]";
+            items.Add(test4);
+            items.Add(test5);
+            items.Add(test6);
+            await manager.Update(items);
+            List<ClassA> items1 = await manager.Get() as List<ClassA>;
+            await manager.Delete(items1);
+            await manager.Insert(test1);
+            #endregion
 
             //#region MysqlFromAPI
             //WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);

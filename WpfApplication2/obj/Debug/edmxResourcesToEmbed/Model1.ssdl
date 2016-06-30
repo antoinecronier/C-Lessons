@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pokesandraModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="arenes">
+    <Key>
+      <PropertyRef Name="id_arene" />
+    </Key>
+    <Property Name="id_arene" Type="tinyint" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="id_badges" Type="tinyint" Nullable="false" />
+    <Property Name="id_positions" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="attaques">
+    <Key>
+      <PropertyRef Name="id_attaques" />
+    </Key>
+    <Property Name="id_attaques" Type="smallint" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="12" />
+    <Property Name="puissance" Type="smallint" />
+    <Property Name="precis" Type="tinyint" />
+    <Property Name="id_types" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="badges">
+    <Key>
+      <PropertyRef Name="id_badges" />
+    </Key>
+    <Property Name="id_badges" Type="tinyint" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="id_dresseur" Type="int" Nullable="false" />
+    <Property Name="id_zones" Type="tinyint" Nullable="false" />
+    <Property Name="id_arene" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="dresseurs">
+    <Key>
+      <PropertyRef Name="id_dresseur" />
+    </Key>
+    <Property Name="id_dresseur" Type="int" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="id_nonjoueur" Type="int" />
+  </EntityType>
+  <EntityType Name="evolueen">
+    <Key>
+      <PropertyRef Name="id_type_pokemons" />
+      <PropertyRef Name="id_type_pokemons_typedepokemons" />
+    </Key>
+    <Property Name="id_type_pokemons" Type="smallint" Nullable="false" />
+    <Property Name="id_type_pokemons_typedepokemons" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="faiblecontre">
+    <Key>
+      <PropertyRef Name="id_types" />
+      <PropertyRef Name="id_types_1" />
+    </Key>
+    <Property Name="modificateur" Type="decimal" Precision="4" Scale="0" />
+    <Property Name="id_types" Type="tinyint" Nullable="false" />
+    <Property Name="id_types_1" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fortcontre">
+    <Key>
+      <PropertyRef Name="id_types" />
+      <PropertyRef Name="id_types_1" />
+    </Key>
+    <Property Name="modificateur" Type="decimal" Precision="4" Scale="0" />
+    <Property Name="id_types" Type="tinyint" Nullable="false" />
+    <Property Name="id_types_1" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gagne">
+    <Key>
+      <PropertyRef Name="id_dresseur" />
+      <PropertyRef Name="id_badges" />
+    </Key>
+    <Property Name="obtention" Type="date" />
+    <Property Name="id_dresseur" Type="int" Nullable="false" />
+    <Property Name="id_badges" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="npc">
+    <Key>
+      <PropertyRef Name="id_nonjoueur" />
+    </Key>
+    <Property Name="id_nonjoueur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="profession" Type="varchar" MaxLength="25" />
+    <Property Name="texte" Type="varchar" MaxLength="140" />
+    <Property Name="id_dresseur" Type="int" />
+  </EntityType>
+  <EntityType Name="objets">
+    <Key>
+      <PropertyRef Name="id_objet" />
+    </Key>
+    <Property Name="id_objet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="quantite" Type="tinyint" Nullable="false" />
+    <Property Name="id_nonjoueur" Type="int" />
+    <Property Name="id_typeObjet" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pokedex">
+    <Key>
+      <PropertyRef Name="id_pokedex" />
+    </Key>
+    <Property Name="id_pokedex" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pokemons">
+    <Key>
+      <PropertyRef Name="id_pokemons" />
+    </Key>
+    <Property Name="id_pokemons" Type="int" Nullable="false" />
+    <Property Name="surnom" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="niveau" Type="tinyint" />
+    <Property Name="capture" Type="date" Nullable="false" />
+    <Property Name="id_dresseur" Type="int" Nullable="false" />
+    <Property Name="id_attaques" Type="smallint" Nullable="false" />
+    <Property Name="id_attaques_1" Type="smallint" Nullable="false" />
+    <Property Name="id_attaques_2" Type="smallint" Nullable="false" />
+    <Property Name="id_attaques_3" Type="smallint" Nullable="false" />
+    <Property Name="id_type_pokemons" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="positions">
+    <Key>
+      <PropertyRef Name="id_positions" />
+    </Key>
+    <Property Name="id_positions" Type="int" Nullable="false" />
+    <Property Name="x" Type="int" />
+    <Property Name="y" Type="int" />
+    <Property Name="id_zones" Type="tinyint" Nullable="false" />
+    <Property Name="id_arene" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="possedelestypes">
+    <Key>
+      <PropertyRef Name="id_type_pokemons" />
+      <PropertyRef Name="id_types" />
+    </Key>
+    <Property Name="id_type_pokemons" Type="smallint" Nullable="false" />
+    <Property Name="id_types" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="typedepokemons">
+    <Key>
+      <PropertyRef Name="id_type_pokemons" />
+    </Key>
+    <Property Name="id_type_pokemons" Type="smallint" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="attaque" Type="smallint" />
+    <Property Name="attaque_spe" Type="smallint" />
+    <Property Name="defence" Type="smallint" />
+    <Property Name="defence_spe" Type="smallint" />
+    <Property Name="vitesse" Type="smallint" />
+    <Property Name="pv" Type="smallint" />
+    <Property Name="id_pokedex" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="typeobjet">
+    <Key>
+      <PropertyRef Name="id_typeObjet" />
+    </Key>
+    <Property Name="id_typeObjet" Type="tinyint" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="types">
+    <Key>
+      <PropertyRef Name="id_types" />
+    </Key>
+    <Property Name="id_types" Type="tinyint" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="viedans">
+    <Key>
+      <PropertyRef Name="id_zones" />
+      <PropertyRef Name="id_type_pokemons" />
+    </Key>
+    <Property Name="id_zones" Type="tinyint" Nullable="false" />
+    <Property Name="id_type_pokemons" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="zones">
+    <Key>
+      <PropertyRef Name="id_zones" />
+    </Key>
+    <Property Name="id_zones" Type="tinyint" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_arenes_id_badges">
+    <End Role="badges" Type="Self.badges" Multiplicity="1" />
+    <End Role="arenes" Type="Self.arenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="badges">
+        <PropertyRef Name="id_badges" />
+      </Principal>
+      <Dependent Role="arenes">
+        <PropertyRef Name="id_badges" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_arenes_id_positions">
+    <End Role="positions" Type="Self.positions" Multiplicity="1" />
+    <End Role="arenes" Type="Self.arenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="positions">
+        <PropertyRef Name="id_positions" />
+      </Principal>
+      <Dependent Role="arenes">
+        <PropertyRef Name="id_positions" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attaques_id_types">
+    <End Role="types" Type="Self.types" Multiplicity="1" />
+    <End Role="attaques" Type="Self.attaques" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="types">
+        <PropertyRef Name="id_types" />
+      </Principal>
+      <Dependent Role="attaques">
+        <PropertyRef Name="id_types" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_badges_id_arene">
+    <End Role="arenes" Type="Self.arenes" Multiplicity="0..1" />
+    <End Role="badges" Type="Self.badges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="arenes">
+        <PropertyRef Name="id_arene" />
+      </Principal>
+      <Dependent Role="badges">
+        <PropertyRef Name="id_arene" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_badges_id_dresseur">
+    <End Role="dresseurs" Type="Self.dresseurs" Multiplicity="1" />
+    <End Role="badges" Type="Self.badges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dresseurs">
+        <PropertyRef Name="id_dresseur" />
+      </Principal>
+      <Dependent Role="badges">
+        <PropertyRef Name="id_dresseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_badges_id_zones">
+    <End Role="zones" Type="Self.zones" Multiplicity="1" />
+    <End Role="badges" Type="Self.badges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zones">
+        <PropertyRef Name="id_zones" />
+      </Principal>
+      <Dependent Role="badges">
+        <PropertyRef Name="id_zones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dresseurs_id_nonjoueur">
+    <End Role="npc" Type="Self.npc" Multiplicity="0..1" />
+    <End Role="dresseurs" Type="Self.dresseurs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="npc">
+        <PropertyRef Name="id_nonjoueur" />
+      </Principal>
+      <Dependent Role="dresseurs">
+        <PropertyRef Name="id_nonjoueur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_evolueen_id_type_pokemons">
+    <End Role="typedepokemons" Type="Self.typedepokemons" Multiplicity="1" />
+    <End Role="evolueen" Type="Self.evolueen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typedepokemons">
+        <PropertyRef Name="id_type_pokemons" />
+      </Principal>
+      <Dependent Role="evolueen">
+        <PropertyRef Name="id_type_pokemons" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_evolueen_id_type_pokemons_typedepokemons">
+    <End Role="typedepokemons" Type="Self.typedepokemons" Multiplicity="1" />
+    <End Role="evolueen" Type="Self.evolueen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typedepokemons">
+        <PropertyRef Name="id_type_pokemons" />
+      </Principal>
+      <Dependent Role="evolueen">
+        <PropertyRef Name="id_type_pokemons_typedepokemons" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faiblecontre_id_types">
+    <End Role="types" Type="Self.types" Multiplicity="1" />
+    <End Role="faiblecontre" Type="Self.faiblecontre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="types">
+        <PropertyRef Name="id_types" />
+      </Principal>
+      <Dependent Role="faiblecontre">
+        <PropertyRef Name="id_types" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faiblecontre_id_types_1">
+    <End Role="types" Type="Self.types" Multiplicity="1" />
+    <End Role="faiblecontre" Type="Self.faiblecontre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="types">
+        <PropertyRef Name="id_types" />
+      </Principal>
+      <Dependent Role="faiblecontre">
+        <PropertyRef Name="id_types_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fortcontre_id_types">
+    <End Role="types" Type="Self.types" Multiplicity="1" />
+    <End Role="fortcontre" Type="Self.fortcontre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="types">
+        <PropertyRef Name="id_types" />
+      </Principal>
+      <Dependent Role="fortcontre">
+        <PropertyRef Name="id_types" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fortcontre_id_types_1">
+    <End Role="types" Type="Self.types" Multiplicity="1" />
+    <End Role="fortcontre" Type="Self.fortcontre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="types">
+        <PropertyRef Name="id_types" />
+      </Principal>
+      <Dependent Role="fortcontre">
+        <PropertyRef Name="id_types_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gagne_id_badges">
+    <End Role="badges" Type="Self.badges" Multiplicity="1" />
+    <End Role="gagne" Type="Self.gagne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="badges">
+        <PropertyRef Name="id_badges" />
+      </Principal>
+      <Dependent Role="gagne">
+        <PropertyRef Name="id_badges" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gagne_id_dresseur">
+    <End Role="dresseurs" Type="Self.dresseurs" Multiplicity="1" />
+    <End Role="gagne" Type="Self.gagne" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dresseurs">
+        <PropertyRef Name="id_dresseur" />
+      </Principal>
+      <Dependent Role="gagne">
+        <PropertyRef Name="id_dresseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_npc_id_dresseur">
+    <End Role="dresseurs" Type="Self.dresseurs" Multiplicity="0..1" />
+    <End Role="npc" Type="Self.npc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dresseurs">
+        <PropertyRef Name="id_dresseur" />
+      </Principal>
+      <Dependent Role="npc">
+        <PropertyRef Name="id_dresseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_objets_id_nonjoueur">
+    <End Role="npc" Type="Self.npc" Multiplicity="0..1" />
+    <End Role="objets" Type="Self.objets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="npc">
+        <PropertyRef Name="id_nonjoueur" />
+      </Principal>
+      <Dependent Role="objets">
+        <PropertyRef Name="id_nonjoueur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_objets_id_typeObjet">
+    <End Role="typeobjet" Type="Self.typeobjet" Multiplicity="1" />
+    <End Role="objets" Type="Self.objets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typeobjet">
+        <PropertyRef Name="id_typeObjet" />
+      </Principal>
+      <Dependent Role="objets">
+        <PropertyRef Name="id_typeObjet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pokemons_id_attaques">
+    <End Role="attaques" Type="Self.attaques" Multiplicity="1" />
+    <End Role="pokemons" Type="Self.pokemons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="attaques">
+        <PropertyRef Name="id_attaques" />
+      </Principal>
+      <Dependent Role="pokemons">
+        <PropertyRef Name="id_attaques" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pokemons_id_attaques_1">
+    <End Role="attaques" Type="Self.attaques" Multiplicity="1" />
+    <End Role="pokemons" Type="Self.pokemons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="attaques">
+        <PropertyRef Name="id_attaques" />
+      </Principal>
+      <Dependent Role="pokemons">
+        <PropertyRef Name="id_attaques_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pokemons_id_attaques_2">
+    <End Role="attaques" Type="Self.attaques" Multiplicity="1" />
+    <End Role="pokemons" Type="Self.pokemons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="attaques">
+        <PropertyRef Name="id_attaques" />
+      </Principal>
+      <Dependent Role="pokemons">
+        <PropertyRef Name="id_attaques_2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pokemons_id_attaques_3">
+    <End Role="attaques" Type="Self.attaques" Multiplicity="1" />
+    <End Role="pokemons" Type="Self.pokemons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="attaques">
+        <PropertyRef Name="id_attaques" />
+      </Principal>
+      <Dependent Role="pokemons">
+        <PropertyRef Name="id_attaques_3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pokemons_id_dresseur">
+    <End Role="dresseurs" Type="Self.dresseurs" Multiplicity="1" />
+    <End Role="pokemons" Type="Self.pokemons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dresseurs">
+        <PropertyRef Name="id_dresseur" />
+      </Principal>
+      <Dependent Role="pokemons">
+        <PropertyRef Name="id_dresseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pokemons_id_type_pokemons">
+    <End Role="typedepokemons" Type="Self.typedepokemons" Multiplicity="1" />
+    <End Role="pokemons" Type="Self.pokemons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typedepokemons">
+        <PropertyRef Name="id_type_pokemons" />
+      </Principal>
+      <Dependent Role="pokemons">
+        <PropertyRef Name="id_type_pokemons" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_positions_id_arene">
+    <End Role="arenes" Type="Self.arenes" Multiplicity="0..1" />
+    <End Role="positions" Type="Self.positions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="arenes">
+        <PropertyRef Name="id_arene" />
+      </Principal>
+      <Dependent Role="positions">
+        <PropertyRef Name="id_arene" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_positions_id_zones">
+    <End Role="zones" Type="Self.zones" Multiplicity="1" />
+    <End Role="positions" Type="Self.positions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zones">
+        <PropertyRef Name="id_zones" />
+      </Principal>
+      <Dependent Role="positions">
+        <PropertyRef Name="id_zones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_possedelestypes_id_type_pokemons">
+    <End Role="typedepokemons" Type="Self.typedepokemons" Multiplicity="1" />
+    <End Role="possedelestypes" Type="Self.possedelestypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typedepokemons">
+        <PropertyRef Name="id_type_pokemons" />
+      </Principal>
+      <Dependent Role="possedelestypes">
+        <PropertyRef Name="id_type_pokemons" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_possedelestypes_id_types">
+    <End Role="types" Type="Self.types" Multiplicity="1" />
+    <End Role="possedelestypes" Type="Self.possedelestypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="types">
+        <PropertyRef Name="id_types" />
+      </Principal>
+      <Dependent Role="possedelestypes">
+        <PropertyRef Name="id_types" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_typedepokemons_id_pokedex">
+    <End Role="pokedex" Type="Self.pokedex" Multiplicity="1" />
+    <End Role="typedepokemons" Type="Self.typedepokemons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pokedex">
+        <PropertyRef Name="id_pokedex" />
+      </Principal>
+      <Dependent Role="typedepokemons">
+        <PropertyRef Name="id_pokedex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_viedans_id_type_pokemons">
+    <End Role="typedepokemons" Type="Self.typedepokemons" Multiplicity="1" />
+    <End Role="viedans" Type="Self.viedans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typedepokemons">
+        <PropertyRef Name="id_type_pokemons" />
+      </Principal>
+      <Dependent Role="viedans">
+        <PropertyRef Name="id_type_pokemons" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_viedans_id_zones">
+    <End Role="zones" Type="Self.zones" Multiplicity="1" />
+    <End Role="viedans" Type="Self.viedans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zones">
+        <PropertyRef Name="id_zones" />
+      </Principal>
+      <Dependent Role="viedans">
+        <PropertyRef Name="id_zones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="pokesandraModelStoreContainer">
+    <EntitySet Name="arenes" EntityType="Self.arenes" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="attaques" EntityType="Self.attaques" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="badges" EntityType="Self.badges" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="dresseurs" EntityType="Self.dresseurs" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="evolueen" EntityType="Self.evolueen" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="faiblecontre" EntityType="Self.faiblecontre" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="fortcontre" EntityType="Self.fortcontre" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="gagne" EntityType="Self.gagne" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="npc" EntityType="Self.npc" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="objets" EntityType="Self.objets" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="pokedex" EntityType="Self.pokedex" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="pokemons" EntityType="Self.pokemons" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="positions" EntityType="Self.positions" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="possedelestypes" EntityType="Self.possedelestypes" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="typedepokemons" EntityType="Self.typedepokemons" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="typeobjet" EntityType="Self.typeobjet" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="types" EntityType="Self.types" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="viedans" EntityType="Self.viedans" Schema="pokesandra" store:Type="Tables" />
+    <EntitySet Name="zones" EntityType="Self.zones" Schema="pokesandra" store:Type="Tables" />
+    <AssociationSet Name="FK_arenes_id_badges" Association="Self.FK_arenes_id_badges">
+      <End Role="badges" EntitySet="badges" />
+      <End Role="arenes" EntitySet="arenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_arenes_id_positions" Association="Self.FK_arenes_id_positions">
+      <End Role="positions" EntitySet="positions" />
+      <End Role="arenes" EntitySet="arenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attaques_id_types" Association="Self.FK_attaques_id_types">
+      <End Role="types" EntitySet="types" />
+      <End Role="attaques" EntitySet="attaques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_badges_id_arene" Association="Self.FK_badges_id_arene">
+      <End Role="arenes" EntitySet="arenes" />
+      <End Role="badges" EntitySet="badges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_badges_id_dresseur" Association="Self.FK_badges_id_dresseur">
+      <End Role="dresseurs" EntitySet="dresseurs" />
+      <End Role="badges" EntitySet="badges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_badges_id_zones" Association="Self.FK_badges_id_zones">
+      <End Role="zones" EntitySet="zones" />
+      <End Role="badges" EntitySet="badges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dresseurs_id_nonjoueur" Association="Self.FK_dresseurs_id_nonjoueur">
+      <End Role="npc" EntitySet="npc" />
+      <End Role="dresseurs" EntitySet="dresseurs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_evolueen_id_type_pokemons" Association="Self.FK_evolueen_id_type_pokemons">
+      <End Role="typedepokemons" EntitySet="typedepokemons" />
+      <End Role="evolueen" EntitySet="evolueen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_evolueen_id_type_pokemons_typedepokemons" Association="Self.FK_evolueen_id_type_pokemons_typedepokemons">
+      <End Role="typedepokemons" EntitySet="typedepokemons" />
+      <End Role="evolueen" EntitySet="evolueen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faiblecontre_id_types" Association="Self.FK_faiblecontre_id_types">
+      <End Role="types" EntitySet="types" />
+      <End Role="faiblecontre" EntitySet="faiblecontre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faiblecontre_id_types_1" Association="Self.FK_faiblecontre_id_types_1">
+      <End Role="types" EntitySet="types" />
+      <End Role="faiblecontre" EntitySet="faiblecontre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fortcontre_id_types" Association="Self.FK_fortcontre_id_types">
+      <End Role="types" EntitySet="types" />
+      <End Role="fortcontre" EntitySet="fortcontre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fortcontre_id_types_1" Association="Self.FK_fortcontre_id_types_1">
+      <End Role="types" EntitySet="types" />
+      <End Role="fortcontre" EntitySet="fortcontre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gagne_id_badges" Association="Self.FK_gagne_id_badges">
+      <End Role="badges" EntitySet="badges" />
+      <End Role="gagne" EntitySet="gagne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gagne_id_dresseur" Association="Self.FK_gagne_id_dresseur">
+      <End Role="dresseurs" EntitySet="dresseurs" />
+      <End Role="gagne" EntitySet="gagne" />
+    </AssociationSet>
+    <AssociationSet Name="FK_npc_id_dresseur" Association="Self.FK_npc_id_dresseur">
+      <End Role="dresseurs" EntitySet="dresseurs" />
+      <End Role="npc" EntitySet="npc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_objets_id_nonjoueur" Association="Self.FK_objets_id_nonjoueur">
+      <End Role="npc" EntitySet="npc" />
+      <End Role="objets" EntitySet="objets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_objets_id_typeObjet" Association="Self.FK_objets_id_typeObjet">
+      <End Role="typeobjet" EntitySet="typeobjet" />
+      <End Role="objets" EntitySet="objets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pokemons_id_attaques" Association="Self.FK_pokemons_id_attaques">
+      <End Role="attaques" EntitySet="attaques" />
+      <End Role="pokemons" EntitySet="pokemons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pokemons_id_attaques_1" Association="Self.FK_pokemons_id_attaques_1">
+      <End Role="attaques" EntitySet="attaques" />
+      <End Role="pokemons" EntitySet="pokemons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pokemons_id_attaques_2" Association="Self.FK_pokemons_id_attaques_2">
+      <End Role="attaques" EntitySet="attaques" />
+      <End Role="pokemons" EntitySet="pokemons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pokemons_id_attaques_3" Association="Self.FK_pokemons_id_attaques_3">
+      <End Role="attaques" EntitySet="attaques" />
+      <End Role="pokemons" EntitySet="pokemons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pokemons_id_dresseur" Association="Self.FK_pokemons_id_dresseur">
+      <End Role="dresseurs" EntitySet="dresseurs" />
+      <End Role="pokemons" EntitySet="pokemons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pokemons_id_type_pokemons" Association="Self.FK_pokemons_id_type_pokemons">
+      <End Role="typedepokemons" EntitySet="typedepokemons" />
+      <End Role="pokemons" EntitySet="pokemons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_positions_id_arene" Association="Self.FK_positions_id_arene">
+      <End Role="arenes" EntitySet="arenes" />
+      <End Role="positions" EntitySet="positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_positions_id_zones" Association="Self.FK_positions_id_zones">
+      <End Role="zones" EntitySet="zones" />
+      <End Role="positions" EntitySet="positions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_possedelestypes_id_type_pokemons" Association="Self.FK_possedelestypes_id_type_pokemons">
+      <End Role="typedepokemons" EntitySet="typedepokemons" />
+      <End Role="possedelestypes" EntitySet="possedelestypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_possedelestypes_id_types" Association="Self.FK_possedelestypes_id_types">
+      <End Role="types" EntitySet="types" />
+      <End Role="possedelestypes" EntitySet="possedelestypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_typedepokemons_id_pokedex" Association="Self.FK_typedepokemons_id_pokedex">
+      <End Role="pokedex" EntitySet="pokedex" />
+      <End Role="typedepokemons" EntitySet="typedepokemons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_viedans_id_type_pokemons" Association="Self.FK_viedans_id_type_pokemons">
+      <End Role="typedepokemons" EntitySet="typedepokemons" />
+      <End Role="viedans" EntitySet="viedans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_viedans_id_zones" Association="Self.FK_viedans_id_zones">
+      <End Role="zones" EntitySet="zones" />
+      <End Role="viedans" EntitySet="viedans" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
