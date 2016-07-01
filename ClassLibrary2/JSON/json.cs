@@ -23,17 +23,17 @@ namespace ClassLibrary2.JSON
             this.Run();
         }
 
-        public void Run()
+        public async void Run()
         {
             try
             {
-                Task.Factory.StartNew(() =>
+                await Task.Factory.StartNew(() =>
                 {
                     this.Result2 = JsonConvert.SerializeObject(new MyClass3());
                     this.Result2 += "";
                 });
 
-                Task.Factory.StartNew(() =>
+                await Task.Factory.StartNew(() =>
                 {
                     this.Result3 = JsonConvert.SerializeObject(new MyClass4());
                     this.Result3 += "";

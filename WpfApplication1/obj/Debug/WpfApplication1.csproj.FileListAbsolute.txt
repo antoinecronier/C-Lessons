@@ -46,3 +46,5 @@ C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\
 C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Window1.baml
 C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Window2.g.cs
 C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Window2.baml
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\MyUserControl\ProductListUserControl1.g.cs
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\MyUserControl\ProductListUserControl1.baml

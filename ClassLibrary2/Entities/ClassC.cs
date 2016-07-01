@@ -23,6 +23,11 @@ namespace ClassLibrary1
 
         }
 
+        public new void Do()
+        {
+            throw new NotImplementedException();
+        }
+
         public void DoSomethingC()
         {
 

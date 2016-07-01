@@ -33,9 +33,15 @@ namespace WpfApplication1.View
         private void navigationThrow_Click(object sender, RoutedEventArgs e)
         {
             var newForm = new Window1(); //create your new form.
+            //newForm.Content = new Page1();
             newForm.Show(); //show the new form.
             Window main = Application.Current.MainWindow as Window;
             main.Close();
+        }
+
+        private void navigationframe_Click(object sender, RoutedEventArgs e)
+        {
+            (this.Parent as NavigationWindow).Content = new ClientView();
         }
     }
 }

@@ -10,6 +10,7 @@
         <StackPanel>
             <Button x:Name="navigationwindows" Content="navigation windows" Click="navigationwindows_Click"/>
             <Button x:Name="navigatetobase" Content="navigate to base" Click="navigatetobase_Click"/>
+            <Button x:Name="navigatetoframe" Content="navigate to frame" Click="navigatetoframe_Click" />
         </StackPanel>
     </Grid>
 </Window>

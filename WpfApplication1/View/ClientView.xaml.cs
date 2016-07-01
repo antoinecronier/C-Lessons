@@ -19,7 +19,7 @@ namespace WpfApplication1.View
         #region properties
         public ClientUserControl ClientUserControl { get; set; }
         public ProductListUserControl ProductListUserControlBuy { get; set; }
-        public ProductListUserControl ProductListUserControlAvaiable { get; set; }
+        public ProductListUserControl1 ProductListUserControlAvaiable { get; set; }
         public ProductUserControl ProductUserControl { get; set; }
         public AddRemoveUserControl AddRemoveUserControl { get; set; }
         public Button BuyButton { get; set; }

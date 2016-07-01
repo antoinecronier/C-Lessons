@@ -95,9 +95,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MyUserControl\ProductListUserControl1.xaml.cs">
+      <DependentUpon>ProductListUserControl1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sandbox\Preproc.cs" />
     <Compile Include="Sandbox\Sandbox.cs" />
     <Compile Include="ViewModel\ClientViewModel.cs" />
+    <Compile Include="View\Base\BaseNavigationWindow.cs" />
+    <Compile Include="View\Base\BasePage.cs" />
+    <Compile Include="View\Base\BaseWindow.cs" />
     <Compile Include="View\ClientView.xaml.cs">
       <DependentUpon>ClientView.xaml</DependentUpon>
     </Compile>
@@ -121,6 +127,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MyUserControl\ClientUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyUserControl\ProductListUserControl1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

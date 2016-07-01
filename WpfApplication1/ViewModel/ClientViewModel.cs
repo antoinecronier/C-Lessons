@@ -14,6 +14,8 @@ using ClassLibrary2.EnumManager;
 using ClassLibrary2.Genericity;
 using ClassLibrary2.JSON;
 using WpfApplication1.View;
+using ClassLibrary2.Observer.Testing;
+using ClassLibrary2.Events;
 
 namespace App1.ViewModel
 {
@@ -36,46 +38,50 @@ namespace App1.ViewModel
             LinkItems();
             //Preproc preproc = new Preproc();
             //Sandbox sb = new Sandbox();
-            //MysqlTest();
+            MysqlTest();
         }
         #endregion
 
         #region methods
         private async void MysqlTest()
         {
-            #region MysqlDirectConnect
-            MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
-            ClassA test1 = new ClassA();
-            test1.Field1 = 1;
-            test1.Field2 = "2";
-            test1.Field3 = "3";
-            await manager.Insert(test1);
+            //#region MysqlDirectConnect
+            //MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
+            //ClassA test1 = new ClassA();
+            //test1.Field1 = 1;
+            //test1.Field2 = "2";
+            //test1.Field3 = "3";
+            //await manager.Insert(test1);
 
-            ClassA test2 = new ClassA();
-            test2 = await manager.Get(test1.Field1);
+            //ClassA test2 = new ClassA();
+            //test2 = await manager.Get(test1.Field1);
 
-            test2.Field2 = "youhou";
-            await manager.Update(test1);
+            //test2.Field2 = "youhou";
+            //await manager.Update(test1);
 
-            ClassA test3 = new ClassA();
-            test3 = await manager.Get(test1.Field1);
+            //ClassA test3 = new ClassA();
+            //test3 = await manager.Get(test1.Field1);
 
-            List<ClassA> items = new List<ClassA>();
-            ClassA test4 = new ClassA();
-            test4.Field1 = 20;
-            test4.Field2 = "20";
-            ClassA test5 = await manager.Get(test3.Field1);
-            test5.Field3 = "21";
-            //ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
-            //test6.Field2 = "manager.GetAll()[6]";
-            items.Add(test4);
-            items.Add(test5);
-            //items.Add(test6);
-            await manager.Update(items);
-            List<ClassA> items1 = await manager.Get() as List<ClassA>;
-            await manager.Delete(items1);
-            await manager.Insert(test1);
-            #endregion
+            //List<ClassA> items = new List<ClassA>();
+            //ClassA test4 = new ClassA();
+            //test4.Field1 = 20;
+            //test4.Field2 = "20";
+            //ClassA test5 = await manager.Get(test3.Field1);
+            //test5.Field3 = "21";
+            ////ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
+            ////test6.Field2 = "manager.GetAll()[6]";
+            //items.Add(test4);
+            //items.Add(test5);
+            ////items.Add(test6);
+            //await manager.Update(items);
+            //List<ClassA> items1 = await manager.Get() as List<ClassA>;
+            //await manager.Delete(items1);
+            //await manager.Insert(test1);
+            //ClassC c = new ClassC();
+            //c.Field1 = 9;
+            //(c as ClassA).Field1 = 18;
+
+            //#endregion
 
             //#region MysqlFromAPI
             //WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
@@ -137,18 +143,58 @@ namespace App1.ViewModel
             //await webServiceD.Post(d);
             //#endregion
 
-            #region Enums
-            EnumTester tester = new EnumTester();
+            //#region Observers
+            //Test3 test3 = new Test3();
+            //Test2 test20 = new Test2();
+            //Test2 test21 = new Test2();
+            //Test2 test22 = new Test2();
+
+            //test3.Attach(test20);
+            //test3.Attach(test21);
+            //test3.Attach(test22);
+
+            //test3.Notify();
+            //test3.MyProperty1 = "JeanDuToto";
+
+            //#endregion
+
+            #region Events
+            ClassWithEvent event1 = new ClassWithEvent();
+            event1.Changed += Event1_Changed;
+            event1.Handler += Event1_Handler;
+            event1.CustomClassAEvent += Event1_CustomClassAEvent;
+            event1.OnChanged(new EventArgs());
+            event1.OnHandler(new EventArgs());
+            event1.OnCustomClassAEvent(new ClassA());
             #endregion
 
-            #region Genericity
-            Genericitycs gene = new Genericitycs();
-            Genericitycs2<ClassA> gene2 = new Genericitycs2<ClassA>();
-            #endregion
+            //#region Enums
+            //EnumTester tester = new EnumTester();
+            //#endregion
 
-            #region JSON
-            Json json = new Json();
-            #endregion
+            //#region Genericity
+            //Genericitycs gene = new Genericitycs();
+            //Genericitycs2<ClassA> gene2 = new Genericitycs2<ClassA>();
+            //#endregion
+
+            //#region JSON
+            //Json json = new Json();
+            //#endregion
+        }
+
+        private void Event1_CustomClassAEvent(object sender, ClassA e)
+        {
+            Console.WriteLine("Fired custom event");
+        }
+
+        private void Event1_Handler(object sender, EventArgs e)
+        {
+            Console.WriteLine("Fired Handled");
+        }
+
+        private void Event1_Changed(object sender, EventArgs e)
+        {
+            Console.WriteLine("Fired Changed");
         }
 
         private void LoadItems()

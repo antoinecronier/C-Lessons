@@ -12,6 +12,7 @@
         <StackPanel>
             <Button x:Name="navigationBack" Content="navigate back" Click="navigation_Click" />
             <Button x:Name="navigationThrow" Content="navigate throw" Click="navigationThrow_Click"/>
+            <Button x:Name="navigationframe" Content="navigate frame" Click="navigationframe_Click" />
         </StackPanel>
         
     </Grid>
