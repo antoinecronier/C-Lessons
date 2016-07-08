@@ -1,5 +1,4 @@
-﻿using ClassLibrary2.Entities.Context;
-using ClassLibrary2.EnumManager;
+﻿using ClassLibrary2.EnumManager;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

@@ -18,7 +18,7 @@ namespace WebApplication2.Controllers.Base
         /// </summary>
         public BaseController()
         {
-            manager = new MySQLManager<T>(DataConnectionResource.LOCALMYQSL);
+            manager = new MySQLManager<T>(DataConnectionResource.LOCALMYSQL);
         }
 
         /// <summary>

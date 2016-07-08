@@ -72,7 +72,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncManager\CommandWorker.cs" />
+    <Compile Include="Database\MySQLFullDB.cs" />
     <Compile Include="Database\MySQLManager.cs" />
+    <Compile Include="Entities\Base\Class1Scheme.cs" />
+    <Compile Include="Entities\Base\Class2Scheme.cs" />
+    <Compile Include="Entities\Base\EntityBase.cs" />
+    <Compile Include="Entities\Class1.cs" />
+    <Compile Include="Entities\Class2.cs" />
     <Compile Include="Entities\ClassA.cs" />
     <Compile Include="Entities\ClassAbstract1.cs" />
     <Compile Include="Entities\ClassB.cs" />
@@ -80,13 +86,14 @@
     <Compile Include="Entities\ClassConcrete1.cs" />
     <Compile Include="Entities\ClassD.cs" />
     <Compile Include="Entities\ClassE.cs" />
+    <Compile Include="Entities\Generator\EntityGenerator.cs" />
+    <Compile Include="Entities\Generator\TypeEnum.cs" />
+    <Compile Include="Entities\Reflection\Reflectionner.cs" />
     <Compile Include="EnumManager\DataConnectionResource.cs" />
-    <Compile Include="Entities\Context\ClassAContext.cs" />
     <Compile Include="EnumManager\EnumTester.cs" />
     <Compile Include="Entities\IDo1.cs" />
     <Compile Include="Entities\IDo2.cs" />
     <Compile Include="Entities\IDo3.cs" />
-    <Compile Include="EnumManager\ActionValueAttribut.cs" />
     <Compile Include="EnumManager\StringValueAttribute.cs" />
     <Compile Include="Events\ClassWithEvent.cs" />
     <Compile Include="Events\EventBase.cs" />

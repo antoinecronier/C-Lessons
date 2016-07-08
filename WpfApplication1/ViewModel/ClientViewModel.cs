@@ -16,6 +16,8 @@ using ClassLibrary2.JSON;
 using WpfApplication1.View;
 using ClassLibrary2.Observer.Testing;
 using ClassLibrary2.Events;
+using ClassLibrary2.Entities;
+using ClassLibrary2.Entities.Generator;
 
 namespace App1.ViewModel
 {
@@ -39,6 +41,24 @@ namespace App1.ViewModel
             //Preproc preproc = new Preproc();
             //Sandbox sb = new Sandbox();
             MysqlTest();
+            TestEF6C1C2();
+        }
+
+        private async void TestEF6C1C2()
+        {
+            Class1 c1 = new Class1();
+            EntityGenerator<Class1> generatorClass1 = new EntityGenerator<Class1>();
+            c1 = generatorClass1.GenerateItem();
+
+            EntityGenerator<Class2> generatorClass2 = new EntityGenerator<Class2>();
+            for (int i = 0; i < 10; i++)
+            {
+                c1.Addresses.Add(generatorClass2.GenerateItem());
+            }
+
+            MySQLManager<Class1> managerClass1 = new MySQLManager<Class1>(DataConnectionResource.LOCALMYSQL);
+            c1 = await managerClass1.Insert(c1);
+            Class1 c11 = await managerClass1.Get(c1.Id);
         }
         #endregion
 

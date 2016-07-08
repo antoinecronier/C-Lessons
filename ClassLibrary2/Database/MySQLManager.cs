@@ -1,5 +1,4 @@
 ﻿using ClassLibrary1;
-using ClassLibrary2.Entities.Context;
 using ClassLibrary2.EnumManager;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,7 @@ namespace ClassLibrary2.Database
         public MySQLManager(DataConnectionResource dataConnectionResource) 
             : base(EnumString.GetStringValue(dataConnectionResource))
         {
-
+            MySQLFullDB initDBIfNotExist = new MySQLFullDB(dataConnectionResource);
         }
 
         public DbSet<TEntity> DbSetT { get; set; }
@@ -40,17 +39,25 @@ namespace ClassLibrary2.Database
 
         public async Task<TEntity> Update(TEntity item)
         {
-            this.Entry<TEntity>(item);
+            await Task.Factory.StartNew(() =>
+            {
+                this.DbSetT.Attach(item);
+                this.Entry<TEntity>(item);
+            });
             await this.SaveChangesAsync();
             return item;
         }
 
         public async Task<IEnumerable<TEntity>> Update(IEnumerable<TEntity> items)
         {
-            foreach (var item in items)
+            await Task.Factory.StartNew(() =>
             {
-                this.Entry<TEntity>(item);
-            }
+                this.DbSetT.Attach((items as List<TEntity>)[0]);
+                foreach (var item in items)
+                {
+                    this.Entry<TEntity>(item);
+                }
+            });
             await this.SaveChangesAsync();
             return items;
         }

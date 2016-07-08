@@ -22,7 +22,7 @@ namespace ClassLibrary2.EnumManager
             if (item1.Equals(1)) { } //Cannot be true
             if ((Int32)item1 == 1){} //Dynamic cast matching enum return type
 
-            DataConnectionResource res = DataConnectionResource.LOCALMYQSL;
+            DataConnectionResource res = DataConnectionResource.LOCALMYSQL;
             String test = res.GetStringValue();
             test = EnumString.GetStringValue(res);
         }
