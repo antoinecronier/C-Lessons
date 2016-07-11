@@ -11,78 +11,52 @@ namespace ClassLibrary2.Database
     {
         private List<Criterion> criterions;
 
-        public List<Criterion> Criterions
-        {
-            get { return criterions; }
-            set { criterions = value; }
-        }
-
         private DbAction dbAction;
-
-        public DbAction DbAction
-        {
-            get { return dbAction; }
-            set { dbAction = value; }
-        }
 
         private DbTablesLinks dbTablesLinks;
 
-        public DbTablesLinks DbTablesLinks
-        {
-            get { return dbTablesLinks; }
-            set { dbTablesLinks = value; }
-        }
-
         private String dbSelector;
-
-        public String DbSelector
-        {
-            get { return dbSelector; }
-            set { dbSelector = value; }
-        }
 
 
         public Criteria()
         {
-            this.Criterions = new List<Criterion>();
-            this.DbTablesLinks = new DbTablesLinks();
+            this.criterions = new List<Criterion>();
+            this.dbTablesLinks = new DbTablesLinks();
         }
 
         public Criteria(DbAction action, String dbSelector)
         {
-            this.Criterions = new List<Criterion>();
-            this.DbTablesLinks = new DbTablesLinks();
-            this.DbAction = action;
-            this.DbSelector = dbSelector;
+            this.criterions = new List<Criterion>();
+            this.dbTablesLinks = new DbTablesLinks();
+            this.dbAction = action;
+            this.dbSelector = dbSelector;
         }
 
         public void AddDbLink(String table, DbLinks link, LinkCondition condition = null)
         {
-            Dictionary<DbLinks, LinkCondition> links = new Dictionary<DbLinks, LinkCondition>();
-            links.Add(link, condition);
-            this.DbTablesLinks.Links.Add(table, links);
+            this.dbTablesLinks.Add(table, link, condition);
         }
 
         public void AddCriterion(Criterion criterion)
         {
-            this.Criterions.Add(criterion);
+            this.criterions.Add(criterion);
         }
 
         public String MySQLCompute()
         {
-            String result = EnumString.GetStringValue(this.DbAction);
+            String result = EnumString.GetStringValue(this.dbAction);
             result += " ";
-            result += this.DbSelector;
+            result += this.dbSelector;
             result += " ";
-            result += DbTablesLinks.MySQLCompute();
+            result += this.dbTablesLinks.MySQLCompute();
 
-            if (Criterions.Count > 0)
+            if (criterions.Count > 0)
             {
                 result += "WHERE";
                 result += " ";
             }
 
-            foreach (var item in Criterions)
+            foreach (var item in criterions)
             {
                 result += item.MySQLCompute();
                 result += " ";

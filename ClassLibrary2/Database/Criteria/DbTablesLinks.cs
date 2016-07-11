@@ -11,21 +11,15 @@ namespace ClassLibrary2.Database
     {
         private Dictionary<String, Dictionary<DbLinks, LinkCondition>> links;
 
-        public Dictionary<String, Dictionary<DbLinks, LinkCondition>> Links
-        {
-            get { return links; }
-            set { links = value; }
-        }
-
 
         public DbTablesLinks()
         {
-            this.Links = new Dictionary<String, Dictionary<DbLinks, LinkCondition>>();
+            this.links = new Dictionary<String, Dictionary<DbLinks, LinkCondition>>();
         }
 
         public DbTablesLinks(String table, DbLinks link, LinkCondition condition = null)
         {
-            this.Links = new Dictionary<String, Dictionary<DbLinks, LinkCondition>>();
+            this.links = new Dictionary<String, Dictionary<DbLinks, LinkCondition>>();
             this.Add(table, link, condition);
         }
 
@@ -33,14 +27,14 @@ namespace ClassLibrary2.Database
         {
             Dictionary<DbLinks, LinkCondition> linker = new Dictionary<DbLinks, LinkCondition>();
             linker.Add(link, condition);
-            this.Links.Add(table, linker);
+            this.links.Add(table, linker);
         }
 
         public String MySQLCompute()
         {
             String result = "";
 
-            foreach (var item in Links)
+            foreach (var item in links)
             {
                 result += EnumString.GetStringValue(item.Value.First().Key) + " " + item.Key;
                 if (item.Value.First().Value != null)

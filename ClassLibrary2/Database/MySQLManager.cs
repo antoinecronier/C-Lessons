@@ -102,17 +102,7 @@ namespace ClassLibrary2.Database
 
         public async Task<IEnumerable<TEntity>> CustomQuery(Criteria criteria)
         {
-            if (criteria.DbAction != DbAction.SELECT)
-            {
-                List<TEntity> result = new List<TEntity>();
-                this.Database.ExecuteSqlCommand(criteria.MySQLCompute());
-                return result;
-            }
-            else
-            {
-                return await this.DbSetT.SqlQuery(criteria.MySQLCompute()).ToListAsync();
-            }
-            
+            return await this.DbSetT.SqlQuery(criteria.MySQLCompute()).ToListAsync();
         }
     }
 }

@@ -12,35 +12,12 @@ namespace ClassLibrary2.Database
     {
         private DbOperator dbOperator;
 
-        public DbOperator DbOperator
-        {
-            get { return dbOperator; }
-            set { dbOperator = value; }
-        }
-
         private DbVerb verb;
-
-        public DbVerb Verb
-        {
-            get { return verb; }
-            set { verb = value; }
-        }
 
         private object value;
 
-        public object Value
-        {
-            get { return value; }
-            set { this.value = value; }
-        }
-
         private String dbColumn;
-
-        public String DbColumn
-        {
-            get { return dbColumn; }
-            set { dbColumn = value; }
-        }
+        
 
 
         public Criterion()
@@ -50,15 +27,15 @@ namespace ClassLibrary2.Database
 
         public Criterion(DbVerb verb, String dbColumn, DbOperator dbOperator, object value)
         {
-            this.Verb = verb;
-            this.DbColumn = dbColumn;
-            this.DbOperator = dbOperator;
-            this.Value = value;
+            this.verb = verb;
+            this.dbColumn = dbColumn;
+            this.dbOperator = dbOperator;
+            this.value = value;
         }
 
         public String MySQLCompute()
         {
-            return EnumString.GetStringValue(this.Verb) + " " + this.DbColumn + " " + EnumString.GetStringValue(this.DbOperator) + " " + this.Value.ToString();
+            return EnumString.GetStringValue(this.verb) + " " + this.dbColumn + " " + EnumString.GetStringValue(this.dbOperator) + " " + this.value.ToString();
         }
     }
 }

@@ -10,19 +10,7 @@ namespace ClassLibrary2.Database
     {
         private String columnStart;
 
-        public String ColumnStart
-        {
-            get { return columnStart; }
-            set { columnStart = value; }
-        }
-
         private String columnArrive;
-
-        public String ColumnArrive
-        {
-            get { return columnArrive; }
-            set { columnArrive = value; }
-        }
 
         public LinkCondition()
         {
@@ -31,13 +19,13 @@ namespace ClassLibrary2.Database
 
         public LinkCondition(String columnStart, String columnArrive)
         {
-            this.ColumnStart = columnStart;
-            this.ColumnArrive = columnArrive;
+            this.columnStart = columnStart;
+            this.columnArrive = columnArrive;
         }
 
         public String MySQLCompute()
         {
-            return "ON " + this.ColumnStart + " = " + this.ColumnArrive;
+            return "ON " + this.columnStart + " = " + this.columnArrive;
         }
     }
 }

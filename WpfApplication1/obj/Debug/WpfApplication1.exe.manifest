@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ClassLibrary2.dll" size="61440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ClassLibrary2.dll" size="58880">
       <assemblyIdentity name="ClassLibrary2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8zbXDKtwIW1lWMtVXDVJsOzgXsdtiLs08m50cyyVqH0=</dsig:DigestValue>
+        <dsig:DigestValue>EzSqrCxa3fbZj04SEjjqc+wUC1QV6o9gpMmKpxM9PiU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -169,7 +169,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5J9mpEyY+S+rUvL4n8bpFIYqQPajmTi5QkJlaxqeuk8=</dsig:DigestValue>
+        <dsig:DigestValue>UBW5TpQJYCqLjEhGddCXKUeQWw2fcro1ifT27G1dj1E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

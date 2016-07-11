@@ -91,7 +91,7 @@ namespace App1.ViewModel
             var result = await managerClass1.DbSetT.SqlQuery(queryString).ToListAsync();
 
             Criteria criteria = new Criteria(DbAction.SELECT, EnumString.GetStringValue(DbSelector.ALL));
-            criteria.DbTablesLinks = new DbTablesLinks(Class1Schema.TABLE, DbLinks.FROM);
+            criteria.AddDbLink(Class1Schema.TABLE, DbLinks.FROM);
             criteria.AddDbLink(Class2Schema.TABLE, DbLinks.INNERJOIN, new LinkCondition(Class1Schema.PREFIX_ADDRESS_ID,Class2Schema.PREFIX_ID));
             criteria.AddCriterion(new Criterion(DbVerb.EMPTY, Class1Schema.NAME, DbOperator.LIKE, "'%s'"));
             criteria.AddCriterion(new Criterion(DbVerb.OR, Class1Schema.SURNAME, DbOperator.IN, "('RebeckaGotts', 'JesseAguas')"));
@@ -100,17 +100,15 @@ namespace App1.ViewModel
             var result1 = await managerClass1.CustomQuery(criteria);
 
 
-            MySQLManager<Class2> managerClass2 = new MySQLManager<Class2>(DataConnectionResource.LOCALMYSQL);
+            //MySQLManager<Class2> managerClass2 = new MySQLManager<Class2>(DataConnectionResource.LOCALMYSQL);
 
-            Criteria criteria1 = new Criteria(DbAction.DELETE, Class1Schema.ALL_TABLE_ELEMENT + ", " + Class2Schema.ALL_TABLE_ELEMENT);
-            criteria1.DbTablesLinks = new DbTablesLinks(Class2Schema.TABLE, DbLinks.FROM);
-            criteria1.AddDbLink(Class1Schema.TABLE, DbLinks.INNERJOIN, new LinkCondition(Class2Schema.PREFIX_CLASS1_ID, Class1Schema.PREFIX_ID));
-            criteria1.AddCriterion(new Criterion(DbVerb.EMPTY, Class2Schema.PREFIX_CLASS1_ID, DbOperator.SUPERIOREQUAL, "4"));
+            //Criteria criteria1 = new Criteria(DbAction.DELETE, Class1Schema.ALL_TABLE_ELEMENT + ", " + Class2Schema.ALL_TABLE_ELEMENT);
+            //criteria1.AddDbLink(Class2Schema.TABLE, DbLinks.FROM);
+            //criteria1.AddDbLink(Class1Schema.TABLE, DbLinks.INNERJOIN, new LinkCondition(Class2Schema.PREFIX_CLASS1_ID, Class1Schema.PREFIX_ID));
+            //criteria1.AddCriterion(new Criterion(DbVerb.EMPTY, Class2Schema.PREFIX_CLASS1_ID, DbOperator.SUPERIOREQUAL, "4"));
 
-            String value1 = criteria1.MySQLCompute();
-            await managerClass2.CustomQuery(criteria1);
-            //value1 = "DELETE address.*, client.* FROM address INNER JOIN client ON address.Class1_Id = client.Id WHERE  address.Class1_Id >= 24";
-            //await managerClass2.DbSetT.SqlQuery(value1).ToListAsync();
+            //String value1 = criteria1.MySQLCompute();
+            //await managerClass2.CustomQuery(criteria1);
         }
         #endregion
 
