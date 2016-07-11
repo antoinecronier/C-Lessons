@@ -72,11 +72,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncManager\CommandWorker.cs" />
+    <Compile Include="Database\Criteria\Criteria.cs" />
+    <Compile Include="Database\Criteria\Criterion.cs" />
+    <Compile Include="Database\Criteria\DbAction.cs" />
+    <Compile Include="Database\Criteria\DbOperator.cs" />
+    <Compile Include="Database\Criteria\DbLinks.cs" />
+    <Compile Include="Database\Criteria\DbSelector.cs" />
+    <Compile Include="Database\Criteria\DbTablesLinks.cs" />
+    <Compile Include="Database\Criteria\DbVerb.cs" />
+    <Compile Include="Database\Criteria\LinkCondition.cs" />
     <Compile Include="Database\MySQLFullDB.cs" />
     <Compile Include="Database\MySQLManager.cs" />
-    <Compile Include="Entities\Base\Class1Scheme.cs" />
-    <Compile Include="Entities\Base\Class2Scheme.cs" />
+    <Compile Include="Entities\Base\Class1Schema.cs" />
+    <Compile Include="Entities\Base\Class2Schema.cs" />
     <Compile Include="Entities\Base\EntityBase.cs" />
+    <Compile Include="Entities\Base\ISchema.cs" />
     <Compile Include="Entities\Class1.cs" />
     <Compile Include="Entities\Class2.cs" />
     <Compile Include="Entities\ClassA.cs" />

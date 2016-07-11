@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary2.Entities
 {
-    [Table(Class2Scheme.TABLE)]
+    [Table(Class2Schema.TABLE)]
     public class Class2
     {
         private Int32 id;
@@ -19,28 +19,28 @@ namespace ClassLibrary2.Entities
         /*private Class1 client;*/
 
         [Key]
-        [Column(Class2Scheme.ID)]
+        [Column(Class2Schema.ID)]
         public Int32 Id
         {
             get { return id; }
             set { id = value; }
         }
 
-        [Column(Class2Scheme.WAY)]
+        [Column(Class2Schema.WAY)]
         public String Way
         {
             get { return way; }
             set { way = value; }
         }
 
-        [Column(Class2Scheme.NUMBER)]
+        [Column(Class2Schema.NUMBER)]
         public Int32 Number
         {
             get { return number; }
             set { number = value; }
         }
 
-        [Column(Class2Scheme.CLIENT_ID)]
+        [Column(Class2Schema.CLIENT_ID)]
         public Int32 ClientId
         {
             get { return clientId; }

@@ -18,6 +18,8 @@ using ClassLibrary2.Observer.Testing;
 using ClassLibrary2.Events;
 using ClassLibrary2.Entities;
 using ClassLibrary2.Entities.Generator;
+using ClassLibrary2.Entities.Base;
+using System.Data.SqlClient;
 
 namespace App1.ViewModel
 {
@@ -59,6 +61,56 @@ namespace App1.ViewModel
             MySQLManager<Class1> managerClass1 = new MySQLManager<Class1>(DataConnectionResource.LOCALMYSQL);
             c1 = await managerClass1.Insert(c1);
             Class1 c11 = await managerClass1.Get(c1.Id);
+
+            //Class1 client = managerClass1.DbSetT.SqlQuery("SELECT * FROM " + Class1Schema.TABLE + " WHERE id = 1",new object[] { }).ToListAsync().Result[0];
+            //Class1 client = managerClass1.DbSetT.SqlQuery("@param1, @param2, @param3",
+            //    new SqlParameter("param1", "SELECT * FROM "),
+            //    new SqlParameter("param2", Class1Schema.TABLE),
+            //    new SqlParameter("param3", " WHERE id = 1")).FirstAsync().Result;
+            //var result = await managerClass1.DbSetT.SqlQuery("SELECT " + Class1Schema.ID + ", " + Class1Schema.NAME + ", " + Class1Schema.SURNAME + ", " + Class1Schema.ADDRESS_ID +" FROM " + Class1Schema.TABLE).ToListAsync();
+
+            //Func<Class1, Boolean> testFunction = new Func<Class1, bool>((x, y) => 
+            //{
+            //    if (true)
+            //    {
+
+            //        return true;
+            //    }
+            //    else
+            //    {
+
+            //        return false;
+            //    }
+            //});
+
+            //var result1 = managerClass1.DbSetT.SqlQuery("SELECT * FROM "+ Class1Schema.TABLE + ";").AllAsync(testFunction);
+
+            String queryString = string.Format("SELECT * FROM {0} {1} {2} {3} {4};", Class1Schema.TABLE, "WHERE", Class1Schema.NAME, "LIKE", "'%s'");
+            queryString = string.Format("SELECT * FROM {0};", Class1Schema.TABLE);
+
+            var result = await managerClass1.DbSetT.SqlQuery(queryString).ToListAsync();
+
+            Criteria criteria = new Criteria(DbAction.SELECT, EnumString.GetStringValue(DbSelector.ALL));
+            criteria.DbTablesLinks = new DbTablesLinks(Class1Schema.TABLE, DbLinks.FROM);
+            criteria.AddDbLink(Class2Schema.TABLE, DbLinks.INNERJOIN, new LinkCondition(Class1Schema.PREFIX_ADDRESS_ID,Class2Schema.PREFIX_ID));
+            criteria.AddCriterion(new Criterion(DbVerb.EMPTY, Class1Schema.NAME, DbOperator.LIKE, "'%s'"));
+            criteria.AddCriterion(new Criterion(DbVerb.OR, Class1Schema.SURNAME, DbOperator.IN, "('RebeckaGotts', 'JesseAguas')"));
+
+            String value = criteria.MySQLCompute();
+            var result1 = await managerClass1.CustomQuery(criteria);
+
+
+            MySQLManager<Class2> managerClass2 = new MySQLManager<Class2>(DataConnectionResource.LOCALMYSQL);
+
+            Criteria criteria1 = new Criteria(DbAction.DELETE, Class1Schema.ALL_TABLE_ELEMENT + ", " + Class2Schema.ALL_TABLE_ELEMENT);
+            criteria1.DbTablesLinks = new DbTablesLinks(Class2Schema.TABLE, DbLinks.FROM);
+            criteria1.AddDbLink(Class1Schema.TABLE, DbLinks.INNERJOIN, new LinkCondition(Class2Schema.PREFIX_CLASS1_ID, Class1Schema.PREFIX_ID));
+            criteria1.AddCriterion(new Criterion(DbVerb.EMPTY, Class2Schema.PREFIX_CLASS1_ID, DbOperator.SUPERIOREQUAL, "4"));
+
+            String value1 = criteria1.MySQLCompute();
+            await managerClass2.CustomQuery(criteria1);
+            //value1 = "DELETE address.*, client.* FROM address INNER JOIN client ON address.Class1_Id = client.Id WHERE  address.Class1_Id >= 24";
+            //await managerClass2.DbSetT.SqlQuery(value1).ToListAsync();
         }
         #endregion
 

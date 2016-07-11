@@ -1,8 +1,10 @@
 ﻿using ClassLibrary2.Entities;
+using ClassLibrary2.Entities.Generator;
 using ClassLibrary2.EnumManager;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,22 +40,26 @@ namespace ClassLibrary2.Database
             if (this.Database.CreateIfNotExists())
             {
                 //Setup base datas to load
+                for (int j = 0; j < 20; j++)
+                {
+                    Class1 c1 = new Class1();
+                    EntityGenerator<Class1> generatorClass1 = new EntityGenerator<Class1>();
+                    c1 = generatorClass1.GenerateItem();
+
+                    EntityGenerator<Class2> generatorClass2 = new EntityGenerator<Class2>();
+                    for (int i = 0; i < 10; i++)
+                    {
+                        c1.Addresses.Add(generatorClass2.GenerateItem());
+                    }
+
+                    MySQLManager<Class1> managerClass1 = new MySQLManager<Class1>(DataConnectionResource.LOCALMYSQL);
+                    managerClass1.Insert(c1);
+                }
             }
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
-            /*modelBuilder.Entity<Class1>()
-                .HasRequired(c => c.Address)
-                .WithMany()
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Class2>()
-                .HasRequired(c => c.Client)
-                .WithMany()
-                .WillCascadeOnDelete(false);*/
         }
     }
 }
