@@ -24,7 +24,7 @@ namespace ClassLibrary2.Entities.Generator
             {
                 var type = Type.GetType(typeof(List<T>).AssemblyQualifiedName);
                 var list = (List<T>)Activator.CreateInstance(type);
-                itemProperties = reflectionner.ReadList<T>(list);
+                itemProperties = reflectionner.ReadClass<T>();
             }
             else
             {
@@ -61,8 +61,8 @@ namespace ClassLibrary2.Entities.Generator
                                 property.SetValue(result, Faker.Name.FullName());
                                 break;
                             case TypeEnum.LIST:
-                                object generator1 = Activator.CreateInstance(
-                                    typeof(EntityGenerator<>).MakeGenericType(property.PropertyType.GetGenericArguments()));
+                                //object generator1 = Activator.CreateInstance(
+                                //    typeof(EntityGenerator<>).MakeGenericType(property.PropertyType.GetGenericArguments()));
 
                                 object list = Activator.CreateInstance(
                                     typeof(List<>).MakeGenericType(property.PropertyType.GetGenericArguments()));

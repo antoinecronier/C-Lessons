@@ -1,4 +1,5 @@
-﻿using ConsoleApplication1.Entities;
+﻿using ClassLibrary2;
+using ConsoleApplication1.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace ConsoleApplication1
         private SubEntities.Entity1 monEntity2;
         static void Main(string[] args)
         {
+            Logger logger = new Logger("Console Application",LogMode.CONSOLE, AlertMode.CONSOLE);
+            logger.Log("plop");
         }
     }
 }

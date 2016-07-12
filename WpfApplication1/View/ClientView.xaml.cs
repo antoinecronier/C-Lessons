@@ -1,6 +1,9 @@
 ﻿using App1.MyUserControl;
 using App1.ViewModel;
+using ClassLibrary2;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Shapes;
 using WpfApplication1.View;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
@@ -53,6 +56,12 @@ namespace WpfApplication1.View
         private void navigation_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Page1());
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Logger logger = new Logger("Notification",LogMode.CONSOLE, AlertMode.OVERLAY);
+            logger.Log("Welcome!!!!!!!!!");
         }
     }
 }

@@ -5,3 +5,14 @@ C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplicati
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\ClassLibrary2.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\ClassLibrary3.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\EntityFramework.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\Faker.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\ClassLibrary2.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\ClassLibrary3.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\EntityFramework.xml
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ConsoleApplication1\bin\Debug\fr\EntityFramework.resources.dll

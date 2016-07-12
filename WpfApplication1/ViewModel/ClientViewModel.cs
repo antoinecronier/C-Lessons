@@ -20,6 +20,7 @@ using ClassLibrary2.Entities;
 using ClassLibrary2.Entities.Generator;
 using ClassLibrary2.Entities.Base;
 using System.Data.SqlClient;
+using ClassLibrary2;
 
 namespace App1.ViewModel
 {
@@ -42,8 +43,81 @@ namespace App1.ViewModel
             LinkItems();
             //Preproc preproc = new Preproc();
             //Sandbox sb = new Sandbox();
-            MysqlTest();
-            TestEF6C1C2();
+            //MysqlTest();
+            //TestEF6C1C2();
+            //Events();
+            //Logs();
+        }
+
+        private void Logs()
+        {
+            Logger logger = new Logger();
+            logger.Log("Default logger welcome");
+            logger.Log("With temp options", LogMode.CONSOLE);
+
+            Logger logger1 = new Logger("MyLogger", LogMode.CONSOLE, AlertMode.CONSOLE);
+            logger1.Log("Welcome from custom logger");
+
+            Logger logger2 = new Logger();
+            logger2.Log("With temp options", LogMode.CONSOLE, AlertMode.MESSAGE_BOX);
+
+            Logger logger3 = new Logger("overlay",LogMode.CONSOLE, AlertMode.OVERLAY);
+            logger3.Log("Overlay prompter");
+        }
+
+        private void Events()
+        {
+            #region Events
+            ClassWithEvent event1 = new ClassWithEvent();
+            event1.Changed += Event1_Changed;
+            event1.Handler += Event1_Handler;
+            event1.CustomClassAEvent += Event1_CustomClassAEvent;
+            event1.CustomEventArg += Event1_CustomEventArg;
+            event1.OnChanged(new EventArgs());
+            event1.OnHandler(new EventArgs());
+            event1.OnCustomClassAEvent(new ClassA());
+            CustomEventArgs args = new CustomEventArgs();
+            args.CurrentClass = this;
+            args.Message = "Welcome from event";
+            args.Logger = new Logger("ClientViewModel",LogMode.CONSOLE,AlertMode.CONSOLE);
+            event1.OnCustomEventArg(args);
+
+            //ClassWithEvent event2 = new ClassWithEvent();
+            //event2.Changed += Event1_Changed;
+            //event2.Handler += Event1_Handler;
+            //event2.CustomClassAEvent += Event1_CustomClassAEvent;
+            //event2.OnChanged(new EventArgs());
+            //event2.OnHandler(new EventArgs());
+            //event2.OnCustomClassAEvent(new ClassA());
+
+            //ClassWithEvent event3 = new ClassWithEvent();
+            //event3.Changed += Event1_Changed;
+            //event3.Handler += Event1_Handler;
+            //event3.CustomClassAEvent += Event1_CustomClassAEvent;
+            //event3.OnChanged(new EventArgs());
+            //event3.OnHandler(new EventArgs());
+            //event3.OnCustomClassAEvent(new ClassA());
+            #endregion
+        }
+
+        private void Event1_CustomEventArg(object sender, CustomEventArgs e)
+        {
+            e.Logger.Log("Message Receive");
+        }
+
+        private void Event1_CustomClassAEvent(object sender, ClassA e)
+        {
+            //Console.WriteLine("Fired custom event");
+        }
+
+        private void Event1_Handler(object sender, EventArgs e)
+        {
+            Console.WriteLine("Fired Handled");
+        }
+
+        private void Event1_Changed(object sender, EventArgs e)
+        {
+            //Console.WriteLine("Fired Changed");
         }
 
         private async void TestEF6C1C2()
@@ -228,16 +302,6 @@ namespace App1.ViewModel
 
             //#endregion
 
-            #region Events
-            ClassWithEvent event1 = new ClassWithEvent();
-            event1.Changed += Event1_Changed;
-            event1.Handler += Event1_Handler;
-            event1.CustomClassAEvent += Event1_CustomClassAEvent;
-            event1.OnChanged(new EventArgs());
-            event1.OnHandler(new EventArgs());
-            event1.OnCustomClassAEvent(new ClassA());
-            #endregion
-
             //#region Enums
             //EnumTester tester = new EnumTester();
             //#endregion
@@ -250,21 +314,6 @@ namespace App1.ViewModel
             //#region JSON
             //Json json = new Json();
             //#endregion
-        }
-
-        private void Event1_CustomClassAEvent(object sender, ClassA e)
-        {
-            Console.WriteLine("Fired custom event");
-        }
-
-        private void Event1_Handler(object sender, EventArgs e)
-        {
-            Console.WriteLine("Fired Handled");
-        }
-
-        private void Event1_Changed(object sender, EventArgs e)
-        {
-            Console.WriteLine("Fired Changed");
         }
 
         private void LoadItems()

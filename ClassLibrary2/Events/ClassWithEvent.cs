@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary2.Events
 {
-    public delegate void EventHandler(object sender, EventArgs e);
+    //public delegate void EventHandler(object sender, EventArgs e);
     public class ClassWithEvent
     {
         #region Events
         public event ChangedEventHandler Changed;
         public event EventHandler Handler;
         public event EventHandler<ClassA> CustomClassAEvent;
+        public event EventHandler<CustomEventArgs> CustomEventArg;
+        public event UnhandledExceptionEventHandler UnHandle;
+        public ListWithChangedEvent EventList;
         #endregion
 
         #region Events Methods
@@ -26,8 +29,7 @@ namespace ClassLibrary2.Events
 
         public virtual void OnHandler(EventArgs e)
         {
-            if (Handler != null)
-                Handler(this, e);
+            Handler?.Invoke(this, e);
         }
 
         public virtual void OnCustomClassAEvent(ClassA e)
@@ -35,7 +37,22 @@ namespace ClassLibrary2.Events
             if (CustomClassAEvent != null)
                 CustomClassAEvent(this, e);
         }
+
+        public virtual void OnCustomEventArg(CustomEventArgs e)
+        {
+            if (CustomEventArg != null)
+            {
+                e.Logger.Log(e.Message);
+                CustomEventArg(this, e);
+            }
+                
+        }
         #endregion
+
+        public ClassWithEvent()
+        {
+            EventList = new ListWithChangedEvent();
+        }
 
         #region Methods
         #endregion
