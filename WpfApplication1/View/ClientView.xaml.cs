@@ -57,11 +57,5 @@ namespace WpfApplication1.View
         {
             this.NavigationService.Navigate(new Page1());
         }
-
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Logger logger = new Logger("Notification",LogMode.CONSOLE, AlertMode.OVERLAY);
-            logger.Log("Welcome!!!!!!!!!");
-        }
     }
 }

@@ -29,6 +29,10 @@ namespace ClassLibrary2
         private object data;
         private CancellationTokenSource cancellationTokenSource;
         private Point baseNotificationLocation;
+        private CommandWorker commandWorker;
+        private ManualResetEvent manualResetEvent;
+        private CancellationTokenSource cancellationTS;
+        private bool haveToRun;
 
         public Logger(string tag = "Logger", LogMode logMode = LogMode.NONE, AlertMode alertMode = AlertMode.NONE, object data = null, Boolean haveToBeSend = false, String path = "")
         {
@@ -38,6 +42,10 @@ namespace ClassLibrary2
             this.path = path;
             this.alertMode = alertMode;
             this.data = data;
+            commandWorker = new CommandWorker("Logger");
+            commandWorker.Start();
+            manualResetEvent = new ManualResetEvent(false);
+            cancellationTS = new CancellationTokenSource();
             Console(INIT);
         }
 
@@ -102,7 +110,15 @@ namespace ClassLibrary2
                     MessageBox(ALERT + msg.ToString());
                     break;
                 case AlertMode.OVERLAY:
-                    Overlay(msg.ToString());
+                    ManualResetEvent reset = new ManualResetEvent(false);
+                    commandWorker.Enqueue(() =>
+                    {
+                        this.manualResetEvent = reset;
+                        this.haveToRun = true;
+                        this.cancellationTS = new CancellationTokenSource();
+                        Overlay(msg.ToString(), reset);
+                    }, reset);
+                    
                     break;
                 default:
                     break;
@@ -125,7 +141,7 @@ namespace ClassLibrary2
 #endif
         }
 
-        private void Overlay(string msg)
+        private void Overlay(string msg, ManualResetEvent autoResetEvent)
         {
             //StackPanel stackpanel = CodeBehindNotification(msg);
 
@@ -135,8 +151,8 @@ namespace ClassLibrary2
                 Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
                 {
                     StackPanel stackPanelItem = FindChildControl<StackPanel>(Application.Current.MainWindow, "notification") as StackPanel;
-                    baseNotificationLocation = stackPanelItem.TransformToAncestor(Application.Current.MainWindow)
-                          .Transform(new Point(0, 0));
+                    //baseNotificationLocation = stackPanelItem.TransformToAncestor(Application.Current.MainWindow)
+                    //      .Transform(new Point(0, 0));
                     if (stackPanelItem != null)
                     {
                         foreach (FrameworkElement item in stackPanelItem.Children)
@@ -149,35 +165,43 @@ namespace ClassLibrary2
                                 case "message":
                                     (item as TextBlock).Text = msg + LOG_SAVING_QUESTION;
                                     break;
-                                case "yes":
-                                    (item as Button).Content = "oui";
-                                    (item as Button).Click += Yes_Click;
-                                    break;
-                                case "no":
-                                    (item as Button).Content = "non";
-                                    (item as Button).Click += No_Click;
+                                case "buttons":
+                                    foreach (FrameworkElement button in (item as StackPanel).Children)
+                                    {
+                                        switch (button.Name)
+                                        {
+                                            case "yes":
+                                                (button as Button).Content = "oui";
+                                                (button as Button).Click += Yes_Click;
+                                                break;
+                                            case "no":
+                                                (button as Button).Content = "non";
+                                                (button as Button).Click += No_Click;
+                                                break;
+                                            default:
+                                                break;
+                                        }
+
+                                    }
                                     break;
                                 default:
                                     break;
                             }
                         }
 
-
-                        var x = Int32.Parse((FindChildControl<TextBox>(Application.Current.MainWindow, "x") as TextBox).Text);
-                        var y = Int32.Parse((FindChildControl<TextBox>(Application.Current.MainWindow, "y") as TextBox).Text);
+                        DockPanel dockPanelItem = FindChildControl<DockPanel>(Application.Current.MainWindow, "notificationDock") as DockPanel;
 
                         Task.Factory.StartNew(() =>
                         {
-                            FrameworkElementMoving(stackPanelItem, x, y);
+                            FrameworkElementMoving(dockPanelItem, 0, 0);
                         });
-                        //stackPanelItem.BeginStoryboard(StoryboardHidingSetup());
 
-                        //cancellationTokenSource = new CancellationTokenSource();
-                        //Task.Factory.StartNew(() =>
-                        //{
-                        //    Task.Delay(TimeSpan.FromSeconds(8)).Wait();
-                        //    RemoveFromUI(stackPanelItem);
-                        //});
+                        cancellationTokenSource = new CancellationTokenSource();
+                        Task.Factory.StartNew(() =>
+                        {
+                            Task.Delay(TimeSpan.FromSeconds(8)).Wait(this.cancellationTokenSource.Token);
+                            FindAndRemove(8, autoResetEvent);
+                        }, this.cancellationTS.Token);
                     }
                 }));
             });
@@ -187,9 +211,14 @@ namespace ClassLibrary2
         {
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
             {
-                FrameworkElement frameworkElement = FindChildControl<FrameworkElement>(Application.Current.MainWindow, "notification") as FrameworkElement;
-                Point relativePoint = element.TransformToAncestor(Application.Current.MainWindow).Transform(new Point(-Application.Current.MainWindow.Width + frameworkElement.ActualWidth, frameworkElement.ActualHeight));
-                //.Transform(new Point(0, 0));
+                if (element.Visibility != Visibility.Visible)
+                {
+                    element.Visibility = Visibility.Visible;
+                }
+                Point relativePoint = element.TransformToAncestor(Application.Current.MainWindow).Transform(
+                    new Point(0, -30));
+                //TODO find top right corner
+                //new Point(-Application.Current.MainWindow.ActualHeight - element.ActualHeight * 2.1, element.ActualWidth));
                 var top = relativePoint.Y;
                 var left = relativePoint.X;
 
@@ -202,59 +231,68 @@ namespace ClassLibrary2
             }));
         }
 
-        private Storyboard StoryboardOpacitySetup()
+        private Storyboard FrameworkElementOpacityRemoveSetup()
         {
-            Storyboard storyboard = new Storyboard();
-            var loadingAnimation = new DoubleAnimation(0.01, 1, new Duration(TimeSpan.FromSeconds(2)));
-            //var closingAnimation = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(3)))
-            //{
-            //    BeginTime = TimeSpan.FromSeconds(5)
-            //};
-            storyboard.Children.Add(loadingAnimation);
-            //storyboard.Children.Add(closingAnimation);
-            Storyboard.SetTargetProperty(loadingAnimation, new PropertyPath(UIElement.OpacityProperty));
-            //Storyboard.SetTargetProperty(closingAnimation, new PropertyPath(UIElement.OpacityProperty));
-            return storyboard;
-        }
-
-        private void HandleOnCompleted(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void RemoveFromUI(FrameworkElement item)
-        {
-            Task.Factory.StartNew(() =>
+            Storyboard storyboard = new Storyboard();;
+            var closingAnimation = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(3)))
             {
-                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() =>
-                {
-                    FrameworkElementMoving(item, this.baseNotificationLocation.X-100, this.baseNotificationLocation.Y-100);
-                }));
-            });
+                BeginTime = TimeSpan.FromSeconds(0)
+            };
+            var resetAnimation = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0)))
+            {
+                BeginTime = TimeSpan.FromSeconds(4)
+            };
+
+            storyboard.Children.Add(closingAnimation);
+            storyboard.Children.Add(resetAnimation);
+
+            Storyboard.SetTargetProperty(closingAnimation, new PropertyPath(UIElement.OpacityProperty));
+            Storyboard.SetTargetProperty(resetAnimation, new PropertyPath(UIElement.OpacityProperty));
+            return storyboard;
         }
         
         private void No_Click(object sender, RoutedEventArgs e)
         {
-            cancellationTokenSource.Cancel();
-            FindAndRemove();
+            this.cancellationTS.Cancel();
+            FindAndRemove(0, manualResetEvent);
         }
 
-        private void FindAndRemove()
+        private void FindAndRemove(Int32 delay, ManualResetEvent autoResetEvent)
         {
-            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() =>
+            Task.Factory.StartNew(() =>
             {
-                StackPanel stackPanelItem = FindChildControl<StackPanel>(Application.Current.MainWindow, "notification") as StackPanel;
-                if (stackPanelItem != null)
+                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() =>
+            {
+                lock (this)
                 {
-                    RemoveFromUI(stackPanelItem);
+                    DockPanel dockPanelItem = FindChildControl<DockPanel>(Application.Current.MainWindow, "notificationDock") as DockPanel;
+                    if (dockPanelItem != null)
+                    {
+                        if (this.haveToRun)
+                        {
+                            //dockPanelItem.BeginStoryboard(FrameworkElementOpacityRemoveSetup());
+                        }
+
+                        Task.Factory.StartNew(() =>
+                        {
+                            Task.Delay(TimeSpan.FromSeconds(delay)).Wait();
+                            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() =>
+                            {
+                                this.haveToRun = false;
+                                dockPanelItem.Visibility = Visibility.Hidden;
+                                autoResetEvent.Set();
+                            }));
+                        }, this.cancellationTokenSource.Token);
+                    }
                 }
             }));
+            }, this.cancellationTokenSource.Token);
         }
 
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
-            cancellationTokenSource.Cancel();
-            FindAndRemove();
+            this.cancellationTS.Cancel();
+            FindAndRemove(0, manualResetEvent);
             Log(this.data, LogMode.EXTERNAL);
         }
 
@@ -297,6 +335,17 @@ namespace ClassLibrary2
                 }
             }
             return null;
+        }
+
+        private void RemoveFromUI(FrameworkElement item)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() =>
+                {
+                    FrameworkElementMoving(item, this.baseNotificationLocation.X - 100, this.baseNotificationLocation.Y - 100);
+                }));
+            });
         }
 
         private StackPanel CodeBehindNotification(string msg)
@@ -369,84 +418,88 @@ namespace ClassLibrary2
                 }));
             });
         }
-    
 
-    private void StoryboardCreation(FrameworkElement AssociatedObject)
-    {
-        var loadingAnimation = new DoubleAnimation(0.01, 1, new Duration(TimeSpan.FromSeconds(0.5)));
-        var closingAnimation = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(3)))
+        private void HandleOnCompleted(object sender, EventArgs e)
         {
-            BeginTime = TimeSpan.FromSeconds(5)
-        };
+            throw new NotImplementedException();
+        }
 
-        Storyboard.SetTarget(loadingAnimation, AssociatedObject);
-        Storyboard.SetTarget(closingAnimation, AssociatedObject);
-
-        Storyboard.SetTargetProperty(loadingAnimation, new PropertyPath(UIElement.OpacityProperty));
-        Storyboard.SetTargetProperty(closingAnimation, new PropertyPath(UIElement.OpacityProperty));
-
-        Storyboard.SetTarget(loadingAnimation, AssociatedObject);
-        Storyboard.SetTarget(closingAnimation, AssociatedObject);
-
-        var storyboard = new Storyboard();
-        storyboard.Children.Add(loadingAnimation);
-        storyboard.Children.Add(closingAnimation);
-        // Subscription to events must be done at this point, because the Storyboard object becomes frozen later on
-        storyboard.Completed += HandleOnCompleted;
-
-        string storyBoardName = "BeginNotificationStoryboard";
-
-        // We define the BeginStoryBoard action for the EventTrigger
-        var beginStoryboard = new BeginStoryboard();
-        beginStoryboard.Name = storyBoardName;
-        beginStoryboard.Storyboard = storyboard;
-
-        // We create the EventTrigger
-        var eventTrigger = new EventTrigger(Control.LoadedEvent);
-        eventTrigger.Actions.Add(beginStoryboard);
-
-        // Actions for the entering animation
-        var enterSeekStoryboard = new SeekStoryboard
+        private void StoryboardCreation(FrameworkElement AssociatedObject)
         {
-            Offset = TimeSpan.FromSeconds(5),
-            BeginStoryboardName = storyBoardName
-        };
-        var enterPauseStoryboard = new PauseStoryboard
-        {
-            BeginStoryboardName = storyBoardName
-        };
+            var loadingAnimation = new DoubleAnimation(0.01, 1, new Duration(TimeSpan.FromSeconds(0.5)));
+            var closingAnimation = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(3)))
+            {
+                BeginTime = TimeSpan.FromSeconds(5)
+            };
 
-        // Actions for the exiting animation
-        var exitSeekStoryboard = new SeekStoryboard
-        {
-            Offset = TimeSpan.FromSeconds(5),
-            BeginStoryboardName = storyBoardName
-        };
-        var exitResumeStoryboard = new ResumeStoryboard
-        {
-            BeginStoryboardName = storyBoardName
-        };
+            Storyboard.SetTarget(loadingAnimation, AssociatedObject);
+            Storyboard.SetTarget(closingAnimation, AssociatedObject);
 
-        var trigger = new Trigger
-        {
-            Property = UIElement.IsMouseOverProperty,
-            Value = true
-        };
+            Storyboard.SetTargetProperty(loadingAnimation, new PropertyPath(UIElement.OpacityProperty));
+            Storyboard.SetTargetProperty(closingAnimation, new PropertyPath(UIElement.OpacityProperty));
 
-        trigger.EnterActions.Add(enterSeekStoryboard);
-        trigger.EnterActions.Add(enterPauseStoryboard);
-        trigger.ExitActions.Add(exitSeekStoryboard);
-        trigger.ExitActions.Add(exitResumeStoryboard);
+            Storyboard.SetTarget(loadingAnimation, AssociatedObject);
+            Storyboard.SetTarget(closingAnimation, AssociatedObject);
 
-        var style = new Style();
-        // The name of the Storyboard must be registered so the actions can find it
-        style.RegisterName(storyBoardName, beginStoryboard);
-        // Add both the EventTrigger and the regular Trigger
-        style.Triggers.Add(eventTrigger);
-        style.Triggers.Add(trigger);
+            var storyboard = new Storyboard();
+            storyboard.Children.Add(loadingAnimation);
+            storyboard.Children.Add(closingAnimation);
+            // Subscription to events must be done at this point, because the Storyboard object becomes frozen later on
+            storyboard.Completed += HandleOnCompleted;
 
-        AssociatedObject.Style = style;
-    }
+            string storyBoardName = "BeginNotificationStoryboard";
+
+            // We define the BeginStoryBoard action for the EventTrigger
+            var beginStoryboard = new BeginStoryboard();
+            beginStoryboard.Name = storyBoardName;
+            beginStoryboard.Storyboard = storyboard;
+
+            // We create the EventTrigger
+            var eventTrigger = new EventTrigger(Control.LoadedEvent);
+            eventTrigger.Actions.Add(beginStoryboard);
+
+            // Actions for the entering animation
+            var enterSeekStoryboard = new SeekStoryboard
+            {
+                Offset = TimeSpan.FromSeconds(5),
+                BeginStoryboardName = storyBoardName
+            };
+            var enterPauseStoryboard = new PauseStoryboard
+            {
+                BeginStoryboardName = storyBoardName
+            };
+
+            // Actions for the exiting animation
+            var exitSeekStoryboard = new SeekStoryboard
+            {
+                Offset = TimeSpan.FromSeconds(5),
+                BeginStoryboardName = storyBoardName
+            };
+            var exitResumeStoryboard = new ResumeStoryboard
+            {
+                BeginStoryboardName = storyBoardName
+            };
+
+            var trigger = new Trigger
+            {
+                Property = UIElement.IsMouseOverProperty,
+                Value = true
+            };
+
+            trigger.EnterActions.Add(enterSeekStoryboard);
+            trigger.EnterActions.Add(enterPauseStoryboard);
+            trigger.ExitActions.Add(exitSeekStoryboard);
+            trigger.ExitActions.Add(exitResumeStoryboard);
+
+            var style = new Style();
+            // The name of the Storyboard must be registered so the actions can find it
+            style.RegisterName(storyBoardName, beginStoryboard);
+            // Add both the EventTrigger and the regular Trigger
+            style.Triggers.Add(eventTrigger);
+            style.Triggers.Add(trigger);
+
+            AssociatedObject.Style = style;
+        }
     }
     //public static class UIRefresh
     //{

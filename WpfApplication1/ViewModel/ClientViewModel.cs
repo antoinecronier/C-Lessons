@@ -46,7 +46,7 @@ namespace App1.ViewModel
             //MysqlTest();
             //TestEF6C1C2();
             //Events();
-            //Logs();
+            Logs();
         }
 
         private void Logs()
@@ -62,7 +62,13 @@ namespace App1.ViewModel
             logger2.Log("With temp options", LogMode.CONSOLE, AlertMode.MESSAGE_BOX);
 
             Logger logger3 = new Logger("overlay",LogMode.CONSOLE, AlertMode.OVERLAY);
-            logger3.Log("Overlay prompter");
+            for (int i = 0; i < 4; i++)
+            {
+                logger3.Log("First one");
+                logger3.Log("Second one ");
+            }
+            
+            //logger3.Log("welcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoywelcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoywelcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoywelcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoywelcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoy");
         }
 
         private void Events()

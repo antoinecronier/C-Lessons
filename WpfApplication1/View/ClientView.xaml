@@ -28,18 +28,19 @@
             <userControl:ProductListUserControl1 x:Name="LUCProductAvaiable" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
             <userControl:ProductUserControl x:Name="UCProduct" Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
             <userControl:AddRemoveUserControl x:Name="UCAddRemove" Grid.Row="3" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-            <Button Content="fire notification" Click="Button_Click" />
-            <TextBox x:Name="x" Grid.Column="0" Grid.Row="4" Text="0"/>
-            <TextBox x:Name="y" Grid.Column="1" Grid.Row="4" Text="0"/>
             <Button x:Name="navigation" Grid.Row="0" Grid.Column="4" Content="Navigate" Click="navigation_Click" />
         </Grid>
-        <StackPanel x:Name="notification" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Azure" >
-            <TextBlock x:Name="title" Text=""/>
-            <TextBlock x:Name="message" Text="" />
-            <StackPanel x:Name="buttons" Orientation="Horizontal" Background="Cornsilk">
-                <Button x:Name="yes" Content="" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch"/>
-                <Button x:Name="no" Content="" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch"/>
-            </StackPanel>
-        </StackPanel>
+        <DockPanel x:Name="notificationDock" Visibility="Hidden" Height="140" Width="280" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Border CornerRadius="6" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
+                <StackPanel x:Name="notification" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Azure" >
+                    <TextBlock x:Name="title" Text=""/>
+                    <TextBlock x:Name="message" Text="" />
+                    <StackPanel x:Name="buttons" Orientation="Horizontal" Background="Cornsilk">
+                        <Button x:Name="yes" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                        <Button x:Name="no" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DockPanel>
     </Grid>
 </Page>

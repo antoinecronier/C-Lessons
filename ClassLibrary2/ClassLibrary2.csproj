@@ -75,6 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncManager\CommandWorker.cs" />
+    <Compile Include="CommandWorker\CommandWorker.cs" />
+    <Compile Include="CommandWorker\ManualResetAction.cs" />
     <Compile Include="Database\Criteria\Criteria.cs" />
     <Compile Include="Database\Criteria\Criterion.cs" />
     <Compile Include="Database\Criteria\DbAction.cs" />
