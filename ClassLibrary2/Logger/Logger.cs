@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using System.Threading;
 using System.Windows.Media.Animation;
+using System.IO;
 
 namespace ClassLibrary2
 {
@@ -18,7 +19,7 @@ namespace ClassLibrary2
     {
         private const string INIT = "Initialization";
         private const string ALERT = "ALERT : ";
-        private const string LOG_SAVING_QUESTION = "\n Do you want to report it?";
+        private const string LOG_SAVING_QUESTION = "\nDo you want to report it?";
         private const string OVERLAY = "overlay_";
 
         private LogMode logMode;
@@ -33,6 +34,7 @@ namespace ClassLibrary2
         private ManualResetEvent manualResetEvent;
         private CancellationTokenSource cancellationTS;
         private bool haveToRun;
+        private object locker;
 
         public Logger(string tag = "Logger", LogMode logMode = LogMode.NONE, AlertMode alertMode = AlertMode.NONE, object data = null, Boolean haveToBeSend = false, String path = "")
         {
@@ -46,6 +48,7 @@ namespace ClassLibrary2
             commandWorker.Start();
             manualResetEvent = new ManualResetEvent(false);
             cancellationTS = new CancellationTokenSource();
+            locker = new object();
             Console(INIT);
         }
 
@@ -88,6 +91,7 @@ namespace ClassLibrary2
                 case LogMode.EXTERNAL:
                     break;
                 case LogMode.CURRENT_FOLDER:
+                    CurrentFolder(msg.ToString());
                     break;
                 case LogMode.TEMP_FOLDER:
                     break;
@@ -139,6 +143,25 @@ namespace ClassLibrary2
                     break;
             }
 #endif
+        }
+
+        private void CurrentFolder(string msg, int number = 0)
+        {
+            TextWriter file = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\current_logs" + number, true, UTF8Encoding.UTF8);
+            FileInfo f = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "\\current_logs" + number);
+            String toSave = Application.Current + " => " + DateTime.Now + " : " + msg;
+            int stringValue = UTF8Encoding.UTF8.GetByteCount(toSave);
+            if (f.Length + stringValue <= 20000000)
+            {
+                file.WriteLine(toSave);
+                file.Close();
+            }
+            else
+            {
+                file.Close();
+                number += 1;
+                CurrentFolder(msg, number);
+            }
         }
 
         private void Overlay(string msg, ManualResetEvent autoResetEvent)

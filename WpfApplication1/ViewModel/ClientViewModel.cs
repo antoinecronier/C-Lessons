@@ -51,24 +51,34 @@ namespace App1.ViewModel
 
         private void Logs()
         {
-            Logger logger = new Logger();
-            logger.Log("Default logger welcome");
-            logger.Log("With temp options", LogMode.CONSOLE);
+            //Logger logger = new Logger();
+            //logger.Log("Default logger welcome");
+            //logger.Log("With temp options", LogMode.CONSOLE);
 
-            Logger logger1 = new Logger("MyLogger", LogMode.CONSOLE, AlertMode.CONSOLE);
-            logger1.Log("Welcome from custom logger");
+            //Logger logger1 = new Logger("MyLogger", LogMode.CONSOLE, AlertMode.CONSOLE);
+            //logger1.Log("Welcome from custom logger");
 
-            Logger logger2 = new Logger();
-            logger2.Log("With temp options", LogMode.CONSOLE, AlertMode.MESSAGE_BOX);
+            //Logger logger2 = new Logger();
+            //logger2.Log("With temp options", LogMode.CONSOLE, AlertMode.MESSAGE_BOX);
 
-            Logger logger3 = new Logger("overlay",LogMode.CONSOLE, AlertMode.OVERLAY);
-            for (int i = 0; i < 4; i++)
+            //Logger logger3 = new Logger("overlay",LogMode.CONSOLE, AlertMode.OVERLAY);
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    logger3.Log("First one");
+            //    logger3.Log("Second one ");
+            //}
+
+            Logger logger4 = new Logger("current folder", LogMode.CURRENT_FOLDER, AlertMode.OVERLAY);
+            logger4.Log("logger 4 to current folder");
+            Task.Factory.StartNew(() =>
             {
-                logger3.Log("First one");
-                logger3.Log("Second one ");
-            }
+                for (int i = 0; i < 1000000000; i++)
+                {
+                    logger4.Log("next reported lognext reported lognext reported lognext reported lognext reported lognext reported lognext reported lognext reported lognext");
+                }
+            });
             
-            //logger3.Log("welcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoywelcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoywelcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoywelcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoywelcome to you in this more long notification than other \n hope you enjoy elcome to you in this more long notification than other \n hope you enjoy");
+            logger4.Log("other");
         }
 
         private void Events()
