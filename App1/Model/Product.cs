@@ -13,6 +13,8 @@ namespace App1.Model
         private int id;
         private String name;
         private int value;
+        private int clientId;
+        
         #endregion
 
         #region properties
@@ -56,6 +58,12 @@ namespace App1.Model
                 this.value = value;
                 OnPropertyChanged("Value");
             }
+        }
+        
+        public int ClientId
+        {
+            get { return clientId; }
+            set { clientId = value; }
         }
         #endregion
 

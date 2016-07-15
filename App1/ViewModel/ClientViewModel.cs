@@ -7,6 +7,9 @@ using App1.View;
 using App1.Model;
 using Windows.ApplicationModel.Core;
 using System.Diagnostics;
+using Windows.Storage;
+using ClassLibrary2.Entities.Generator;
+using SQLite.Net;
 
 namespace App1.ViewModel
 {
@@ -27,10 +30,53 @@ namespace App1.ViewModel
             this.clientView = clientView;
             LoadItems();
             LinkItems();
+            SQLiteTest();
         }
         #endregion
-
+        
         #region methods
+        private void SQLiteTest()
+        {
+            SQLiteManager<Client> managerClient = new SQLiteManager<Client>(ApplicationData.Current.LocalFolder.Path + "\\mydb");
+            SQLiteManager<Product> managerProduct = new SQLiteManager<Product>(ApplicationData.Current.LocalFolder.Path + "\\mydb");
+            EntityGenerator<Client> generatorClient = new EntityGenerator<Client>();
+            EntityGenerator<Product> generatorProduct = new EntityGenerator<Product>();
+
+            List<Client> clients = generatorClient.GenerateListItems() as List<Client>;
+            foreach (var item in clients)
+            {
+                item.Products = generatorProduct.GenerateListItems() as List<Product>;
+            }
+            int resultClient = managerClient.InsertAll(clients);
+            var client1Result = managerClient.Find<Client>(clients[0].Id);
+            var client2Result = managerClient.Get<Client>(clients[0].Id);
+
+            var client3Result = managerClient.FindWithQuery<Client>("SELECT * FROM client WHERE id = @p1", new object[] { 20 });
+            var client4Result = managerClient.Query<Client>("SELECT * FROM client WHERE id = @p1", new object[] { 20 });
+            //var client5Result = managerClient.Execute("INSERT INTO client VALUES(666,'name','surname',666,666)");
+
+            managerClient.BeginTransaction();
+            for (int x = 64; x < 666; x++)
+            {
+                managerClient.ExecuteScalar<Client>("INSERT INTO client VALUES(@p1,'name','surname',@p2,@p3)", new object[] { x, x+1, x+2 });
+            }
+            managerClient.Commit();
+
+            List<Client> clients1 = generatorClient.GenerateListItems() as List<Client>;
+            managerClient.InsertOrReplaceAll(clients1);
+
+            clients[0].Id = 1971277679;
+            clients[0].Name = "trololol";
+            managerClient.Update(clients[0]);
+
+            managerClient.Delete<Client>(clients[0].Id);
+            managerClient.DeleteAll<Client>();
+            
+            List<Product> products = generatorProduct.GenerateListItems() as List<Product>;
+            int resultProduct = managerProduct.InsertAll(products);
+            var product1Result = managerProduct.Find<Product>(products[0].Id);
+        }
+
         private void LoadItems()
         {
             this.clientView.ClientUserControl.Client = new BaseItems.BaseItemClient();

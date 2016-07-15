@@ -1,4 +1,5 @@
 ﻿using App1.Model.Base;
+using SQLite.Net.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace App1.Model
         #endregion
 
         #region properties
+        [PrimaryKey, AutoIncrement]
+        [Column("id")]
         public int Id
         {
             get

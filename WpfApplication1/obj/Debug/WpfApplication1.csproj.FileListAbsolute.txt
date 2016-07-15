@@ -48,3 +48,11 @@ C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\
 C:\Users\tactfactory\Documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\View\Window2.baml
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\MyUserControl\ProductListUserControl1.g.cs
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\MyUserControl\ProductListUserControl1.baml
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\SQLite.Net.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\SQLite.Net.Platform.Generic.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\SQLite.Net.Platform.Win32.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\System.Data.SQLite.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\bin\Debug\System.Data.SQLite.xml
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication1\obj\Debug\WpfApplication1_Content.g.cs

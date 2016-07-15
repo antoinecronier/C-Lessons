@@ -115,10 +115,16 @@
     <Compile Include="ClassConcrete1.cs" />
     <Compile Include="ClassD.cs" />
     <Compile Include="ClassE.cs" />
+    <Compile Include="EnumManager\DataConnectionResource.cs" />
+    <Compile Include="EnumManager\EnumTester.cs" />
+    <Compile Include="EnumManager\StringValueAttribute.cs" />
+    <Compile Include="Generator\EntityGenerator.cs" />
+    <Compile Include="Generator\TypeEnum.cs" />
     <Compile Include="IDo1.cs" />
     <Compile Include="IDo2.cs" />
     <Compile Include="IDo3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\Reflectionner.cs" />
     <Compile Include="Sandbox.cs" />
     <EmbeddedResource Include="Properties\ClassLibrary1.rd.xml" />
   </ItemGroup>

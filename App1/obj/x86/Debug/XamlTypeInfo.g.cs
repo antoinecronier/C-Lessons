@@ -324,6 +324,7 @@ namespace App1.App1_XamlTypeInfo
                 userType.AddMemberName("Id");
                 userType.AddMemberName("Name");
                 userType.AddMemberName("Value");
+                userType.AddMemberName("ClientId");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -453,82 +454,92 @@ namespace App1.App1_XamlTypeInfo
             var that = (global::App1.Model.Product)instance;
             that.Value = (global::System.Int32)Value;
         }
-        private object get_8_ProductUserControl_Product(object instance)
+        private object get_8_Product_ClientId(object instance)
+        {
+            var that = (global::App1.Model.Product)instance;
+            return that.ClientId;
+        }
+        private void set_8_Product_ClientId(object instance, object Value)
+        {
+            var that = (global::App1.Model.Product)instance;
+            that.ClientId = (global::System.Int32)Value;
+        }
+        private object get_9_ProductUserControl_Product(object instance)
         {
             var that = (global::App1.MyUserControl.ProductUserControl)instance;
             return that.Product;
         }
-        private void set_8_ProductUserControl_Product(object instance, object Value)
+        private void set_9_ProductUserControl_Product(object instance, object Value)
         {
             var that = (global::App1.MyUserControl.ProductUserControl)instance;
             that.Product = (global::App1.Model.Product)Value;
         }
-        private object get_9_ClientView_ClientUserControl(object instance)
+        private object get_10_ClientView_ClientUserControl(object instance)
         {
             var that = (global::App1.View.ClientView)instance;
             return that.ClientUserControl;
         }
-        private void set_9_ClientView_ClientUserControl(object instance, object Value)
+        private void set_10_ClientView_ClientUserControl(object instance, object Value)
         {
             var that = (global::App1.View.ClientView)instance;
             that.ClientUserControl = (global::App1.MyUserControl.ClientUserControl)Value;
         }
-        private object get_10_ClientView_ProductListUserControlBuy(object instance)
+        private object get_11_ClientView_ProductListUserControlBuy(object instance)
         {
             var that = (global::App1.View.ClientView)instance;
             return that.ProductListUserControlBuy;
         }
-        private void set_10_ClientView_ProductListUserControlBuy(object instance, object Value)
+        private void set_11_ClientView_ProductListUserControlBuy(object instance, object Value)
         {
             var that = (global::App1.View.ClientView)instance;
             that.ProductListUserControlBuy = (global::App1.MyUserControl.ProductListUserControl)Value;
         }
-        private object get_11_ClientView_ProductListUserControlAvaiable(object instance)
+        private object get_12_ClientView_ProductListUserControlAvaiable(object instance)
         {
             var that = (global::App1.View.ClientView)instance;
             return that.ProductListUserControlAvaiable;
         }
-        private void set_11_ClientView_ProductListUserControlAvaiable(object instance, object Value)
+        private void set_12_ClientView_ProductListUserControlAvaiable(object instance, object Value)
         {
             var that = (global::App1.View.ClientView)instance;
             that.ProductListUserControlAvaiable = (global::App1.MyUserControl.ProductListUserControl)Value;
         }
-        private object get_12_ClientView_ProductUserControl(object instance)
+        private object get_13_ClientView_ProductUserControl(object instance)
         {
             var that = (global::App1.View.ClientView)instance;
             return that.ProductUserControl;
         }
-        private void set_12_ClientView_ProductUserControl(object instance, object Value)
+        private void set_13_ClientView_ProductUserControl(object instance, object Value)
         {
             var that = (global::App1.View.ClientView)instance;
             that.ProductUserControl = (global::App1.MyUserControl.ProductUserControl)Value;
         }
-        private object get_13_ClientView_AddRemoveUserControl(object instance)
+        private object get_14_ClientView_AddRemoveUserControl(object instance)
         {
             var that = (global::App1.View.ClientView)instance;
             return that.AddRemoveUserControl;
         }
-        private void set_13_ClientView_AddRemoveUserControl(object instance, object Value)
+        private void set_14_ClientView_AddRemoveUserControl(object instance, object Value)
         {
             var that = (global::App1.View.ClientView)instance;
             that.AddRemoveUserControl = (global::App1.MyUserControl.AddRemoveUserControl)Value;
         }
-        private object get_14_ClientView_BuyButton(object instance)
+        private object get_15_ClientView_BuyButton(object instance)
         {
             var that = (global::App1.View.ClientView)instance;
             return that.BuyButton;
         }
-        private void set_14_ClientView_BuyButton(object instance, object Value)
+        private void set_15_ClientView_BuyButton(object instance, object Value)
         {
             var that = (global::App1.View.ClientView)instance;
             that.BuyButton = (global::Windows.UI.Xaml.Controls.Button)Value;
         }
-        private object get_15_ClientView_ClientViewModel(object instance)
+        private object get_16_ClientView_ClientViewModel(object instance)
         {
             var that = (global::App1.View.ClientView)instance;
             return that.ClientViewModel;
         }
-        private void set_15_ClientView_ClientViewModel(object instance, object Value)
+        private void set_16_ClientView_ClientViewModel(object instance, object Value)
         {
             var that = (global::App1.View.ClientView)instance;
             that.ClientViewModel = (global::App1.ViewModel.ClientViewModel)Value;
@@ -589,53 +600,59 @@ namespace App1.App1_XamlTypeInfo
                 xamlMember.Getter = get_7_Product_Value;
                 xamlMember.Setter = set_7_Product_Value;
                 break;
+            case "App1.Model.Product.ClientId":
+                userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.Model.Product");
+                xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "ClientId", "Int32");
+                xamlMember.Getter = get_8_Product_ClientId;
+                xamlMember.Setter = set_8_Product_ClientId;
+                break;
             case "App1.MyUserControl.ProductUserControl.Product":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.MyUserControl.ProductUserControl");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "Product", "App1.Model.Product");
-                xamlMember.Getter = get_8_ProductUserControl_Product;
-                xamlMember.Setter = set_8_ProductUserControl_Product;
+                xamlMember.Getter = get_9_ProductUserControl_Product;
+                xamlMember.Setter = set_9_ProductUserControl_Product;
                 break;
             case "App1.View.ClientView.ClientUserControl":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.View.ClientView");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "ClientUserControl", "App1.MyUserControl.ClientUserControl");
-                xamlMember.Getter = get_9_ClientView_ClientUserControl;
-                xamlMember.Setter = set_9_ClientView_ClientUserControl;
+                xamlMember.Getter = get_10_ClientView_ClientUserControl;
+                xamlMember.Setter = set_10_ClientView_ClientUserControl;
                 break;
             case "App1.View.ClientView.ProductListUserControlBuy":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.View.ClientView");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "ProductListUserControlBuy", "App1.MyUserControl.ProductListUserControl");
-                xamlMember.Getter = get_10_ClientView_ProductListUserControlBuy;
-                xamlMember.Setter = set_10_ClientView_ProductListUserControlBuy;
+                xamlMember.Getter = get_11_ClientView_ProductListUserControlBuy;
+                xamlMember.Setter = set_11_ClientView_ProductListUserControlBuy;
                 break;
             case "App1.View.ClientView.ProductListUserControlAvaiable":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.View.ClientView");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "ProductListUserControlAvaiable", "App1.MyUserControl.ProductListUserControl");
-                xamlMember.Getter = get_11_ClientView_ProductListUserControlAvaiable;
-                xamlMember.Setter = set_11_ClientView_ProductListUserControlAvaiable;
+                xamlMember.Getter = get_12_ClientView_ProductListUserControlAvaiable;
+                xamlMember.Setter = set_12_ClientView_ProductListUserControlAvaiable;
                 break;
             case "App1.View.ClientView.ProductUserControl":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.View.ClientView");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "ProductUserControl", "App1.MyUserControl.ProductUserControl");
-                xamlMember.Getter = get_12_ClientView_ProductUserControl;
-                xamlMember.Setter = set_12_ClientView_ProductUserControl;
+                xamlMember.Getter = get_13_ClientView_ProductUserControl;
+                xamlMember.Setter = set_13_ClientView_ProductUserControl;
                 break;
             case "App1.View.ClientView.AddRemoveUserControl":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.View.ClientView");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "AddRemoveUserControl", "App1.MyUserControl.AddRemoveUserControl");
-                xamlMember.Getter = get_13_ClientView_AddRemoveUserControl;
-                xamlMember.Setter = set_13_ClientView_AddRemoveUserControl;
+                xamlMember.Getter = get_14_ClientView_AddRemoveUserControl;
+                xamlMember.Setter = set_14_ClientView_AddRemoveUserControl;
                 break;
             case "App1.View.ClientView.BuyButton":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.View.ClientView");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "BuyButton", "Windows.UI.Xaml.Controls.Button");
-                xamlMember.Getter = get_14_ClientView_BuyButton;
-                xamlMember.Setter = set_14_ClientView_BuyButton;
+                xamlMember.Getter = get_15_ClientView_BuyButton;
+                xamlMember.Setter = set_15_ClientView_BuyButton;
                 break;
             case "App1.View.ClientView.ClientViewModel":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.View.ClientView");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "ClientViewModel", "App1.ViewModel.ClientViewModel");
-                xamlMember.Getter = get_15_ClientView_ClientViewModel;
-                xamlMember.Setter = set_15_ClientView_ClientViewModel;
+                xamlMember.Getter = get_16_ClientView_ClientViewModel;
+                xamlMember.Setter = set_16_ClientView_ClientViewModel;
                 break;
             }
             return xamlMember;

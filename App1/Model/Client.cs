@@ -1,4 +1,5 @@
 ﻿using App1.Model.Base;
+using SQLite.Net.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,21 @@ namespace App1.Model
         private String surname;
         private int sold;
         private int bill;
-        private List<Product> items;
+
+        private List<Product> products;
+
+        [SQLite.Net.Attributes.Ignore]
+        public List<Product> Products
+        {
+            get { return products; }
+            set { products = value; }
+        }
+
         #endregion
 
         #region properties
+        [PrimaryKey, AutoIncrement]
+        [Column("id")]
         public int Id
         {
             get
@@ -32,7 +44,7 @@ namespace App1.Model
                 OnPropertyChanged("Id");
             }
         }
-
+        
         public string Name
         {
             get
