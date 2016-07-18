@@ -90,6 +90,18 @@
     <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\Microsoft.Win32.Primitives\4.0.0\lib\dotnet\Microsoft.Win32.Primitives.dll">
       <PackagePath>Microsoft.Win32.Primitives.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\lib\win81\Microsoft.Azure.Engagement.EngagementAgent.Portable.dll">
+      <PackagePath>Microsoft.Azure.Engagement.EngagementAgent.Portable.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\lib\win81\Microsoft.Azure.Engagement.EngagementAgent.Universal.dll">
+      <PackagePath>Microsoft.Azure.Engagement.EngagementAgent.Universal.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\lib\win81\Microsoft.Azure.Engagement.EngagementReach.Portable.dll">
+      <PackagePath>Microsoft.Azure.Engagement.EngagementReach.Portable.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\lib\win81\Microsoft.Azure.Engagement.EngagementReach.Universal.dll">
+      <PackagePath>Microsoft.Azure.Engagement.EngagementReach.Universal.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\Newtonsoft.Json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
@@ -372,8 +384,29 @@
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Resources\EngagementConfiguration.xml">
+      <PackagePath>Resources\EngagementConfiguration.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Resources\html\EngagementAnnouncement.html">
+      <PackagePath>Resources\html\EngagementAnnouncement.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Resources\html\EngagementNotification.html">
+      <PackagePath>Resources\html\EngagementNotification.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Resources\images\EngagementIconClose.png">
+      <PackagePath>Resources\images\EngagementIconClose.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Resources\images\EngagementIconNOk.png">
+      <PackagePath>Resources\images\EngagementIconNOk.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Resources\images\EngagementIconNotification.png">
+      <PackagePath>Resources\images\EngagementIconNotification.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Resources\images\EngagementIconOk.png">
+      <PackagePath>Resources\images\EngagementIconOk.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>

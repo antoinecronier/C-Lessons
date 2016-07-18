@@ -10,6 +10,7 @@ using System.Diagnostics;
 using Windows.Storage;
 using ClassLibrary2.Entities.Generator;
 using SQLite.Net;
+using Microsoft.Azure.Engagement;
 
 namespace App1.ViewModel
 {
@@ -31,9 +32,29 @@ namespace App1.ViewModel
             LoadItems();
             LinkItems();
             SQLiteTest();
+            Engagement();
+        }
+
+        private void Engagement()
+        {
+            String deviceId = EngagementAgent.Instance.GetDeviceId();
+            Task.Factory.StartNew(() =>
+            {
+                //Task.Delay(TimeSpan.FromSeconds(4)).Wait();
+                //EngagementAgent.Instance.Terminate();
+                Task.Delay(TimeSpan.FromSeconds(2)).Wait();
+                EngagementAgent.Instance.StartActivity("hey");
+            });
+            EngagementReach.Instance.PushMessageReceived += Instance_PushMessageReceived;
+        }
+
+        private void Instance_PushMessageReceived(int arg1, bool arg2, string arg3)
+        {
+            int a = 0;
+            a++;
         }
         #endregion
-        
+
         #region methods
         private void SQLiteTest()
         {
@@ -55,12 +76,12 @@ namespace App1.ViewModel
             var client4Result = managerClient.Query<Client>("SELECT * FROM client WHERE id = @p1", new object[] { 20 });
             //var client5Result = managerClient.Execute("INSERT INTO client VALUES(666,'name','surname',666,666)");
 
-            managerClient.BeginTransaction();
-            for (int x = 64; x < 666; x++)
-            {
-                managerClient.ExecuteScalar<Client>("INSERT INTO client VALUES(@p1,'name','surname',@p2,@p3)", new object[] { x, x+1, x+2 });
-            }
-            managerClient.Commit();
+            //managerClient.BeginTransaction();
+            //for (int x = 64; x < 666; x++)
+            //{
+            //    managerClient.ExecuteScalar<Client>("INSERT INTO client VALUES(@p1,'name','surname',@p2,@p3)", new object[] { x, x+1, x+2 });
+            //}
+            //managerClient.Commit();
 
             List<Client> clients1 = generatorClient.GenerateListItems() as List<Client>;
             managerClient.InsertOrReplaceAll(clients1);

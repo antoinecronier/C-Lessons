@@ -9,3 +9,10 @@ Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 App1.xr.xml
 Properties\Default.rd.xml
+Resources\EngagementConfiguration.xml
+Resources\html\EngagementAnnouncement.html
+Resources\html\EngagementNotification.html
+Resources\images\EngagementIconClose.png
+Resources\images\EngagementIconNOk.png
+Resources\images\EngagementIconNotification.png
+Resources\images\EngagementIconOk.png

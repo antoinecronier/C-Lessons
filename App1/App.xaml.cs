@@ -1,5 +1,6 @@
 ﻿using App1.Model;
 using App1.View;
+using Microsoft.Azure.Engagement;
 using SQLite.Net.Interop;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace App1
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
+            InitEngagement(args);
             base.OnActivated(args);
         }
 
@@ -51,6 +53,7 @@ namespace App1
         /// <param name="e">Détails concernant la requête et le processus de lancement.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            InitEngagement(e);
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -111,6 +114,13 @@ namespace App1
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: enregistrez l'état de l'application et arrêtez toute activité en arrière-plan
             deferral.Complete();
+        }
+
+        private void InitEngagement(IActivatedEventArgs args)
+        {
+            EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+            EngagementAgent.Instance.Init(args);
+            EngagementReach.Instance.Init(args);
         }
     }
 }

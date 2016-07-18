@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Copyright (c) Microsoft Corporation. All rights reserved.
+-->
+<engagement>
+  <agent>
+    <!-- Your application connection string. -->
+    <connectionString>Endpoint=tacttestantoine.device.mobileengagement.windows.net;SdkKey=f9b6ce58c9c5602948f43e65505ec98f;AppId=net000307</connectionString>
+
+    <!-- [Optional] Indicate whether the agent have to report crash or not. -->
+    <reportCrash>true</reportCrash>
+  </agent>
+  <reach>
+    <!-- [Optional] Indicate whether the native push (WNS) is activated or not. -->
+    <enableNativePush>true</enableNativePush>
+  </reach>
+</engagement>

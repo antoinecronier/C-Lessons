@@ -92,6 +92,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\EngagementConfiguration.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\html\EngagementAnnouncement.html" />
+    <Content Include="Resources\html\EngagementNotification.html" />
+    <Content Include="Resources\images\EngagementIconClose.png" />
+    <Content Include="Resources\images\EngagementIconNOk.png" />
+    <Content Include="Resources\images\EngagementIconNotification.png" />
+    <Content Include="Resources\images\EngagementIconOk.png" />
     <None Include="ExternalResource\ClassDiagram1.cd" />
     <None Include="project.json" />
   </ItemGroup>
@@ -118,6 +127,7 @@
     <Compile Include="MyUserControl\ProductUserControl.xaml.cs">
       <DependentUpon>ProductUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\overlay\EngagementPageOverlay.cs" />
     <Compile Include="SQLite\SQLiteManager.cs" />
     <Compile Include="ViewModel\ClientViewModel.cs" />
     <Compile Include="View\ClientView.xaml.cs">

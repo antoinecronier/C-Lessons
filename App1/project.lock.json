@@ -336,6 +336,20 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "MicrosoftAzure.MobileEngagement/3.4.0": {
+        "compile": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        }
+      },
       "Newtonsoft.Json/9.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
@@ -2165,6 +2179,20 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "MicrosoftAzure.MobileEngagement/3.4.0": {
+        "compile": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        }
+      },
       "Newtonsoft.Json/9.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
@@ -3902,6 +3930,20 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "MicrosoftAzure.MobileEngagement/3.4.0": {
+        "compile": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        }
+      },
       "Newtonsoft.Json/9.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
@@ -5606,6 +5648,20 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "MicrosoftAzure.MobileEngagement/3.4.0": {
+        "compile": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
         }
       },
       "Newtonsoft.Json/9.0.1": {
@@ -7348,6 +7404,20 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "MicrosoftAzure.MobileEngagement/3.4.0": {
+        "compile": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        }
+      },
       "Newtonsoft.Json/9.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
@@ -9052,6 +9122,20 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "MicrosoftAzure.MobileEngagement/3.4.0": {
+        "compile": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
         }
       },
       "Newtonsoft.Json/9.0.1": {
@@ -10792,6 +10876,20 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "MicrosoftAzure.MobileEngagement/3.4.0": {
+        "compile": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
+        },
+        "runtime": {
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll": {},
+          "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll": {}
         }
       },
       "Newtonsoft.Json/9.0.1": {
@@ -12892,6 +12990,71 @@
         "ref/net46/Microsoft.Win32.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._"
+      ]
+    },
+    "MicrosoftAzure.MobileEngagement/3.4.0": {
+      "sha512": "QVyzGO/BYKkx+TtbQo1YJHyU/+IiK8qHLPAckJ21mHrYWWkddoSAfYyH3yZnlVt2MOQLHZFnHkTz+AH24DZWNA==",
+      "type": "package",
+      "files": [
+        "MicrosoftAzure.MobileEngagement.3.4.0.nupkg.sha512",
+        "MicrosoftAzure.MobileEngagement.nuspec",
+        "content/win80/Resources/EngagementConfiguration.xml",
+        "content/win80/Resources/html/EngagementAnnouncement.html",
+        "content/win80/Resources/html/EngagementNotification.html",
+        "content/win80/Resources/images/EngagementIconClose.png",
+        "content/win80/Resources/images/EngagementIconNOk.png",
+        "content/win80/Resources/images/EngagementIconNotification.png",
+        "content/win80/Resources/images/EngagementIconOk.png",
+        "content/win80/Resources/overlay/EngagementPageOverlay.cs",
+        "content/win81/Resources/EngagementConfiguration.xml",
+        "content/win81/Resources/html/EngagementAnnouncement.html",
+        "content/win81/Resources/html/EngagementNotification.html",
+        "content/win81/Resources/images/EngagementIconClose.png",
+        "content/win81/Resources/images/EngagementIconNOk.png",
+        "content/win81/Resources/images/EngagementIconNotification.png",
+        "content/win81/Resources/images/EngagementIconOk.png",
+        "content/win81/Resources/overlay/EngagementPageOverlay.cs",
+        "content/wp80/Resources/EngagementConfiguration.xml",
+        "content/wp80/Resources/EngagementIconCancel.png",
+        "content/wp80/Resources/EngagementIconCloseDark.png",
+        "content/wp80/Resources/EngagementIconCloseLight.png",
+        "content/wp80/Resources/EngagementIconNotification.png",
+        "content/wp80/Resources/EngagementIconOk.png",
+        "content/wp81/Resources/EngagementConfiguration.xml",
+        "content/wp81/Resources/EngagementIconCancel.png",
+        "content/wp81/Resources/EngagementIconCloseDark.png",
+        "content/wp81/Resources/EngagementIconCloseLight.png",
+        "content/wp81/Resources/EngagementIconNotification.png",
+        "content/wp81/Resources/EngagementIconOk.png",
+        "content/wpa81/Resources/EngagementConfiguration.xml",
+        "content/wpa81/Resources/html/EngagementAnnouncement.html",
+        "content/wpa81/Resources/html/EngagementNotification.html",
+        "content/wpa81/Resources/images/EngagementIconClose.png",
+        "content/wpa81/Resources/images/EngagementIconNOk.png",
+        "content/wpa81/Resources/images/EngagementIconNotification.png",
+        "content/wpa81/Resources/images/EngagementIconOk.png",
+        "content/wpa81/Resources/overlay/EngagementPageOverlay.cs",
+        "lib/win80/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll",
+        "lib/win80/Microsoft.Azure.Engagement.EngagementAgent.Win.dll",
+        "lib/win80/Microsoft.Azure.Engagement.EngagementReach.Portable.dll",
+        "lib/win80/Microsoft.Azure.Engagement.EngagementReach.Win.dll",
+        "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll",
+        "lib/win81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll",
+        "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll",
+        "lib/win81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll",
+        "lib/wp80/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll",
+        "lib/wp80/Microsoft.Azure.Engagement.EngagementAgent.WP.dll",
+        "lib/wp80/Microsoft.Azure.Engagement.EngagementReach.Portable.dll",
+        "lib/wp80/Microsoft.Azure.Engagement.EngagementReach.WP.dll",
+        "lib/wp81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll",
+        "lib/wp81/Microsoft.Azure.Engagement.EngagementAgent.WP.dll",
+        "lib/wp81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll",
+        "lib/wp81/Microsoft.Azure.Engagement.EngagementReach.WP.dll",
+        "lib/wpa81/Microsoft.Azure.Engagement.EngagementAgent.Portable.dll",
+        "lib/wpa81/Microsoft.Azure.Engagement.EngagementAgent.Universal.dll",
+        "lib/wpa81/Microsoft.Azure.Engagement.EngagementReach.Portable.dll",
+        "lib/wpa81/Microsoft.Azure.Engagement.EngagementReach.Universal.dll",
+        "readme.txt"
       ]
     },
     "Newtonsoft.Json/9.0.1": {
@@ -15831,6 +15994,7 @@
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.1",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
+      "MicrosoftAzure.MobileEngagement >= 3.4.0",
       "SQLite.Net-PCL >= 3.1.1",
       "System.Data.SQLite >= 1.0.102"
     ],

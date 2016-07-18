@@ -132,7 +132,7 @@ namespace App1.App1_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[19];
+            _typeNameTable = new string[21];
             _typeNameTable[0] = "App1.MyUserControl.AddRemoveUserControl";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.Button";
@@ -149,11 +149,13 @@ namespace App1.App1_XamlTypeInfo
             _typeNameTable[13] = "Int32";
             _typeNameTable[14] = "String";
             _typeNameTable[15] = "App1.MyUserControl.ProductUserControl";
-            _typeNameTable[16] = "App1.View.ClientView";
-            _typeNameTable[17] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[18] = "App1.ViewModel.ClientViewModel";
+            _typeNameTable[16] = "Microsoft.Azure.Engagement.Overlay.EngagementPageOverlay";
+            _typeNameTable[17] = "Microsoft.Azure.Engagement.EngagementPage";
+            _typeNameTable[18] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[19] = "App1.View.ClientView";
+            _typeNameTable[20] = "App1.ViewModel.ClientViewModel";
 
-            _typeTable = new global::System.Type[19];
+            _typeTable = new global::System.Type[21];
             _typeTable[0] = typeof(global::App1.MyUserControl.AddRemoveUserControl);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.Button);
@@ -170,9 +172,11 @@ namespace App1.App1_XamlTypeInfo
             _typeTable[13] = typeof(global::System.Int32);
             _typeTable[14] = typeof(global::System.String);
             _typeTable[15] = typeof(global::App1.MyUserControl.ProductUserControl);
-            _typeTable[16] = typeof(global::App1.View.ClientView);
-            _typeTable[17] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[18] = typeof(global::App1.ViewModel.ClientViewModel);
+            _typeTable[16] = typeof(global::Microsoft.Azure.Engagement.Overlay.EngagementPageOverlay);
+            _typeTable[17] = typeof(global::Microsoft.Azure.Engagement.EngagementPage);
+            _typeTable[18] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[19] = typeof(global::App1.View.ClientView);
+            _typeTable[20] = typeof(global::App1.ViewModel.ClientViewModel);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -217,7 +221,9 @@ namespace App1.App1_XamlTypeInfo
         private object Activate_11_Collection() { return new global::System.Collections.ObjectModel.Collection<global::App1.Model.Product>(); }
         private object Activate_12_Product() { return new global::App1.Model.Product(); }
         private object Activate_15_ProductUserControl() { return new global::App1.MyUserControl.ProductUserControl(); }
-        private object Activate_16_ClientView() { return new global::App1.View.ClientView(); }
+        private object Activate_16_EngagementPageOverlay() { return new global::Microsoft.Azure.Engagement.Overlay.EngagementPageOverlay(); }
+        private object Activate_17_EngagementPage() { return new global::Microsoft.Azure.Engagement.EngagementPage(); }
+        private object Activate_19_ClientView() { return new global::App1.View.ClientView(); }
         private void VectorAdd_10_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::App1.Model.Product>)instance;
@@ -345,9 +351,26 @@ namespace App1.App1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 16:   //  App1.View.ClientView
+            case 16:   //  Microsoft.Azure.Engagement.Overlay.EngagementPageOverlay
+                userType = new global::App1.App1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Azure.Engagement.EngagementPage"));
+                userType.Activator = Activate_16_EngagementPageOverlay;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 17:   //  Microsoft.Azure.Engagement.EngagementPage
                 userType = new global::App1.App1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_16_ClientView;
+                userType.Activator = Activate_17_EngagementPage;
+                xamlType = userType;
+                break;
+
+            case 18:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::App1.App1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 19:   //  App1.View.ClientView
+                userType = new global::App1.App1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Azure.Engagement.Overlay.EngagementPageOverlay"));
+                userType.Activator = Activate_19_ClientView;
                 userType.AddMemberName("ClientUserControl");
                 userType.AddMemberName("ProductListUserControlBuy");
                 userType.AddMemberName("ProductListUserControlAvaiable");
@@ -359,11 +382,7 @@ namespace App1.App1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 17:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::App1.App1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 18:   //  App1.ViewModel.ClientViewModel
+            case 20:   //  App1.ViewModel.ClientViewModel
                 userType = new global::App1.App1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
