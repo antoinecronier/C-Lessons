@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bin/debug/sqlite3.def")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bin/debug/sqlite3.dll")]
 
 

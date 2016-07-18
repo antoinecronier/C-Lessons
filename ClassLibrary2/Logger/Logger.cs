@@ -12,6 +12,7 @@ using System.Windows.Threading;
 using System.Threading;
 using System.Windows.Media.Animation;
 using System.IO;
+using System.Windows.Navigation;
 
 namespace ClassLibrary2
 {
@@ -21,6 +22,7 @@ namespace ClassLibrary2
         private const string ALERT = "ALERT : ";
         private const string LOG_SAVING_QUESTION = "\nDo you want to report it?";
         private const string OVERLAY = "overlay_";
+        private const string APPLICATION = "Application";
 
         private LogMode logMode;
         private string path;
@@ -35,6 +37,197 @@ namespace ClassLibrary2
         private CancellationTokenSource cancellationTS;
         private bool haveToRun;
         private object locker;
+        private Boolean lifeCycle;
+
+        public Boolean LifeCycle
+        { get
+            {
+                return this.lifeCycle;
+            }
+            set
+            {
+                this.lifeCycle = value;
+                if (this.lifeCycle)
+                {
+                    BindLifeCycle();
+                }
+                else
+                {
+                    UnBindLifeCycle();
+                }
+            }
+        }
+
+        #region LifeCycle
+
+        private void UnBindLifeCycle()
+        {
+            #region Base Life Cycle
+            Application.Current.Startup -= App_Startup;
+            Application.Current.LoadCompleted -= App_LoadCompleted;
+            Application.Current.Activated -= App_Activated;
+            Application.Current.Deactivated -= App_Deactivated;
+            Application.Current.SessionEnding -= App_SessionEnding;
+            Application.Current.Exit -= App_Exit;
+            #endregion
+
+            #region Errors
+            Application.Current.DispatcherUnhandledException -= App_DispatcherUnhandledException;
+            #endregion
+
+            #region Navigation
+            Application.Current.FragmentNavigation -= App_FragmentNavigation;
+            Application.Current.Navigated -= App_Navigated;
+            Application.Current.Navigating -= App_Navigating;
+            Application.Current.NavigationFailed -= App_NavigationFailed;
+            Application.Current.NavigationProgress -= App_NavigationProgress;
+            Application.Current.NavigationStopped -= App_NavigationStopped;
+            #endregion
+        }
+
+        private void BindLifeCycle()
+        {
+            #region Base Life Cycle
+            Application.Current.Startup += App_Startup;
+            Application.Current.LoadCompleted += App_LoadCompleted;
+            Application.Current.Activated += App_Activated;
+            Application.Current.Deactivated += App_Deactivated;
+            Application.Current.SessionEnding += App_SessionEnding;
+            Application.Current.Exit += App_Exit;
+            #endregion
+
+            #region Errors
+            Application.Current.DispatcherUnhandledException += App_DispatcherUnhandledException;
+            #endregion
+
+            #region Navigation
+            Application.Current.FragmentNavigation += App_FragmentNavigation;
+            Application.Current.Navigated += App_Navigated;
+            Application.Current.Navigating += App_Navigating;
+            Application.Current.NavigationFailed += App_NavigationFailed;
+            Application.Current.NavigationProgress += App_NavigationProgress;
+            Application.Current.NavigationStopped += App_NavigationStopped;
+            #endregion
+        }
+
+        private void App_NavigationStopped(object sender, NavigationEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_NavigationStopped", "lifecyclelogs");
+            this.Console("App_NavigationStopped");
+            this.tag = temp;
+        }
+
+        private void App_NavigationProgress(object sender, NavigationProgressEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_NavigationProgress", "lifecyclelogs");
+            this.Console("App_NavigationProgress");
+            this.tag = temp;
+        }
+
+        private void App_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_Navigating", "lifecyclelogs");
+            this.Console("App_Navigating");
+            this.tag = temp;
+        }
+
+        private void App_NavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_NavigationFailed", "lifecyclelogs");
+            this.Console("App_NavigationFailed");
+            this.tag = temp;
+        }
+
+        private void App_Navigated(object sender, NavigationEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_Navigated", "lifecyclelogs");
+            this.Console("App_Navigated");
+            this.tag = temp;
+        }
+
+        private void App_FragmentNavigation(object sender, FragmentNavigationEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_FragmentNavigation", "lifecyclelogs");
+            this.Console("App_FragmentNavigation");
+            this.tag = temp;
+        }
+
+        private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_DispatcherUnhandledException", "lifecyclelogs");
+            this.Console("App_DispatcherUnhandledException");
+            this.tag = temp;
+        }
+
+        private void App_Exit(object sender, ExitEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_Exit", "lifecyclelogs");
+            this.Console("App_Exit");
+            this.tag = temp;
+        }
+
+        private void App_SessionEnding(object sender, SessionEndingCancelEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_SessionEnding", "lifecyclelogs");
+            this.Console("App_SessionEnding");
+            this.tag = temp;
+        }
+
+        private void App_Deactivated(object sender, EventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_Deactivated", "lifecyclelogs");
+            this.Console("App_Deactivated");
+            this.tag = temp;
+        }
+
+        private void App_Activated(object sender, EventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_Activated", "lifecyclelogs");
+            this.Console("App_Activated");
+            this.tag = temp;
+        }
+
+        private void App_LoadCompleted(object sender, NavigationEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_LoadCompleted", "lifecyclelogs");
+            this.Console("App_LoadCompleted");
+            this.tag = temp;
+        }
+
+        private void App_Startup(object sender, StartupEventArgs e)
+        {
+            String temp = this.tag;
+            this.tag = APPLICATION;
+            this.CurrentFolder("App_Startup", "lifecyclelogs");
+            this.Console("App_Startup");
+            this.tag = temp;
+        }
+
+        #endregion
 
         public Logger(string tag = "Logger", LogMode logMode = LogMode.NONE, AlertMode alertMode = AlertMode.NONE, object data = null, Boolean haveToBeSend = false, String path = "")
         {
@@ -80,7 +273,7 @@ namespace ClassLibrary2
             {
                 //Store to send and delete
             }
-#if DEBUG
+
             switch (logMode)
             {
                 case LogMode.NONE:
@@ -99,6 +292,7 @@ namespace ClassLibrary2
                     break;
             }
 
+#if DEBUG
             switch (alertMode)
             {
                 case AlertMode.NONE:
@@ -128,27 +322,18 @@ namespace ClassLibrary2
                     break;
             }
 #else
-            switch (mode)
+            switch (alertMode)
             {
-                case LogMode.CONSOLE:
-                    Console.WriteLine(tag + " : " + msg);
-                    break;
-                case LogMode.EXTERNAL:
-                    break;
-                case LogMode.CURRENT_FOLDER:
-                    break;
-                case LogMode.TEMP_FOLDER:
-                    break;
                 default:
                     break;
             }
 #endif
         }
 
-        private void CurrentFolder(string msg, int number = 0)
+        private void CurrentFolder(string msg, String filename = "\\current_logs", int number = 0)
         {
-            TextWriter file = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\current_logs" + number, true, UTF8Encoding.UTF8);
-            FileInfo f = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "\\current_logs" + number);
+            TextWriter file = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + filename + number, true, UTF8Encoding.UTF8);
+            FileInfo f = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + filename + number);
             String toSave = Application.Current + " => " + DateTime.Now + " : " + msg;
             int stringValue = UTF8Encoding.UTF8.GetByteCount(toSave);
             if (f.Length + stringValue <= 20000000)
@@ -160,7 +345,7 @@ namespace ClassLibrary2
             {
                 file.Close();
                 number += 1;
-                CurrentFolder(msg, number);
+                CurrentFolder(msg, filename, number);
             }
         }
 

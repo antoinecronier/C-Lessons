@@ -48,7 +48,7 @@ namespace App1.ViewModel
             //TestEF6C1C2();
             //Events();
             //Logs();
-            //SQLiteTest();
+            SQLiteTest();
         }
 
         private void SQLiteTest()
@@ -59,8 +59,8 @@ namespace App1.ViewModel
             EntityGenerator<Product> generatorProduct = new EntityGenerator<Product>();
 
             List<Client> clients = generatorClient.GenerateListItems() as List<Client>;
-            int resultClient = managerClient.InsertAll(clients);
-            var client1Result = managerClient.Find<Client>(1);
+            int resultClient = managerClient.InsertOrIgnoreAll(clients);
+            //var client1Result = managerClient.Find<Client>(188);
             var client2Result = managerClient.Get<Client>(clients[0].Id);
 
             var client3Result = managerClient.FindWithQuery<Client>("SELECT * FROM client WHERE id = @p1", new object[] { 20 });
