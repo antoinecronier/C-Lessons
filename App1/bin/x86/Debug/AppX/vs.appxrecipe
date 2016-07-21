@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-07-18T16:04:26.280</Modified>
+      <Modified>2016-07-21T11:36:35.248</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\App1.exe">
       <PackagePath>entrypoint\App1.exe</PackagePath>
-      <Modified>2016-07-18T16:04:25.197</Modified>
+      <Modified>2016-07-21T11:36:32.504</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\.nuget\packages\Faker.Net.Portable\2.2.0.64\lib\portable-net4+sl5+wp8+win8+wpa81+netcore45+MonoAndroid+Xamarin.iOS1\Faker.Portable.dll">
       <PackagePath>Faker.Portable.dll</PackagePath>
@@ -504,7 +504,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\ClassLibrary1\bin\x86\Debug\ClassLibrary1.dll">
       <PackagePath>ClassLibrary1.dll</PackagePath>
-      <Modified>2016-07-15T09:49:15.585</Modified>
+      <Modified>2016-07-21T11:32:48.897</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UAP.2015\3.10.2\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
@@ -516,7 +516,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Resources\EngagementConfiguration.xml">
       <PackagePath>Resources\EngagementConfiguration.xml</PackagePath>
-      <Modified>2016-07-18T15:59:53.401</Modified>
+      <Modified>2016-07-21T11:35:29.800</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -582,7 +582,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\App1.xr.xml">
       <PackagePath>App1.xr.xml</PackagePath>
-      <Modified>2016-07-18T15:40:30.507</Modified>
+      <Modified>2016-07-21T11:32:48.784</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -590,11 +590,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-07-18T16:00:04.690</Modified>
+      <Modified>2016-07-21T11:36:33.940</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\Core\App1.exe">
       <PackagePath>App1.exe</PackagePath>
-      <Modified>2016-07-18T16:04:26.077</Modified>
+      <Modified>2016-07-21T11:36:34.929</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

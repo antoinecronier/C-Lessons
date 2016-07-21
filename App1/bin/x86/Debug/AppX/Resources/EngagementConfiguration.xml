@@ -5,7 +5,7 @@
 <engagement>
   <agent>
     <!-- Your application connection string. -->
-    <connectionString>Endpoint=tacttestantoine.device.mobileengagement.windows.net;SdkKey=f9b6ce58c9c5602948f43e65505ec98f;AppId=net000307</connectionString>
+    <connectionString></connectionString>
 
     <!-- [Optional] Indicate whether the agent have to report crash or not. -->
     <reportCrash>true</reportCrash>

@@ -242,3 +242,8 @@ C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\obj\x86\Deb
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\resources.en.resfiles.intermediate
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\obj\x86\Debug\App1.csprojResolveAssemblyReference.cache
+<<<<<<< Updated upstream
+=======
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\Core\RCXB5BA.tmp
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\App1\bin\x86\Debug\Core\RCXF3AC.tmp
+>>>>>>> Stashed changes
