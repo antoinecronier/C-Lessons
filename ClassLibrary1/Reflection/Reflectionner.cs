@@ -12,7 +12,7 @@ namespace ClassLibrary2.Entities.Reflection
         public Dictionary<String, Object> ReadClass<T>()
         {
             Dictionary<String, Object> result = new Dictionary<string, object>();
-            var props = typeof(T).GetProperties();
+            PropertyInfo[] props = typeof(T).GetProperties();
             T item = (T)Activator.CreateInstance(typeof(T));
             foreach (var prop in props)
             {

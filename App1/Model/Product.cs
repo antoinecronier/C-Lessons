@@ -1,4 +1,5 @@
 ﻿using App1.Model.Base;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace App1.Model
     public class Product : EntityBase
     {
         #region attributs
-        private int id;
         private String name;
         private int value;
         private int clientId;
@@ -18,19 +18,6 @@ namespace App1.Model
         #endregion
 
         #region properties
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-                OnPropertyChanged("Id");
-            }
-        }
 
         public string Name
         {
@@ -60,6 +47,7 @@ namespace App1.Model
             }
         }
         
+        [ForeignKey(typeof(Client))]
         public int ClientId
         {
             get { return clientId; }

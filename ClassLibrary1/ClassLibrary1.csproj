@@ -118,8 +118,11 @@
     <Compile Include="EnumManager\DataConnectionResource.cs" />
     <Compile Include="EnumManager\EnumTester.cs" />
     <Compile Include="EnumManager\StringValueAttribute.cs" />
+    <Compile Include="Generator\Attributs\FakerTyper.cs" />
     <Compile Include="Generator\EntityGenerator.cs" />
+    <Compile Include="Generator\EntityGeneratorFakerTyper.cs" />
     <Compile Include="Generator\TypeEnum.cs" />
+    <Compile Include="Generator\TypeEnumCustom.cs" />
     <Compile Include="IDo1.cs" />
     <Compile Include="IDo2.cs" />
     <Compile Include="IDo3.cs" />

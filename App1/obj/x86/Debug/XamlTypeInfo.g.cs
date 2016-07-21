@@ -146,8 +146,8 @@ namespace App1.App1_XamlTypeInfo
             _typeNameTable[10] = "System.Collections.ObjectModel.ObservableCollection`1<App1.Model.Product>";
             _typeNameTable[11] = "System.Collections.ObjectModel.Collection`1<App1.Model.Product>";
             _typeNameTable[12] = "App1.Model.Product";
-            _typeNameTable[13] = "Int32";
-            _typeNameTable[14] = "String";
+            _typeNameTable[13] = "String";
+            _typeNameTable[14] = "Int32";
             _typeNameTable[15] = "App1.MyUserControl.ProductUserControl";
             _typeNameTable[16] = "Microsoft.Azure.Engagement.Overlay.EngagementPageOverlay";
             _typeNameTable[17] = "Microsoft.Azure.Engagement.EngagementPage";
@@ -169,8 +169,8 @@ namespace App1.App1_XamlTypeInfo
             _typeTable[10] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::App1.Model.Product>);
             _typeTable[11] = typeof(global::System.Collections.ObjectModel.Collection<global::App1.Model.Product>);
             _typeTable[12] = typeof(global::App1.Model.Product);
-            _typeTable[13] = typeof(global::System.Int32);
-            _typeTable[14] = typeof(global::System.String);
+            _typeTable[13] = typeof(global::System.String);
+            _typeTable[14] = typeof(global::System.Int32);
             _typeTable[15] = typeof(global::App1.MyUserControl.ProductUserControl);
             _typeTable[16] = typeof(global::Microsoft.Azure.Engagement.Overlay.EngagementPageOverlay);
             _typeTable[17] = typeof(global::Microsoft.Azure.Engagement.EngagementPage);
@@ -289,6 +289,7 @@ namespace App1.App1_XamlTypeInfo
             case 6:   //  App1.Model.Base.EntityBase
                 userType = new global::App1.App1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.Activator = Activate_6_EntityBase;
+                userType.AddMemberName("Id");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -327,7 +328,6 @@ namespace App1.App1_XamlTypeInfo
             case 12:   //  App1.Model.Product
                 userType = new global::App1.App1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("App1.Model.Base.EntityBase"));
                 userType.Activator = Activate_12_Product;
-                userType.AddMemberName("Id");
                 userType.AddMemberName("Name");
                 userType.AddMemberName("Value");
                 userType.AddMemberName("ClientId");
@@ -335,11 +335,11 @@ namespace App1.App1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 13:   //  Int32
+            case 13:   //  String
                 xamlType = new global::App1.App1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 14:   //  String
+            case 14:   //  Int32
                 xamlType = new global::App1.App1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
@@ -443,45 +443,45 @@ namespace App1.App1_XamlTypeInfo
             var that = (global::App1.MyUserControl.ProductListUserControl)instance;
             that.Obs = (global::System.Collections.ObjectModel.ObservableCollection<global::App1.Model.Product>)Value;
         }
-        private object get_5_Product_Id(object instance)
-        {
-            var that = (global::App1.Model.Product)instance;
-            return that.Id;
-        }
-        private void set_5_Product_Id(object instance, object Value)
-        {
-            var that = (global::App1.Model.Product)instance;
-            that.Id = (global::System.Int32)Value;
-        }
-        private object get_6_Product_Name(object instance)
+        private object get_5_Product_Name(object instance)
         {
             var that = (global::App1.Model.Product)instance;
             return that.Name;
         }
-        private void set_6_Product_Name(object instance, object Value)
+        private void set_5_Product_Name(object instance, object Value)
         {
             var that = (global::App1.Model.Product)instance;
             that.Name = (global::System.String)Value;
         }
-        private object get_7_Product_Value(object instance)
+        private object get_6_Product_Value(object instance)
         {
             var that = (global::App1.Model.Product)instance;
             return that.Value;
         }
-        private void set_7_Product_Value(object instance, object Value)
+        private void set_6_Product_Value(object instance, object Value)
         {
             var that = (global::App1.Model.Product)instance;
             that.Value = (global::System.Int32)Value;
         }
-        private object get_8_Product_ClientId(object instance)
+        private object get_7_Product_ClientId(object instance)
         {
             var that = (global::App1.Model.Product)instance;
             return that.ClientId;
         }
-        private void set_8_Product_ClientId(object instance, object Value)
+        private void set_7_Product_ClientId(object instance, object Value)
         {
             var that = (global::App1.Model.Product)instance;
             that.ClientId = (global::System.Int32)Value;
+        }
+        private object get_8_EntityBase_Id(object instance)
+        {
+            var that = (global::App1.Model.Base.EntityBase)instance;
+            return that.Id;
+        }
+        private void set_8_EntityBase_Id(object instance, object Value)
+        {
+            var that = (global::App1.Model.Base.EntityBase)instance;
+            that.Id = (global::System.Int32)Value;
         }
         private object get_9_ProductUserControl_Product(object instance)
         {
@@ -601,29 +601,29 @@ namespace App1.App1_XamlTypeInfo
                 xamlMember.Getter = get_4_ProductListUserControl_Obs;
                 xamlMember.Setter = set_4_ProductListUserControl_Obs;
                 break;
-            case "App1.Model.Product.Id":
-                userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.Model.Product");
-                xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "Id", "Int32");
-                xamlMember.Getter = get_5_Product_Id;
-                xamlMember.Setter = set_5_Product_Id;
-                break;
             case "App1.Model.Product.Name":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.Model.Product");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "Name", "String");
-                xamlMember.Getter = get_6_Product_Name;
-                xamlMember.Setter = set_6_Product_Name;
+                xamlMember.Getter = get_5_Product_Name;
+                xamlMember.Setter = set_5_Product_Name;
                 break;
             case "App1.Model.Product.Value":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.Model.Product");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "Value", "Int32");
-                xamlMember.Getter = get_7_Product_Value;
-                xamlMember.Setter = set_7_Product_Value;
+                xamlMember.Getter = get_6_Product_Value;
+                xamlMember.Setter = set_6_Product_Value;
                 break;
             case "App1.Model.Product.ClientId":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.Model.Product");
                 xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "ClientId", "Int32");
-                xamlMember.Getter = get_8_Product_ClientId;
-                xamlMember.Setter = set_8_Product_ClientId;
+                xamlMember.Getter = get_7_Product_ClientId;
+                xamlMember.Setter = set_7_Product_ClientId;
+                break;
+            case "App1.Model.Base.EntityBase.Id":
+                userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.Model.Base.EntityBase");
+                xamlMember = new global::App1.App1_XamlTypeInfo.XamlMember(this, "Id", "Int32");
+                xamlMember.Getter = get_8_EntityBase_Id;
+                xamlMember.Setter = set_8_EntityBase_Id;
                 break;
             case "App1.MyUserControl.ProductUserControl.Product":
                 userType = (global::App1.App1_XamlTypeInfo.XamlUserType)GetXamlTypeByName("App1.MyUserControl.ProductUserControl");

@@ -1,5 +1,8 @@
 ﻿using App1.Model.Base;
+using ClassLibrary2.Attributs;
+using ClassLibrary2.Entities.Generator;
 using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +14,6 @@ namespace App1.Model
     public class Client : EntityBase
     {
         #region attributs
-        private int id;
         private String name;
         private String surname;
         private int sold;
@@ -19,7 +21,7 @@ namespace App1.Model
 
         private List<Product> products;
 
-        [SQLite.Net.Attributes.Ignore]
+        [OneToMany]
         public List<Product> Products
         {
             get { return products; }
@@ -29,22 +31,8 @@ namespace App1.Model
         #endregion
 
         #region properties
-        [PrimaryKey, AutoIncrement]
-        [Column("id")]
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-                OnPropertyChanged("Id");
-            }
-        }
         
+        [FakerTyper(TypeEnumCustom.NAME)]
         public string Name
         {
             get
@@ -59,6 +47,7 @@ namespace App1.Model
             }
         }
 
+        [FakerTyper(TypeEnumCustom.SURNAME)]
         public string Surname
         {
             get

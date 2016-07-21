@@ -50,54 +50,57 @@ namespace ClassLibrary2.Entities.Generator
                     PropertyInfo property = typeof(T).GetProperty(item.Key);
                     if (property.CanWrite && property.GetSetMethod(/*nonPublic*/ true).IsPublic)
                     {
-                        foreach (var item1 in property.CustomAttributes)
+                        if (property.CustomAttributes.Where(x => x.AttributeType.Name.Equals("FakerTyper")).ToList().Count > 0)
                         {
-                            if (item1.AttributeType.GetTypeInfo().Name.Equals("FakerTyper"))
+                            foreach (var item1 in property.CustomAttributes)
                             {
                                 switch (item1.ConstructorArguments[0].Value.ToString())
                                 {
                                     case TypeEnumCustom.NAME:
-                                        property.SetValue(result, "test");
+                                        property.SetValue(result, Faker.Name.First());
+                                        break;
+                                    case TypeEnumCustom.SURNAME:
+                                        property.SetValue(result, Faker.Name.Last());
                                         break;
                                     default:
                                         break;
                                 }
                             }
-                            else
+                        }
+                        else
+                        {
+                            switch (property.PropertyType.Name)
                             {
-                                switch (property.PropertyType.Name)
-                                {
-                                    case TypeEnum.INT32:
-                                        property.SetValue(result, Faker.RandomNumber.Next(Int32.MaxValue));
-                                        break;
-                                    case TypeEnum.INT:
-                                        property.SetValue(result, Faker.RandomNumber.Next(Int32.MaxValue));
-                                        break;
-                                    case TypeEnum.STRING:
-                                        property.SetValue(result, Faker.Name.FullName());
-                                        break;
-                                    case TypeEnum.LIST:
-                                        //object generator1 = Activator.CreateInstance(
-                                        //    typeof(EntityGenerator<>).MakeGenericType(property.PropertyType.GetGenericArguments()));
+                                case TypeEnum.INT32:
+                                    property.SetValue(result, Faker.RandomNumber.Next(Int32.MaxValue));
+                                    break;
+                                case TypeEnum.INT:
+                                    property.SetValue(result, Faker.RandomNumber.Next(Int32.MaxValue));
+                                    break;
+                                case TypeEnum.STRING:
+                                    property.SetValue(result, Faker.Name.FullName());
+                                    break;
+                                case TypeEnum.LIST:
+                                    //object generator1 = Activator.CreateInstance(
+                                    //    typeof(EntityGenerator<>).MakeGenericType(property.PropertyType.GetGenericArguments()));
 
-                                        object list = Activator.CreateInstance(
-                                            typeof(List<>).MakeGenericType(property.PropertyType.GetGenericArguments()));
+                                    object list = Activator.CreateInstance(
+                                        typeof(List<>).MakeGenericType(property.PropertyType.GetGenericArguments()));
 
-                                        //TODO find a way to add items to list
-                                        //for (int i = 0; i < Faker.Number.RandomNumber(0, 10); i++)
-                                        //{
-                                        //    typeof(List<>).GetMethod("Add").MakeGenericMethod(property.PropertyType.GetGenericArguments()[0]).Invoke(list, new object[] {
-                                        //        typeof(EntityGenerator<>).GetMethod("GenerateItem").Invoke(generator1, new object[] { 2 }) });
-                                        //}
+                                    //TODO find a way to add items to list
+                                    //for (int i = 0; i < Faker.Number.RandomNumber(0, 10); i++)
+                                    //{
+                                    //    typeof(List<>).GetMethod("Add").MakeGenericMethod(property.PropertyType.GetGenericArguments()[0]).Invoke(list, new object[] {
+                                    //        typeof(EntityGenerator<>).GetMethod("GenerateItem").Invoke(generator1, new object[] { 2 }) });
+                                    //}
 
-                                        property.SetValue(result, list);
-                                        break;
-                                    default:
-                                        object generator = Activator.CreateInstance(typeof(EntityGenerator<>)
-                                            .MakeGenericType(new Type[] { property.PropertyType }));
-                                        property.SetValue(result, generator.GetType().GetMethod("GenerateItem").Invoke(generator, new object[] { 2 }));
-                                        break;
-                                }
+                                    property.SetValue(result, list);
+                                    break;
+                                default:
+                                    object generator = Activator.CreateInstance(typeof(EntityGenerator<>)
+                                        .MakeGenericType(new Type[] { property.PropertyType }));
+                                    property.SetValue(result, generator.GetType().GetMethod("GenerateItem").Invoke(generator, new object[] { 2 }));
+                                    break;
                             }
                         }
                     }

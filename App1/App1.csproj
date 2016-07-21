@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Resources\overlay\EngagementPageOverlay.cs" />
     <Compile Include="SQLite\SQLiteManager.cs" />
+    <Compile Include="SQLite\SQLiteManager2.cs" />
     <Compile Include="ViewModel\ClientViewModel.cs" />
     <Compile Include="View\ClientView.xaml.cs">
       <DependentUpon>ClientView.xaml</DependentUpon>

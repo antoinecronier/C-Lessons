@@ -32,7 +32,19 @@ namespace App1.ViewModel
             LoadItems();
             LinkItems();
             SQLiteTest();
+            SQLiteTest1();
             Engagement();
+        }
+
+        private void SQLiteTest1()
+        {
+            EntityGeneratorFakerTyper<Client> generatorClient = new EntityGeneratorFakerTyper<Client>();
+            Client client = generatorClient.GenerateItem();
+
+            EntityGenerator<Client> generatorClient0 = new EntityGenerator<Client>();
+            Client client0 = generatorClient0.GenerateItem();
+            EntityGenerator<Product> generatorProduct = new EntityGenerator<Product>();
+            client0.Products = generatorProduct.GenerateListItems() as List<Product>;
         }
 
         private void Engagement()
