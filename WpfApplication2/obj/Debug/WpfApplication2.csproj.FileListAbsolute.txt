@@ -20,3 +20,17 @@ C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\obj\Debug\WpfApplication2.csproj.GenerateResource.Cache
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\obj\Debug\WpfApplication2.exe
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\obj\Debug\WpfApplication2.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\ClassLibrary2.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\SQLite.Net.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\ClassLibrary3.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\SQLite.Net.Platform.Generic.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\Faker.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\ClassLibrary2.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\ClassLibrary3.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\obj\Debug\WpfApplication2.csproj.WpfApplication2.exe.config
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\obj\Debug\UC\UserControl1.g.cs
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WpfApplication2\obj\Debug\UC\UserControl1.baml

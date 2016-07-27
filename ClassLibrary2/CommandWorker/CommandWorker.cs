@@ -305,7 +305,18 @@ namespace ClassLibrary2
                 /* Execute the command. */
                 try
                 {
-                    command();
+                    Task.Factory.StartNew(() =>
+                    {
+                        command();
+                    }).ContinueWith(new Action<Task>((x) =>
+                    {
+                        if (this.manualResetEvent != null)
+                        {
+                            this.manualResetEvent.Set();
+                        }
+                    }));
+                    
+                    
                 }
 
                 /* If a command produces an Exception, trace its message. */

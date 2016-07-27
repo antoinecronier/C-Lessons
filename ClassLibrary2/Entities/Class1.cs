@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ClassLibrary2.Entities
 {
     [Table(Class1Schema.TABLE)]
-    public class Class1
+    public class Class1 : EntityBase
     {
         private Int32 id;
         private String name;
@@ -24,21 +24,27 @@ namespace ClassLibrary2.Entities
         public Int32 Id
         {
             get { return id; }
-            set { id = value; }
+            set { id = value;
+                OnPropertyChanged("Id");
+            }
         }
 
         [Column(Class1Schema.NAME)]
         public String Name
         {
             get { return name; }
-            set { name = value; }
+            set { name = value;
+                OnPropertyChanged("Name");
+            }
         }
 
         [Column(Class1Schema.SURNAME)]
         public String Surname
         {
             get { return surname; }
-            set { surname = value; }
+            set { surname = value;
+                OnPropertyChanged("Surname");
+            }
         }
         
         [Column(Class1Schema.ADDRESS_ID)]

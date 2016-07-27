@@ -62,3 +62,10 @@ C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WebApplication2\
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WebApplication2\obj\Debug\WebApplication2.dll
 C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WebApplication2\obj\Debug\WebApplication2.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplication2\bin\SQLite.Net.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplication2\bin\ClassLibrary3.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplication2\bin\SQLite.Net.Platform.Generic.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplication2\bin\Faker.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplication2\bin\ClassLibrary3.pdb
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplication2\bin\fr\EntityFramework.resources.dll
+C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplication2\bin\fr\EntityFramework.SqlServer.resources.dll

@@ -14,7 +14,6 @@ using ClassLibrary2.EnumManager;
 using ClassLibrary2.Genericity;
 using ClassLibrary2.JSON;
 using WpfApplication1.View;
-using ClassLibrary2.Observer.Testing;
 using ClassLibrary2.Events;
 using ClassLibrary2.Entities;
 using ClassLibrary2.Entities.Generator;
@@ -45,10 +44,46 @@ namespace App1.ViewModel
             //Preproc preproc = new Preproc();
             //Sandbox sb = new Sandbox();
             //MysqlTest();
+            MysqlTest1();
+            //WebService();
             //TestEF6C1C2();
             //Events();
             //Logs();
-            SQLiteTest();
+            //SQLiteTest();
+        }
+
+        private async void MysqlTest1()
+        {
+            MySQLManager<Class1> manager = new MySQLManager<Class1>(DataConnectionResource.LOCALMYSQL);
+            EntityGenerator<Class1> generator = new EntityGenerator<Class1>();
+            //Class1 item = generator.GenerateItem();
+            Class1 item = new Class1();
+            item = generator.GenerateItem();
+            item.Address = new Class2();
+            item.Id = 2;
+            item.AddressId = 28;
+            item.Address.Id = 28;
+
+            var res = await manager.Update(item);
+
+            var items = await manager.Get() as List<Class1>;
+            foreach (var iteme in items)
+            {
+                iteme.Name = "test";
+            }
+
+            await manager.Update(items);
+        }
+
+        private async void WebService()
+        {
+            WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
+            EntityGenerator<ClassA> gen = new EntityGenerator<ClassA>();
+            List<ClassA> classAs = gen.GenerateListItems() as List<ClassA>;
+
+            await webManager.Post(classAs);
+
+            var result = await webManager.Get();
         }
 
         private void SQLiteTest()
@@ -91,6 +126,29 @@ namespace App1.ViewModel
 
         private void Logs()
         {
+            Logger2 logger2 = new Logger2("MyLogger", LogMode.CURRENT_FOLDER, AlertMode.CONSOLE);
+            //logger2.Log("bonjour", "mon message");
+            //logger2.Log(new Exception("New Exception message"),"Error occured");
+
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    Task.Factory.StartNew(() =>
+                    {
+                        try
+                        {
+                            this.clientView.UCClient.clientBillTxtB.Text = "hey";
+                        }
+                        catch (Exception e)
+                        {
+                            logger2.Log(e);
+                        }
+                    });
+                }
+            });
+
+
             //Logger logger = new Logger();
             //logger.Log("Default logger welcome");
             //logger.Log("With temp options", LogMode.CONSOLE);
@@ -108,21 +166,38 @@ namespace App1.ViewModel
             //    logger3.Log("Second one ");
             //}
 
-            Logger logger4 = new Logger("current folder", LogMode.CURRENT_FOLDER, AlertMode.OVERLAY);
-            logger4.Log("logger 4 to current folder");
-            Task.Factory.StartNew(() =>
-            {
-                for (int i = 0; i < 1000000000; i++)
-                {
-                    logger4.Log("next reported lognext reported lognext reported lognext reported lognext reported lognext reported lognext reported lognext reported lognext");
-                }
-            });
-            
-            logger4.Log("other");
+            //Logger logger4 = new Logger("current folder", LogMode.CURRENT_FOLDER, AlertMode.OVERLAY);
+            //logger4.Log("logger 4 to current folder");
+            //Task.Factory.StartNew(() =>
+            //{
+            //    for (int i = 0; i < 1000000000; i++)
+            //    {
+            //        logger4.Log("next reported lognext reported lognext reported lognext reported lognext reported lognext reported lognext reported lognext reported lognext");
+            //    }
+            //});
+
+            //logger4.Log("other");
         }
 
         private void Events()
         {
+            ClassWithEvent2 event2 = new ClassWithEvent2();
+            event2.Handler += Event2_Handler;
+            event2.Handler += Event2_Handler2;
+            event2.Handler1 += Event2_Handler1;
+
+            event2.OnHandler(new EventArgs());
+
+            #region Implementation example
+            Product myProduct = new Product();
+            myProduct.Name = "roue";
+            myProduct.Value = 15;
+            myProduct.Stock.Number = 20;
+            myProduct.Stock.Number = 5;
+            myProduct.Stock.Number = 20;
+            #endregion
+
+
             #region Events
             ClassWithEvent event1 = new ClassWithEvent();
             event1.Changed += Event1_Changed;
@@ -154,6 +229,21 @@ namespace App1.ViewModel
             //event3.OnHandler(new EventArgs());
             //event3.OnCustomClassAEvent(new ClassA());
             #endregion
+        }
+
+        private void Event2_Handler2(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void Event2_Handler1(object sender, ClassWithEvent2 e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void Event2_Handler(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
         }
 
         private void Event1_CustomEventArg(object sender, CustomEventArgs e)
@@ -245,131 +335,16 @@ namespace App1.ViewModel
         #region methods
         private async void MysqlTest()
         {
-            //#region MysqlDirectConnect
-            //MySQLManager<ClassA> manager = new MySQLManager<ClassA>(DataConnectionResource.LOCALMYQSL);
-            //ClassA test1 = new ClassA();
-            //test1.Field1 = 1;
-            //test1.Field2 = "2";
-            //test1.Field3 = "3";
-            //await manager.Insert(test1);
-
-            //ClassA test2 = new ClassA();
-            //test2 = await manager.Get(test1.Field1);
-
-            //test2.Field2 = "youhou";
-            //await manager.Update(test1);
-
-            //ClassA test3 = new ClassA();
-            //test3 = await manager.Get(test1.Field1);
-
-            //List<ClassA> items = new List<ClassA>();
-            //ClassA test4 = new ClassA();
-            //test4.Field1 = 20;
-            //test4.Field2 = "20";
-            //ClassA test5 = await manager.Get(test3.Field1);
-            //test5.Field3 = "21";
-            ////ClassA test6 = ((await manager.Get()) as List<ClassA>)[2];
-            ////test6.Field2 = "manager.GetAll()[6]";
-            //items.Add(test4);
-            //items.Add(test5);
-            ////items.Add(test6);
-            //await manager.Update(items);
-            //List<ClassA> items1 = await manager.Get() as List<ClassA>;
-            //await manager.Delete(items1);
-            //await manager.Insert(test1);
-            //ClassC c = new ClassC();
-            //c.Field1 = 9;
-            //(c as ClassA).Field1 = 18;
-
-            //#endregion
-
-            //#region MysqlFromAPI
-            //WebServiceManager<ClassA> webManager = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
-            //ClassA test01 = new ClassA();
-            //test01 = await webManager.Get(test1.Field1);
-            //List<ClassA> tests0 = new List<ClassA>();
-            //tests0 = await webManager.Get();
-            //ClassA test02 = new ClassA();
-            //test02.Field2 = "posted";
-            //test02.Field3 = "in API";
-            //ClassA test03 = await webManager.Post(test02);
-            //test03.Field2 = "coconut";
-            //test03.Field3 = "cherry";
-            //ClassA test04 = await webManager.Put(test03);
-
-            //foreach (var item in tests0)
-            //{
-            //    item.Field1 = 0;
-            //    item.Field2 += " newest"; 
-            //}
-
-            //var res = await webManager.Post(tests0);
-            ////await webManager.Delete(res[0]);
-            //var res1 = await webManager.Delete(res);
-            //var res2 = await webManager.Get();
-
-            //#endregion
-
-            //#region WebService
-            //WebServiceManager<ClassA> webServiceA = new WebServiceManager<ClassA>(DataConnectionResource.LOCALAPI);
-            //WebServiceManager<ClassB> webServiceB = new WebServiceManager<ClassB>(DataConnectionResource.LOCALAPI);
-            //WebServiceManager<ClassC> webServiceC = new WebServiceManager<ClassC>(DataConnectionResource.LOCALAPI);
-            //WebServiceManager<ClassD> webServiceD = new WebServiceManager<ClassD>(DataConnectionResource.LOCALAPI);
-
-            //ClassA a = new ClassA();
-            //a.Field2 = "a";
-            //a.Field3 = "A";
-            //await webServiceA.Post(a);
-            //await webServiceA.Get(2);
-            //await webServiceA.Put(a);
-            //await webServiceA.Delete(a);
-
-            //ClassB b = new ClassB();
-            //b.Field2 = "b";
-            //b.Field3 = "B";
-            //await webServiceB.Post(b);
-
-            //ClassC c = new ClassC();
-            //c.Field2 = "c";
-            //c.Field3 = "C";
-            //c.Field4 = 4;
-            //await webServiceC.Post(c);
-
-            //ClassD d = new ClassD();
-            //d.Field2 = "d";
-            //d.Field3 = "D";
-            //d.Field4 = 4;
-            //d.Field5 = 5;
-            //await webServiceD.Post(d);
-            //#endregion
-
-            //#region Observers
-            //Test3 test3 = new Test3();
-            //Test2 test20 = new Test2();
-            //Test2 test21 = new Test2();
-            //Test2 test22 = new Test2();
-
-            //test3.Attach(test20);
-            //test3.Attach(test21);
-            //test3.Attach(test22);
-
-            //test3.Notify();
-            //test3.MyProperty1 = "JeanDuToto";
-
-            //#endregion
-
-            //#region Enums
-            //EnumTester tester = new EnumTester();
-            //#endregion
-
-            //#region Genericity
-            //Genericitycs gene = new Genericitycs();
-            //Genericitycs2<ClassA> gene2 = new Genericitycs2<ClassA>();
-            //#endregion
-
-            //#region JSON
-            //Json json = new Json();
-            //#endregion
+            MySQLManager<Class1> managerC1 = new MySQLManager<Class1>(DataConnectionResource.LOCALMYSQL);
+            EntityGenerator<Class1> gen = new EntityGenerator<Class1>();
+            EntityGenerator<Class2> gen1 = new EntityGenerator<Class2>();
+            Class1 c1 = gen.GenerateItem();
+            c1.Addresses = gen1.GenerateListItems() as List<Class2>;
+            await managerC1.Insert(c1);
+            var result = await managerC1.Get() as List<Class1>;
+            c1.Addresses.Add(gen1.GenerateItem());
+            await managerC1.Update(c1);
+            var result1 = await managerC1.Get() as List<Class1>;
         }
 
         private void LoadItems()
@@ -409,6 +384,7 @@ namespace App1.ViewModel
             {
                 Application.Current.Dispatcher.Invoke(DispatcherPriority.Background, new ThreadStart(delegate
                 {
+
                     this.clientView.ClientUserControl.Client.Sold = i;
                         i++;
                 }));

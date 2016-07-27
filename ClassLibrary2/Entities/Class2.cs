@@ -44,7 +44,8 @@ namespace ClassLibrary2.Entities
         public Int32 ClientId
         {
             get { return clientId; }
-            set { clientId = value; }
+            set { clientId = value;
+            }
         }
 
         /*[Column(Class2Scheme.CLIENT)]

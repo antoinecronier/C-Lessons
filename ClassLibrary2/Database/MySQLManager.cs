@@ -41,8 +41,7 @@ namespace ClassLibrary2.Database
         {
             await Task.Factory.StartNew(() =>
             {
-                this.DbSetT.Attach(item);
-                this.Entry<TEntity>(item);
+                this.Entry<TEntity>(item).State = EntityState.Modified;
             });
             await this.SaveChangesAsync();
             return item;
@@ -52,10 +51,9 @@ namespace ClassLibrary2.Database
         {
             await Task.Factory.StartNew(() =>
             {
-                this.DbSetT.Attach((items as List<TEntity>)[0]);
                 foreach (var item in items)
                 {
-                    this.Entry<TEntity>(item);
+                    this.Entry<TEntity>(item).State = EntityState.Modified;
                 }
             });
             await this.SaveChangesAsync();

@@ -31,12 +31,12 @@ namespace App1.ViewModel
             this.clientView = clientView;
             LoadItems();
             LinkItems();
-            SQLiteTest();
-            SQLiteTest1();
+            //SQLiteTest();
+            GeneratorTest();
             Engagement();
         }
 
-        private void SQLiteTest1()
+        private void GeneratorTest()
         {
             EntityGeneratorFakerTyper<Client> generatorClient = new EntityGeneratorFakerTyper<Client>();
             Client client = generatorClient.GenerateItem();

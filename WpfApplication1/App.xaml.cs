@@ -15,11 +15,14 @@ namespace WpfApplication1
     public partial class App : Application
     {
         public Logger logger { get; set; }
+        public Logger2 logger2 { get; set; }
 
         public App()
         {
             logger = new Logger("Logger1",LogMode.CURRENT_FOLDER,AlertMode.CONSOLE);
             logger.LifeCycle = true;
+            logger2 = new Logger2("ApplicationHundleExceptionLogger", LogMode.CURRENT_FOLDER, AlertMode.CONSOLE);
+            this.DispatcherUnhandledException += App_DispatcherUnhandledException1;
 
             //#region Base Life Cycle
             //this.Startup += App_Startup;
@@ -42,6 +45,11 @@ namespace WpfApplication1
             //this.NavigationProgress += App_NavigationProgress;
             //this.NavigationStopped += App_NavigationStopped;
             //#endregion
+        }
+
+        private void App_DispatcherUnhandledException1(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            logger2.Log(e.Exception);
         }
 
         private void App_NavigationStopped(object sender, System.Windows.Navigation.NavigationEventArgs e)

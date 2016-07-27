@@ -81,25 +81,18 @@ namespace ClassLibrary2.Entities.Generator
                                     property.SetValue(result, Faker.Name.FullName());
                                     break;
                                 case TypeEnum.LIST:
-                                    //object generator1 = Activator.CreateInstance(
-                                    //    typeof(EntityGenerator<>).MakeGenericType(property.PropertyType.GetGenericArguments()));
-
-                                    object list = Activator.CreateInstance(
-                                        typeof(List<>).MakeGenericType(property.PropertyType.GetGenericArguments()));
-
-                                    //TODO find a way to add items to list
-                                    //for (int i = 0; i < Faker.Number.RandomNumber(0, 10); i++)
-                                    //{
-                                    //    typeof(List<>).GetMethod("Add").MakeGenericMethod(property.PropertyType.GetGenericArguments()[0]).Invoke(list, new object[] {
-                                    //        typeof(EntityGenerator<>).GetMethod("GenerateItem").Invoke(generator1, new object[] { 2 }) });
-                                    //}
-
-                                    property.SetValue(result, list);
+                                    //object list = Activator.CreateInstance(
+                                    //    typeof(List<>).MakeGenericType(property.PropertyType.GetGenericArguments()));
+                                    //property.SetValue(result, list);
+                                    object generatorList = Activator.CreateInstance(typeof(EntityGenerator<>)
+                                        .MakeGenericType(new Type[] { property.PropertyType }));
+                                    property.SetValue(result, generatorList.GetType().GetMethod("GenerateListItems").Invoke(generatorList, new object[] { inheritance }));
+                                    //Type.GetType(typeof(List<T>).AssemblyQualifiedName)
                                     break;
                                 default:
                                     object generator = Activator.CreateInstance(typeof(EntityGenerator<>)
                                         .MakeGenericType(new Type[] { property.PropertyType }));
-                                    property.SetValue(result, generator.GetType().GetMethod("GenerateItem").Invoke(generator, new object[] { 2 }));
+                                    property.SetValue(result, generator.GetType().GetMethod("GenerateItem").Invoke(generator, new object[] { inheritance }));
                                     break;
                             }
                         }

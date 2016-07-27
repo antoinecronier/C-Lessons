@@ -1,4 +1,5 @@
-﻿using ClassLibrary2.Entities;
+﻿using ClassLibrary1;
+using ClassLibrary2.Entities;
 using ClassLibrary2.Entities.Generator;
 using ClassLibrary2.EnumManager;
 using System;
@@ -16,6 +17,11 @@ namespace ClassLibrary2.Database
     {
         public DbSet<Class1> DbSetClass1 { get; set; }
         public DbSet<Class2> DbSetClass2 { get; set; }
+
+        public DbSet<ClassA> DbSetClassA { get; set; }
+        public DbSet<ClassB> DbSetClassB { get; set; }
+        public DbSet<ClassC> DbSetClassC { get; set; }
+        public DbSet<ClassD> DbSetClassD { get; set; }
 
         public MySQLFullDB(DataConnectionResource dataConnectionResource)
             : base(EnumString.GetStringValue(dataConnectionResource))
@@ -54,6 +60,14 @@ namespace ClassLibrary2.Database
 
                     MySQLManager<Class1> managerClass1 = new MySQLManager<Class1>(DataConnectionResource.LOCALMYSQL);
                     managerClass1.Insert(c1);
+
+
+                    ClassD d1 = new ClassD();
+                    EntityGenerator<ClassD> generatorClassD = new EntityGenerator<ClassD>();
+                    d1 = generatorClassD.GenerateItem();
+
+                    MySQLManager<ClassD> managerClassD = new MySQLManager<ClassD>(DataConnectionResource.LOCALMYSQL);
+                    managerClassD.Insert(d1);
                 }
             }
         }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace App1.Model
 {
@@ -13,7 +14,8 @@ namespace App1.Model
         #region attributs
         private int id;
         private String name;
-        private int value;
+        private double value;
+        private Stock myVar;
         #endregion
 
         #region properties
@@ -47,7 +49,7 @@ namespace App1.Model
             }
         }
 
-        public int Value
+        public double Value
         {
             get
             {
@@ -60,16 +62,38 @@ namespace App1.Model
                 OnPropertyChanged("Value");
             }
         }
+
+        public Stock Stock
+        {
+            get { return myVar; }
+            set { myVar = value; }
+        }
+
         #endregion
 
         #region constructor
         public Product()
         {
-
+            this.Stock = new Stock();
+            this.Stock.Handler += Stock_Handler;
         }
+
         #endregion
 
         #region functions
+        private void Stock_Handler(object sender, EventArgs e)
+        {
+            if (this.Stock.Number > 10)
+            {
+                this.Value *= Stock.UP;
+            }
+            else
+            {
+                this.Value *= Stock.DOWN;
+                MessageBox.Show("Low Stock");
+            }
+            
+        }
         #endregion
     }
 }

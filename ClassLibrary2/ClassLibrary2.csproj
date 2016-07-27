@@ -123,12 +123,14 @@
     <Compile Include="Entities\IDo3.cs" />
     <Compile Include="EnumManager\StringValueAttribute.cs" />
     <Compile Include="Events\ClassWithEvent.cs" />
+    <Compile Include="Events\ClassWithEvent2.cs" />
     <Compile Include="Events\CustomEventArgs.cs" />
     <Compile Include="Events\EventBase.cs" />
     <Compile Include="Genericity\Genericitycs.cs" />
     <Compile Include="JSON\Json.cs" />
     <Compile Include="Logger\AlertMode.cs" />
     <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Logger\Logger2.cs" />
     <Compile Include="Logger\LogMode.cs" />
     <Compile Include="Observer\Investor.cs" />
     <Compile Include="Observer\Observable.cs" />

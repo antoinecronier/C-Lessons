@@ -1,4 +1,5 @@
 ﻿using App1.Model.Base;
+using ClassLibrary1;
 using ClassLibrary2.Attributs;
 using ClassLibrary2.Entities.Generator;
 using SQLite.Net.Attributes;

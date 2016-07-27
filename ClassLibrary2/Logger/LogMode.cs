@@ -12,6 +12,7 @@ namespace ClassLibrary2
         CONSOLE,
         EXTERNAL,
         CURRENT_FOLDER,
-        TEMP_FOLDER
+        TEMP_FOLDER,
+        DATABASE
     }
 }

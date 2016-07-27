@@ -47,7 +47,7 @@
 
         public void DoSomething()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         public void DoSomething(string param1, string param2)

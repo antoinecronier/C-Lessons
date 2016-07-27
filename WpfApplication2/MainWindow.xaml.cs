@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary2.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,17 @@ namespace WpfApplication2
         public MainWindow()
         {
             InitializeComponent();
-            Test();
+            Init();
+            //Test();
+        }
+
+        private void Init()
+        {
+            Class1 c1 = new Class1();
+            c1.Id = 2;
+            c1.Name = "toto";
+            c1.Surname = "tata";
+            this.UC1.Class1 = c1;
         }
 
         private void Test()

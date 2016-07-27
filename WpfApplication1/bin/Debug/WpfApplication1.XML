@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WpfApplication1</name>
+    </assembly>
+    <members>
+        <member name="T:App1.MyUserControl.ProductListUserControl1">
+            <summary>
+            ProductListUserControl1
+            </summary>
+        </member>
+        <member name="M:App1.MyUserControl.ProductListUserControl1.LoadItem(System.Collections.Generic.List{App1.Model.Product})">
+            <summary>
+            Current list for User items.
+            </summary>
+        </member>
+        <member name="M:App1.MyUserControl.ProductListUserControl1.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:App1.MyUserControl.AddRemoveUserControl">
+            <summary>
+            AddRemoveUserControl
+            </summary>
+        </member>
+        <member name="M:App1.MyUserControl.AddRemoveUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:App1.MyUserControl.ClientUserControl">
+            <summary>
+            ClientUserControl
+            </summary>
+        </member>
+        <member name="M:App1.MyUserControl.ClientUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:App1.MyUserControl.ProductListUserControl">
+            <summary>
+            ProductListUserControl
+            </summary>
+        </member>
+        <member name="M:App1.MyUserControl.ProductListUserControl.LoadItem(System.Collections.Generic.List{App1.Model.Product})">
+            <summary>
+            Current list for User items.
+            </summary>
+        </member>
+        <member name="M:App1.MyUserControl.ProductListUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:App1.MyUserControl.ProductUserControl">
+            <summary>
+            ProductUserControl
+            </summary>
+        </member>
+        <member name="M:App1.MyUserControl.ProductUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WpfApplication1.View.ClientView">
+            <summary>
+            Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
+            </summary>
+            <summary>
+            ClientView
+            </summary>
+        </member>
+        <member name="M:WpfApplication1.View.ClientView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WpfApplication1.View.Page1">
+            <summary>
+            Logique d'interaction pour Page1.xaml
+            </summary>
+            <summary>
+            Page1
+            </summary>
+        </member>
+        <member name="M:WpfApplication1.View.Page1.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WpfApplication1.View.Window1">
+            <summary>
+            Logique d'interaction pour Window1.xaml
+            </summary>
+            <summary>
+            Window1
+            </summary>
+        </member>
+        <member name="M:WpfApplication1.View.Window1.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WpfApplication1.View.Window2">
+            <summary>
+            Logique d'interaction pour Window2.xaml
+            </summary>
+            <summary>
+            Window2
+            </summary>
+        </member>
+        <member name="M:WpfApplication1.View.Window2.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WpfApplication1.App">
+            <summary>
+            Logique d'interaction pour App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:WpfApplication1.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:WpfApplication1.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:WpfApplication1.Properties.Resources">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:WpfApplication1.Properties.Resources.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:WpfApplication1.Properties.Resources.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

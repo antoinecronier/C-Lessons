@@ -10,8 +10,9 @@ namespace ClassLibrary2
     {
         NONE,
         CONSOLE,
-        TOAST,
         MESSAGE_BOX,
+        MESSAGE_BOX_CUSTOM,
+        TOAST,
         OVERLAY
     }
 }
