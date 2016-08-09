@@ -49,7 +49,7 @@ namespace WpfApplication1
 
         private void App_DispatcherUnhandledException1(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            logger2.Log(e.Exception);
+            //logger2.Log(e.Exception);
         }
 
         private void App_NavigationStopped(object sender, System.Windows.Navigation.NavigationEventArgs e)

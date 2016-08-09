@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebApplicationMVCSecure.Models.User>
+
+@{
+    ViewBag.Title = "BoxedUserList";
+}
+
+<h2>BoxedList</h2>
+
+@foreach (var item in Model)
+{
+    <div class="rounded-table my-border my-border-radius" draggable="true">
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Firstname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lastname)
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+
+        </table>
+    </div>
+}
+

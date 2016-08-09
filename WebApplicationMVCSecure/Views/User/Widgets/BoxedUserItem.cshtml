@@ -1,0 +1,37 @@
+﻿@model WebApplicationMVCSecure.Models.User
+
+@{
+    ViewBag.Title = "BoxedUserItem";
+}
+
+<h2>BoxeUserdItem</h2>
+
+<div class="rounded-table my-border my-border-radius">
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Lastname)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = Model.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+            </td>
+        </tr>
+
+    </table>
+</div>
+

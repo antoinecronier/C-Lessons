@@ -1,0 +1,50 @@
+﻿@model WebApplicationMVCSecure.Models.Address
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Name)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.City)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Way)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Way)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Number)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.PostalCode)
+        </td>
+    </tr>
+</table>
+@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+@Html.ActionLink("Details", "Details", new { id = Model.Id }) |
+@Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+
+<input id="AddressId" type="text" name="AddressId" value=@Model.Id class="hidden" />
+

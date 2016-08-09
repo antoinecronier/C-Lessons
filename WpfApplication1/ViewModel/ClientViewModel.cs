@@ -44,11 +44,11 @@ namespace App1.ViewModel
             //Preproc preproc = new Preproc();
             //Sandbox sb = new Sandbox();
             //MysqlTest();
-            MysqlTest1();
+            //MysqlTest1();
             //WebService();
             //TestEF6C1C2();
             //Events();
-            //Logs();
+            Logs();
             //SQLiteTest();
         }
 
@@ -132,6 +132,7 @@ namespace App1.ViewModel
 
             Task.Factory.StartNew(() =>
             {
+                int i = 0;
                 while (true)
                 {
                     Task.Factory.StartNew(() =>
@@ -142,7 +143,8 @@ namespace App1.ViewModel
                         }
                         catch (Exception e)
                         {
-                            logger2.Log(e);
+                            logger2.Log("error :" + i);
+                            i++;
                         }
                     });
                 }

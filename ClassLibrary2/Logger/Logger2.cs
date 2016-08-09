@@ -36,8 +36,8 @@ namespace ClassLibrary2
             worker.Enqueue(() =>
             {
                 InnerLog(toLog, msg, userDirectory);
-                idSinceStart += 1;
-            }, new ManualResetEvent(false));
+                
+            }, reseter);
         }
 
         public void Log(String toLog, LogMode logMode, AlertMode alertMode, String msg = null, String userDirectory = null)
@@ -45,8 +45,8 @@ namespace ClassLibrary2
             worker.Enqueue(() =>
             {
                 ReLog(toLog, logMode, alertMode);
-                idSinceStart += 1;
-            }, new ManualResetEvent(false));
+                
+            }, reseter);
         }
 
         private void InnerLog(string toLog, string msg, string userDirectory)
@@ -67,16 +67,16 @@ namespace ClassLibrary2
                 case LogMode.NONE:
                     break;
                 case LogMode.CONSOLE:
-                    Console.WriteLine(idSinceStart + "::" + this.name + toLog);
+                    Console.WriteLine(this.name + toLog);
                     break;
                 case LogMode.EXTERNAL:
-                    SaveToFile(idSinceStart + "::" + this.name + toLog, userDirectory);
+                    SaveToFile(this.name + toLog, userDirectory);
                     break;
                 case LogMode.CURRENT_FOLDER:
-                    SaveToFile(idSinceStart + "::" + this.name + toLog, AppDomain.CurrentDomain.BaseDirectory);
+                    SaveToFile(this.name + toLog, AppDomain.CurrentDomain.BaseDirectory);
                     break;
                 case LogMode.TEMP_FOLDER:
-                    SaveToFile(idSinceStart + "::" + this.name + toLog, Path.GetTempPath() + "\\" +
+                    SaveToFile(this.name + toLog, Path.GetTempPath() + "\\" +
                         Application.Current.ToString().Split('.')[0]);
                     break;
                 default:
@@ -88,10 +88,10 @@ namespace ClassLibrary2
                 case AlertMode.NONE:
                     break;
                 case AlertMode.CONSOLE:
-                    Console.WriteLine(idSinceStart + "::" + this.name + msg);
+                    Console.WriteLine(this.name + msg);
                     break;
                 case AlertMode.MESSAGE_BOX:
-                    MessageBox.Show(idSinceStart + "::" + this.name + msg);
+                    MessageBox.Show(this.name + msg);
                     break;
                 case AlertMode.MESSAGE_BOX_CUSTOM:
                     MessageBoxResult result = MessageBox.Show(this.name + msg + MESSAGE, ALERTTITLE, MessageBoxButton.YesNo, MessageBoxImage.Information);
@@ -136,7 +136,7 @@ namespace ClassLibrary2
             worker.Enqueue(() =>
             {
                 InnerLog("Message: " + toLog.Message + "\nStacktrace: " + toLog.StackTrace, msg, userDirectory);
-                idSinceStart += 1;
+                
             }, reseter);
         }
 
@@ -145,7 +145,7 @@ namespace ClassLibrary2
             worker.Enqueue(() =>
             {
                 ReLog("Message: " + toLog.Message + "\nStacktrace: " + toLog.StackTrace, logMode, alertMode);
-                idSinceStart += 1;
+                
             }, reseter);
         }
     }
