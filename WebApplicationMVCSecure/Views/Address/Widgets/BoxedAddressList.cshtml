@@ -1,22 +1,10 @@
 ﻿@model IEnumerable<WebApplicationMVCSecure.Models.Address>
 
-@{
-    ViewBag.Title = "BoxedAddressList";
-}
-
-<h2>@ViewBag.Title</h2>
-
-@{
-    int listId = 1;
-}
-
 @foreach (var item in Model)
 {
-    string name = "boxedAddressListItem" + listId;
+    string name = "boxedAddressListItem" + item.Id;
 
-    <div id=@name class="rounded-table my-border my-border-radius col-md-offset-1 col-md-3 col-xs-12" data-id=@item.Id>
+    <li id=@item.Id title=@name class="rounded-table my-border my-border-radius col-md-offset-1 @ViewBag.ItemListCSSClass col-xs-12" data-id=@item.Id @ViewBag.ItemListProperty>
         @{Html.RenderPartial("~/Views/Address/Widgets/BoxedAddressItem.cshtml", item);}
-    </div>
-
-                listId++;
+    </li>
             }

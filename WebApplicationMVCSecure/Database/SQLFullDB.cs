@@ -44,16 +44,13 @@ namespace WebApplicationMVCSecure.Database
             {
                 #region Users
                 EntityGeneratorFakerTyper<User> generatorUser = new EntityGeneratorFakerTyper<User>();
-                List<User> users = generatorUser.GenerateListItems(4) as List<User>;
+                List<User> users = generatorUser.GenerateListItems(100,5,4) as List<User>;
 
                 EntityGeneratorFakerTyper<Address> generatorAddress = new EntityGeneratorFakerTyper<Address>();
-                List<Address> addresses = generatorAddress.GenerateListItems() as List<Address>;
+                List<Address> addresses = generatorAddress.GenerateListItems(100, 5) as List<Address>;
 
                 EntityGeneratorFakerTyper<Country> generatorCountry = new EntityGeneratorFakerTyper<Country>();
-                List<Country> countries = generatorCountry.GenerateListItems() as List<Country>;
-
-                EntityGeneratorFakerTyper<UsersToAddresses> generatorUsersToAddresses = new EntityGeneratorFakerTyper<UsersToAddresses>();
-                List<UsersToAddresses> usersToAddresses = generatorUsersToAddresses.GenerateListItems() as List<UsersToAddresses>;
+                List<Country> countries = generatorCountry.GenerateListItems(1,1) as List<Country>;
 
                 SQLManager<User> managerUser = new SQLManager<User>(DataConnectionResource.LOCALMSSQLSERVER);
                 await managerUser.Insert(users);
@@ -64,8 +61,20 @@ namespace WebApplicationMVCSecure.Database
                 SQLManager<Country> managerCountry = new SQLManager<Country>(DataConnectionResource.LOCALMSSQLSERVER);
                 await managerCountry.Insert(countries);
 
+                #region Links
+                List<UsersToAddresses> usersToAddresses = new List<UsersToAddresses>();
+
+                for (int i = 0; i < 10; i++)
+                {
+                    UsersToAddresses temp = new UsersToAddresses();
+                    temp.UserId = Faker.RandomNumber.Next(0, users.Count);
+                    temp.AddressId = Faker.RandomNumber.Next(0, addresses.Count);
+                    usersToAddresses.Add(temp);
+                }
+
                 SQLManager<UsersToAddresses> managerUsersToAddresses = new SQLManager<UsersToAddresses>(DataConnectionResource.LOCALMSSQLSERVER);
                 await managerUsersToAddresses.Insert(usersToAddresses);
+                #endregion
                 #endregion
             }
         }

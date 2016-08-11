@@ -55,13 +55,13 @@ namespace WebApplicationMVCSecure.Models
             set { city = value; }
         }
 
-        private int? countryId;
+        //private int? countryId;
 
-        public int? CountryId
-        {
-            get { return countryId; }
-            set { countryId = value; }
-        }
+        //public int? CountryId
+        //{
+        //    get { return countryId; }
+        //    set { countryId = value; }
+        //}
 
         private String way;
 
@@ -90,13 +90,13 @@ namespace WebApplicationMVCSecure.Models
             set { postalCode = value; }
         }
 
-        private Country country;
+        //private Country country;
 
-        [ForeignKey("CountryId")]
-        public Country Country
-        {
-            get { return country; }
-            set { country = value; }
-        }
+        //[ForeignKey("CountryId")]
+        //public Country Country
+        //{
+        //    get { return country; }
+        //    set { country = value; }
+        //}
     }
 }

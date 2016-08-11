@@ -23,6 +23,10 @@ textarea {
     max-width: 280px;
 }
 
+.form-control {
+    max-width: 280px;
+}
+
 /* Custom display to display card item. */
 .my-border{
     border: 1px solid #ccc!important;
@@ -55,7 +59,7 @@ textarea {
 .rounded-table {
   display: inline-block;
   max-width: 100%;
-  background-color: aquamarine;
+  background-color: lightgrey;
   padding: 10px;
 }
 

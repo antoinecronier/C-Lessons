@@ -8,7 +8,6 @@
         })
         .done(function (partialViewResult) {
             $("#boxedAddressItem").html(partialViewResult);
-            $("#AddressId").val('1');
         });
     });
 });

@@ -123,10 +123,10 @@ namespace WebApplicationMVCSecure.Utils.Generator
             return result;
         }
 
-        public IEnumerable<T> GenerateListItems(Int32 loop = 2)
+        public IEnumerable<T> GenerateListItems(Int32 max = 100, Int32 min = 0, Int32 loop = 2)
         {
             List<T> result = (List<T>)Activator.CreateInstance(typeof(List<T>));
-            for (int i = 0; i < Faker.RandomNumber.Next(0, 100); i++)
+            for (int i = 0; i < Faker.RandomNumber.Next(min, max); i++)
             {
                 result.Add(GenerateItem(loop));
             }

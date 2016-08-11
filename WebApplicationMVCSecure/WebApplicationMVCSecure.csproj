@@ -61,6 +61,10 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -124,9 +128,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -213,6 +214,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utils\Comparer\ProjectionEqualityComparer.cs" />
     <Compile Include="Utils\EnumManager\StringValueAttribute.cs" />
     <Compile Include="Utils\Generator\Attributs\FakerTyper.cs" />
     <Compile Include="Utils\Generator\EntityGeneratorFakerTyper.cs" />
@@ -227,14 +229,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\edit-users-to-addresses.js" />
+    <Content Include="Scripts\address-item-list-drag-drop.js" />
+    <Content Include="Scripts\address-item-update.js" />
+    <Content Include="Scripts\address-item-create.js" />
     <Content Include="Scripts\address-item-list-to-item.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Models\Base\ClassDiagramItem.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -302,6 +310,7 @@
     <Content Include="Views\Address\Widgets\BoxedAddressList.cshtml" />
     <Content Include="Views\User\Widgets\BoxedUserItem.cshtml" />
     <Content Include="Views\Address\Widgets\BoxedAddressItem.cshtml" />
+    <Content Include="Views\Address\Widgets\AddressInput.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -333,7 +342,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58270</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58270/</IISUrl>
+          <IISUrl>http://localhost:58271/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

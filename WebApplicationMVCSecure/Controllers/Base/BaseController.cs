@@ -22,6 +22,7 @@ namespace WebApplicationMVCSecure.Controllers.Base
         }
 
         [HttpGet]
+        [Authorize]
         public virtual async Task<ActionResult> Index()
         {
             List<T> items = (await dataManager.Get()).ToList();
@@ -29,12 +30,14 @@ namespace WebApplicationMVCSecure.Controllers.Base
         }
 
         [HttpGet]
+        [Authorize]
         public virtual async Task<ActionResult> Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public virtual async Task<ActionResult> Create(T item)
         {
@@ -46,6 +49,7 @@ namespace WebApplicationMVCSecure.Controllers.Base
         }
 
         [HttpGet]
+        [Authorize]
         public virtual async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -64,6 +68,7 @@ namespace WebApplicationMVCSecure.Controllers.Base
         }
 
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public virtual async Task<ActionResult> DeleteConfirmed(int? id)
         {
@@ -77,6 +82,7 @@ namespace WebApplicationMVCSecure.Controllers.Base
         }
 
         [HttpGet]
+        [Authorize]
         public virtual async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,6 +101,7 @@ namespace WebApplicationMVCSecure.Controllers.Base
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public virtual async Task<ActionResult> Edit(T item)
         {
@@ -106,6 +113,7 @@ namespace WebApplicationMVCSecure.Controllers.Base
         }
 
         [HttpGet]
+        [Authorize]
         public virtual async Task<ActionResult> Detail(int? id)
         {
             if (id == null)

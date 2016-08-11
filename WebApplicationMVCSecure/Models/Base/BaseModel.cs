@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApplicationMVCSecure.Models.Base
@@ -8,10 +9,11 @@ namespace WebApplicationMVCSecure.Models.Base
         private Int32 id;
 
         [Key]
+        [JsonProperty("Id")]
         public Int32 Id
         {
             get { return id; }
-            private set { id = value; }
+            set { id = value; }
         }
     }
 }
