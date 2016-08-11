@@ -7,9 +7,18 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplicationMVCSecure.Database;
 using WebApplicationMVCSecure.Models.Base;
+using WebApplicationMVCSecure.Utils.FlashMessage;
 
 namespace WebApplicationMVCSecure.Controllers.Base
 {
+    /*
+     * Add flash notification
+     * Country selector from .NET hardcoded
+     * Ajax autocompletion "ex city"
+     * Minimise js & css => network only one js
+     * 
+     */
+
     public abstract class BaseController<T> : Controller where T : BaseModel
     {
         public const string INDEX = "Index";
@@ -45,7 +54,7 @@ namespace WebApplicationMVCSecure.Controllers.Base
             {
                 await dataManager.Insert(item);
             }
-            return RedirectToAction(INDEX);
+            return RedirectToAction(INDEX).Success("item with new id : "+item.Id+ " has been created");
         }
 
         [HttpGet]
@@ -78,7 +87,7 @@ namespace WebApplicationMVCSecure.Controllers.Base
                 item = await dataManager.Get(id);
                 await dataManager.Delete(item);
             }
-            return RedirectToAction(INDEX);
+            return RedirectToAction(INDEX).Error("item with id : " + id + " has been deleted");
         }
 
         [HttpGet]
@@ -109,7 +118,7 @@ namespace WebApplicationMVCSecure.Controllers.Base
             {
                 await dataManager.Update(item);
             }
-            return RedirectToAction(INDEX);
+            return RedirectToAction(INDEX).Information("item with id : " + item.Id + " has been deleted");
         }
 
         [HttpGet]

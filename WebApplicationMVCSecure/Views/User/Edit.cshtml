@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>User</h4>
         <hr />
@@ -35,8 +35,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.Raw("<div id='boxedAddressItem' class='rounded-table my-border my-border-radius'>")
-                @if (Model != null && ((Model.Address != null && Model.Address.Id != 0) || Model.AddressId != 0))
+                <div id='boxedAddressItem' class='rounded-table my-border my-border-radius'>
+                    @{
+                        Boolean check = Model != null && ((Model.Address != null && Model.Address.Id != 0) || Model.AddressId != 0);
+                    }
+                    @if (check)
                 {
                     if (Model.AddressId == 0)
                     {
@@ -44,11 +47,10 @@
                     }
 
                     Html.RenderPartial("~/Views/Address/Widgets/BoxedAddressItem.cshtml", Model.Address);
-                    Html.Raw("</div>");
                 }
-                else
+                </div>
+                @if (!check)
                 {
-                    Html.Raw("</div>");
                     <input id="AddressId" type="hidden" name="AddressId" value="" />
                 }
             </div>
@@ -90,7 +92,7 @@
             </div>
         </div>
     </div>
-}
+                                    }
 
 <div class="row" id="address-list">
     <div class="col-md-6">

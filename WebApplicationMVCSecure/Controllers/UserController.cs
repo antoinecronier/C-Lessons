@@ -11,6 +11,7 @@ using WebApplicationMVCSecure.Database;
 using WebApplicationMVCSecure.Models;
 using WebApplicationMVCSecure.Utils.Comparer;
 using WebApplicationMVCSecure.Utils.Generator;
+using Windows.Data.Json;
 
 namespace WebApplicationMVCSecure.Controllers
 {
@@ -99,6 +100,8 @@ namespace WebApplicationMVCSecure.Controllers
         public async Task EditUsersToAddresses(string json)
         {
             List<UsersToAddresses> usersToAddresses = JsonConvert.DeserializeObject<List<UsersToAddresses>>(json);
+
+            //Use null
             List<UsersToAddresses> currentUserAddresses = dataManagerUserToAddress.DbSetT.SqlQuery("SELECT * from dbo.UsersToAddresses WHERE UserId = " + usersToAddresses[0].UserId).ToList();
 
             List<UsersToAddresses> toDelete = new List<UsersToAddresses>(currentUserAddresses);

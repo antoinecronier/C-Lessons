@@ -38,6 +38,18 @@ namespace WebApplicationMVCSecure
             bundles.Add(new ScriptBundle("~/bundles/edit-users-to-addresses").Include(
                         "~/Scripts/edit-users-to-addresses.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/display-looper").Include(
+                        "~/Scripts/display-looper.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery-3.1.0").Include(
+                        "~/Scripts/jquery-3.1.0.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery.cookie").Include(
+                        "~/Scripts/jquery.cookie.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jQuery.flashMessage").Include(
+                        "~/Scripts/jQuery.flashMessage.js"));
+
             // Utilisez la version de développement de Modernizr pour le développement et l'apprentissage. Puis, une fois
             // prêt pour la production, utilisez l'outil de génération (bluid) sur http://modernizr.com pour choisir uniquement les tests dont vous avez besoin.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

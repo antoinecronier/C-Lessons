@@ -1,23 +1,18 @@
 ﻿$(document).ready(function () {
     $('#EditUsersToAddresses').on('click', function () {
         var user = $('#Id').val();
-        var data = '[';
+        var data = [];
 
         $('#addressListUser').find('li').each(function () {
-            data += '{"UserId"' + ':' + '"' + user + '"' + ',' + '"AddressId"' + ':' + '"' + $(this).attr('id') + '"' + '},';
+            data.push({ 'UserId': user, 'AddressId': $(this).attr('id') });
         });
 
-        if (data.substring(data.length, data.length - 1) == ',') {
-            data = data.substring(0, data.length - 1);
-            data += ']';
-        } else {
-            data = '[{"UserId"' + ':' + '"' + user + '"' + ',' + '"AddressId"' + ':' + '"' + 0 + '"' + '}]';
-        }
+        alert(JSON.stringify(data, null, 2));
 
         $.ajax({
             url: '/User/EditUsersToAddresses',
             type: 'POST',
-            data: { json: data }
+            data: { json: JSON.stringify(data, null, 1) }
         });
 
         window.location.replace("http://localhost:58271/User/");

@@ -126,6 +126,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Windows.Foundation.UniversalApiContract">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\References\Windows.Foundation.UniversalApiContract\2.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http.Formatting">
@@ -216,6 +219,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\Comparer\ProjectionEqualityComparer.cs" />
     <Compile Include="Utils\EnumManager\StringValueAttribute.cs" />
+    <Compile Include="Utils\FlashMessage\FlashMessageExtensions.cs" />
     <Compile Include="Utils\Generator\Attributs\FakerTyper.cs" />
     <Compile Include="Utils\Generator\EntityGeneratorFakerTyper.cs" />
     <Compile Include="Utils\Generator\TypeEnum.cs" />
@@ -229,6 +233,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\display-looper.js" />
     <Content Include="Scripts\edit-users-to-addresses.js" />
     <Content Include="Scripts\address-item-list-drag-drop.js" />
     <Content Include="Scripts\address-item-update.js" />
@@ -238,11 +243,14 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Models\Base\ClassDiagramItem.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jQuery.flashMessage.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -311,6 +319,7 @@
     <Content Include="Views\User\Widgets\BoxedUserItem.cshtml" />
     <Content Include="Views\Address\Widgets\BoxedAddressItem.cshtml" />
     <Content Include="Views\Address\Widgets\AddressInput.cshtml" />
+    <Content Include="Views\_Shared\_Flash.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
