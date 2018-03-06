@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AA79C64-727A-4FC9-B50B-50FB98089A96}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DBManager</RootNamespace>
+    <AssemblyName>DBManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Faker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Faker.Data.1.0.7\lib\net45\Faker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.8.8\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mysql.data.entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entities.6.8.3.0\lib\net45\mysql.data.entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsyncManager\CommandWorker.cs" />
+    <Compile Include="CommandWorker\CommandWorker.cs" />
+    <Compile Include="CommandWorker\ManualResetAction.cs" />
+    <Compile Include="Database\Criteria\Criteria.cs" />
+    <Compile Include="Database\Criteria\Criterion.cs" />
+    <Compile Include="Database\Criteria\DbAction.cs" />
+    <Compile Include="Database\Criteria\DbLinks.cs" />
+    <Compile Include="Database\Criteria\DbOperator.cs" />
+    <Compile Include="Database\Criteria\DbSelector.cs" />
+    <Compile Include="Database\Criteria\DbTablesLinks.cs" />
+    <Compile Include="Database\Criteria\DbVerb.cs" />
+    <Compile Include="Database\Criteria\LinkCondition.cs" />
+    <Compile Include="MySQL\MySQLFullDB.cs" />
+    <Compile Include="MySQL\MySQLManager.cs" />
+    <Compile Include="Database\MysqlOpenHelper.cs" />
+    <Compile Include="Entities\Base\EntityBase.cs" />
+    <Compile Include="Entities\Generator\EntityGenerator.cs" />
+    <Compile Include="Entities\Generator\TypeEnum.cs" />
+    <Compile Include="Entities\Reflection\Reflectionner.cs" />
+    <Compile Include="EnumManager\DataConnectionResource.cs" />
+    <Compile Include="EnumManager\EnumTester.cs" />
+    <Compile Include="EnumManager\StringValueAttribute.cs" />
+    <Compile Include="Events\ClassWithEvent.cs" />
+    <Compile Include="Events\ClassWithEvent2.cs" />
+    <Compile Include="Events\CustomEventArgs.cs" />
+    <Compile Include="Events\EventBase.cs" />
+    <Compile Include="Genericity\Genericitycs.cs" />
+    <Compile Include="JSON\Json.cs" />
+    <Compile Include="Logger\AlertMode.cs" />
+    <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Logger\Logger2.cs" />
+    <Compile Include="Logger\LogMode.cs" />
+    <Compile Include="Observer\Investor.cs" />
+    <Compile Include="Observer\Observable.cs" />
+    <Compile Include="Observer\Testing\Test1.cs" />
+    <Compile Include="Observer\Testing\Test2.cs" />
+    <Compile Include="Observer\Testing\Test3.cs" />
+    <Compile Include="Parser\DBParser\ObjectToMySQL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLite\SQLiteManager.cs" />
+    <Compile Include="WebService\WebServiceManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

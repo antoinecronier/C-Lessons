@@ -1,0 +1,246 @@
+﻿<Page
+    x:Class="DesignUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DesignUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:animation="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="PurpleStyle" TargetType="Button">
+            <Setter Property="FontFamily" Value="Lucida Sans Unicode"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="MediumOrchid"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="Orange"/>
+            <Setter Property="Background" Value="BlueViolet"/>
+            <Setter Property="BorderBrush" Value="BlanchedAlmond"/>
+        </Style>
+
+        <Style x:Key="CircleButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="HotPink"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Yellow"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="Padding" Value="8,4,8,4"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="RootGrid">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke" Storyboard.TargetName="BorderCircle">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledTransparentBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="ContentPresenter" VerticalAlignment="Center" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <Ellipse x:Name="BorderCircle" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="2"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid x:ConnectionId='1' x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!-- Button styled -->
+        <Button Grid.Column="0" Grid.Row="0" Content="Button" Style="{StaticResource PurpleStyle}"/>
+        <Button Grid.Column="1" Grid.Row="0" Content="Button" />
+        <Button Grid.Column="2" Grid.Row="0" Content="Button" Style="{StaticResource CircleButtonStyle}"/>
+
+        <!-- Grid with custom style -->
+        <Grid x:ConnectionId='2' Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2" x:Name="SubGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Green"/>
+                    <Setter Property="Background" Value="Turquoise"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                </Style>
+            </Grid.Resources>
+
+            <Button Grid.Column="0" Grid.Row="0" Content="Hi inside"/>
+            <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Storyboard x:ConnectionId='9' x:Name="myStoryboard">
+                        <DoubleAnimation From="1" To="6" Duration="00:00:6" 
+            Storyboard.TargetName="rectScaleTransform" 
+            Storyboard.TargetProperty="ScaleY">
+                            <DoubleAnimation.EasingFunction>
+                                <BounceEase Bounces="2" EasingMode="EaseOut" 
+                            Bounciness="2" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </StackPanel.Resources>
+
+                <!-- Button that begins animation. -->
+                <Button x:ConnectionId='10'                        
+         Margin="2" Content="Begin" />
+
+                <!-- Button that pauses Animation. -->
+                <Button x:ConnectionId='11'                        
+         Margin="2" Content="Pause" />
+
+                <!-- Button that resumes Animation. -->
+                <Button x:ConnectionId='12'                         
+         Margin="2" Content="Resume" />
+
+                <!-- Button that stops Animation. Stopping the animation 
+         returns the ellipse to its original location. -->
+                <Button x:ConnectionId='13'                       
+         Margin="2" Content="Stop" />
+
+                <Rectangle Fill="Blue" Width="200" Height="30">
+                    <Rectangle.RenderTransform>
+                        <ScaleTransform x:ConnectionId='14' x:Name="rectScaleTransform" />
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+            </StackPanel>
+
+
+            <!--SelectionChanged="OnSelectionChanged"-->
+            <ListView x:ConnectionId='4'
+                Grid.Row="2"
+                Grid.ColumnSpan="4"
+                x:Name="listView">
+                <ListView.Resources>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Grid Background="Pink" x:Name="grid" DataContext="{TemplateBinding DataContext}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="90" />
+                                        </Grid.ColumnDefinitions>
+                                        <ContentPresenter />
+                                        <StackPanel Grid.Column="1" Orientation="Horizontal" x:Name="buttonGroup" Visibility="Collapsed">
+                                            <Button>A</Button>
+                                            <Button>B</Button>
+                                            <Button>C</Button>
+                                        </StackPanel>
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Normal" />
+                                                <VisualState x:Name="Pressed" />
+                                                <VisualState x:Name="PointerOver">
+                                                    <VisualState.Setters>
+                                                        <Setter Target="buttonGroup.Visibility" Value="Visible" />
+                                                        <Setter Target="grid.Background" Value="Orange" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                                <VisualState x:Name="Disabled" />
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.Resources>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button x:ConnectionId='5' Grid.Row="3" Content="popup"                               />
+            <Popup x:ConnectionId='6' VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
+                <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
+                BorderThickness="2" Width="200" Height="200">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Simple Popup" FontSize="24.667" HorizontalAlignment="Center"/>
+                        <Button x:ConnectionId='8' Content="Close"                           HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Popup>
+
+            <Button x:ConnectionId='7' Grid.Row="3" Grid.Column="1" Content="Dialog"                     />
+        </Grid>
+
+        <!-- Image -->
+        <Image x:ConnectionId='3' Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="3" Source="ms-appx:///Assets/Eclipse4.png"                                >
+            <FlyoutBase.AttachedFlyout>
+                <Flyout>
+                    <TextBlock Text="This is some text in a flyout."  />
+                </Flyout>
+            </FlyoutBase.AttachedFlyout>
+        </Image>
+    </Grid>
+</Page>
+

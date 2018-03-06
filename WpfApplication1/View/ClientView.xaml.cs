@@ -46,6 +46,12 @@ namespace WpfApplication1.View
             this.AddRemoveUserControl = this.UCAddRemove;
             this.BuyButton = this.BuyBtn;
             this.clientViewModel = new ClientViewModel(this);
+            this.navigation.MouseEnter += Navigation_MouseEnter;
+        }
+
+        private void Navigation_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            MessageBox.Show("coucou");
         }
         #endregion
 
@@ -56,6 +62,13 @@ namespace WpfApplication1.View
         private void navigation_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Page1());
+        }
+
+        private void navigation_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            int a = 1;
+            a += 3;
+            MessageBox.Show(a.ToString());
         }
     }
 }

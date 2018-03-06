@@ -13,7 +13,7 @@ namespace WebApplicationMVCSecure.Models
     public class User : BaseModel
     {
         private String firstname;
-
+        
         [FakerTyper(TypeEnumCustom.USERFIRSTNAME)]
         public String Firstname
         {

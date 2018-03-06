@@ -77,3 +77,4 @@ C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplicationMV
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplicationMVC\bin\fr\System.Web.Http.WebHost.resources.dll
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplicationMVC\obj\Debug\WebApplicationMVC.dll
 C:\Users\tactfactory\documents\visual studio 2015\Projects\App1\WebApplicationMVC\obj\Debug\WebApplicationMVC.pdb
+C:\Users\tactfactory\Documents\Visual Studio 2015\Projects\App1\WebApplicationMVC\obj\Debug\WebApplicationMVC.csprojResolveAssemblyReference.cache

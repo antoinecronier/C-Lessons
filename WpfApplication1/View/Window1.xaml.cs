@@ -57,5 +57,12 @@ namespace WpfApplication1.View
                 }));
             });
         }
+
+        private void navigationwindows_MouseEnter(object sender, MouseEventArgs e)
+        {
+            int a = 1;
+            a += 3;
+            MessageBox.Show(a.ToString());
+        }
     }
 }

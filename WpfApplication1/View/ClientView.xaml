@@ -28,7 +28,7 @@
             <userControl:ProductListUserControl1 x:Name="LUCProductAvaiable" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
             <userControl:ProductUserControl x:Name="UCProduct" Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
             <userControl:AddRemoveUserControl x:Name="UCAddRemove" Grid.Row="3" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-            <Button x:Name="navigation" Grid.Row="0" Grid.Column="4" Content="Navigate" Click="navigation_Click" />
+            <Button x:Name="navigation" Grid.Row="0" Grid.Column="4" Content="Navigate" Click="navigation_Click" MouseEnter="navigation_MouseEnter" />
         </Grid>
         <DockPanel x:Name="notificationDock" Visibility="Hidden" Height="140" Width="280" VerticalAlignment="Top" HorizontalAlignment="Right">
             <Border CornerRadius="6" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
